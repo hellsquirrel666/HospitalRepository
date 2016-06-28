@@ -23,9 +23,6 @@
     <!-- Custom Theme Style -->
     <link href="../Content/css/custom.min.css" rel="stylesheet">
   </head>
-	   
-	
-</head>
 <body class="nav-md">
     <asp:ContentPlaceHolder runat="server" ID="TitleContent"> </asp:ContentPlaceHolder>
     <div class="container body">
@@ -61,8 +58,8 @@
                   </li>
                   <li><a><i class="fa fa-user"></i> Paciente <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="form.html"><i class="fa fa-edit"></i>Registrar</a></li>
-                      <li><a href="form_advanced.html"><i class="fa fa-table"></i>Ver pacientes</a></li>
+                      <li><a href="Pacientes/DatosPaciente.aspx"><i class="fa fa-edit"></i>Registrar</a></li>
+                      <li><a href="Pacientes/VerPacientes.aspx"><i class="fa fa-table"></i>Ver pacientes</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-calendar"></i> Agenda </a>
@@ -207,19 +204,11 @@
         <!-- /top navigation -->
 
         <!-- page content -->
-                  <div class="right_col" role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <asp:ContentPlaceHolder ID="BodyContent" runat="server" />        <!-- /page content -->
-              </div>
-            </div>
-          </div>
-        </div>
+                <asp:ContentPlaceHolder ID="BodyContent" runat="server" />
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by<a href="https://colorlib.com">Colorlib</a>
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
           </div>
           <div class="clearfix"></div>
         </footer>

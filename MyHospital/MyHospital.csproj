@@ -87,6 +87,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Content Include="LogIn.aspx" />
+    <Content Include="Pacientes\DatosPaciente.aspx" />
+    <Content Include="Pacientes\VerPacientes.aspx" />
     <Content Include="Site.css" />
     <Content Include="Site.master" />
     <Compile Include="LogIn.aspx.cs">
@@ -95,6 +97,20 @@
     </Compile>
     <Compile Include="LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes\DatosPaciente.aspx.cs">
+      <DependentUpon>DatosPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pacientes\DatosPaciente.aspx.designer.cs">
+      <DependentUpon>DatosPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes\VerPacientes.aspx.cs">
+      <DependentUpon>VerPacientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pacientes\VerPacientes.aspx.designer.cs">
+      <DependentUpon>VerPacientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.master.cs">
       <DependentUpon>Site.master</DependentUpon>
