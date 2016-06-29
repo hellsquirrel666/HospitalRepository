@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="124d5bbc26e14e5c8b6c8e89463cb6b3" Name="Diagrama1">
+        <EntityTypeShape EntityType="dbHospitalModel.Agenda" Width="1.5" PointX="18.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.CamposHistClin" Width="1.5" PointX="16.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.Colonias" Width="1.5" PointX="9.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.Consulta" Width="1.5" PointX="21.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.Cuidades" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.Direccion" Width="1.5" PointX="12" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.Estados" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.GposSanguineos" Width="1.5" PointX="14.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.HitorialClinico" Width="1.5" PointX="18.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.Hospitales" Width="1.5" PointX="14.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.Medicamentos" Width="1.5" PointX="21.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.Municipios" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.Pacientes" Width="1.5" PointX="16.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.Paises" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.Recetas" Width="1.5" PointX="24" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.Roles" Width="1.5" PointX="14.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbHospitalModel.USUARIOS" Width="1.5" PointX="16.5" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="dbHospitalModel.FK_Agenda_Pacientes" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_Agenda_USUARIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_HitorialClinico_CamposHistClin" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_Colonias_Municipios" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_Direccion_Colonias" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_Consulta_Pacientes" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_Consulta_USUARIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_Recetas_Consulta" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_Cuidades_Estados" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_Municipios_Cuidades" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_Hospitales_Direccion" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_Estados_Paises" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_Pacientes_GposSanguineos" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_HitorialClinico_Pacientes" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_USUARIOS_Hospitales" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_Recetas_Medicamentos" ManuallyRouted="false" />
+        <AssociationConnector Association="dbHospitalModel.FK_USUARIOS_Roles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" CodeBehind="VerPacientes.aspx.cs" Inherits="MyHospital.Pacientes.VerPacientes" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" CodeBehind="VerPacientes.aspx.cs" Inherits="MyHospital.Paciente.VerPacientes" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="TitleContent" runat="server">
 

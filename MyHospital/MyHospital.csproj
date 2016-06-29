@@ -52,6 +52,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Extensions.Design" />
@@ -69,12 +72,85 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agenda.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bdHospital.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CamposHistClin.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Colonias.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Consulta.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cuidades.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Direccion.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Estados.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GposSanguineos.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HitorialClinico.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hospitales.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Medicamentos.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Medicamento\AgregarMedicamento.aspx.cs">
+      <DependentUpon>AgregarMedicamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Medicamento\AgregarMedicamento.aspx.designer.cs">
+      <DependentUpon>AgregarMedicamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Municipios.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Paises.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recetas.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Roles.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIOS.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
     <Content Include="Content\css\custom.css" />
     <Content Include="Content\css\custom.min.css" />
     <Content Include="Content\css\maps\jquery-jvectormap-2.0.3.css" />
     <Content Include="Content\js\custom.js" />
     <Content Include="Content\js\custom.min.js" />
     <Content Include="Default.aspx" />
+    <Compile Include="bdHospital.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdHospital.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bdHospital.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdHospital.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -87,8 +163,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Content Include="LogIn.aspx" />
-    <Content Include="Pacientes\DatosPaciente.aspx" />
-    <Content Include="Pacientes\VerPacientes.aspx" />
+    <Content Include="Medicamento\AgregarMedicamento.aspx" />
+    <Content Include="Paciente\DatosPaciente.aspx" />
+    <Content Include="Paciente\VerPacientes.aspx" />
     <Content Include="Site.css" />
     <Content Include="Site.master" />
     <Compile Include="LogIn.aspx.cs">
@@ -98,18 +175,18 @@
     <Compile Include="LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pacientes\DatosPaciente.aspx.cs">
+    <Compile Include="Paciente\DatosPaciente.aspx.cs">
       <DependentUpon>DatosPaciente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pacientes\DatosPaciente.aspx.designer.cs">
+    <Compile Include="Paciente\DatosPaciente.aspx.designer.cs">
       <DependentUpon>DatosPaciente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pacientes\VerPacientes.aspx.cs">
+    <Compile Include="Paciente\VerPacientes.aspx.cs">
       <DependentUpon>VerPacientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pacientes\VerPacientes.aspx.designer.cs">
+    <Compile Include="Paciente\VerPacientes.aspx.designer.cs">
       <DependentUpon>VerPacientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.master.cs">
@@ -3493,12 +3570,32 @@
     <Content Include="vendors\validator\.bower.json" />
     <Content Include="vendors\validator\README.md" />
     <Content Include="vendors\validator\validator.jquery.json" />
+    <EntityDeploy Include="bdHospital.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>bdHospital.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="bdHospital.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bdHospital.edmx</DependentUpon>
+      <LastGenOutput>bdHospital.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="bdHospital.edmx.diagram">
+      <DependentUpon>bdHospital.edmx</DependentUpon>
+    </Content>
+    <Content Include="bdHospital.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bdHospital.edmx</DependentUpon>
+      <LastGenOutput>bdHospital.cs</LastGenOutput>
+    </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

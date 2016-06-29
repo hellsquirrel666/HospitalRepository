@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHospital.Pacientes {
+namespace MyHospital.Paciente{
     
     
     public partial class VerPacientes {

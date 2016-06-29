@@ -1,0 +1,1201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbHospitalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="dbHospitalModelStoreContainer">
+          <EntitySet Name="Agenda" EntityType="dbHospitalModel.Store.Agenda" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CamposHistClin" EntityType="dbHospitalModel.Store.CamposHistClin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Colonias" EntityType="dbHospitalModel.Store.Colonias" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Consulta" EntityType="dbHospitalModel.Store.Consulta" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Cuidades" EntityType="dbHospitalModel.Store.Cuidades" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Direccion" EntityType="dbHospitalModel.Store.Direccion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Estados" EntityType="dbHospitalModel.Store.Estados" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GposSanguineos" EntityType="dbHospitalModel.Store.GposSanguineos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HitorialClinico" EntityType="dbHospitalModel.Store.HitorialClinico" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Hospitales" EntityType="dbHospitalModel.Store.Hospitales" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Medicamentos" EntityType="dbHospitalModel.Store.Medicamentos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Municipios" EntityType="dbHospitalModel.Store.Municipios" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pacientes" EntityType="dbHospitalModel.Store.Pacientes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Paises" EntityType="dbHospitalModel.Store.Paises" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Recetas" EntityType="dbHospitalModel.Store.Recetas" store:Type="Tables" store:Schema="dbo" store:Name="Recetas">
+            <DefiningQuery>SELECT 
+      [Recetas].[nIdreceta] AS [nIdreceta], 
+      [Recetas].[nIdMedicamento] AS [nIdMedicamento], 
+      [Recetas].[sObservaciones] AS [sObservaciones], 
+      [Recetas].[bActivo] AS [bActivo], 
+      [Recetas].[nIdConsulta] AS [nIdConsulta]
+      FROM [dbo].[Recetas] AS [Recetas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Roles" EntityType="dbHospitalModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USUARIOS" EntityType="dbHospitalModel.Store.USUARIOS" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Agenda_Pacientes" Association="dbHospitalModel.Store.FK_Agenda_Pacientes">
+            <End Role="Pacientes" EntitySet="Pacientes" />
+            <End Role="Agenda" EntitySet="Agenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Agenda_USUARIOS" Association="dbHospitalModel.Store.FK_Agenda_USUARIOS">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="Agenda" EntitySet="Agenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Colonias_Municipios" Association="dbHospitalModel.Store.FK_Colonias_Municipios">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="Colonias" EntitySet="Colonias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consulta_Pacientes" Association="dbHospitalModel.Store.FK_Consulta_Pacientes">
+            <End Role="Pacientes" EntitySet="Pacientes" />
+            <End Role="Consulta" EntitySet="Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consulta_USUARIOS" Association="dbHospitalModel.Store.FK_Consulta_USUARIOS">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="Consulta" EntitySet="Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cuidades_Estados" Association="dbHospitalModel.Store.FK_Cuidades_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Cuidades" EntitySet="Cuidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Direccion_Colonias" Association="dbHospitalModel.Store.FK_Direccion_Colonias">
+            <End Role="Colonias" EntitySet="Colonias" />
+            <End Role="Direccion" EntitySet="Direccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estados_Paises" Association="dbHospitalModel.Store.FK_Estados_Paises">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Estados" EntitySet="Estados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HitorialClinico_CamposHistClin" Association="dbHospitalModel.Store.FK_HitorialClinico_CamposHistClin">
+            <End Role="CamposHistClin" EntitySet="CamposHistClin" />
+            <End Role="HitorialClinico" EntitySet="HitorialClinico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HitorialClinico_Pacientes" Association="dbHospitalModel.Store.FK_HitorialClinico_Pacientes">
+            <End Role="Pacientes" EntitySet="Pacientes" />
+            <End Role="HitorialClinico" EntitySet="HitorialClinico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hospitales_Direccion" Association="dbHospitalModel.Store.FK_Hospitales_Direccion">
+            <End Role="Direccion" EntitySet="Direccion" />
+            <End Role="Hospitales" EntitySet="Hospitales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipios_Cuidades" Association="dbHospitalModel.Store.FK_Municipios_Cuidades">
+            <End Role="Cuidades" EntitySet="Cuidades" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pacientes_GposSanguineos" Association="dbHospitalModel.Store.FK_Pacientes_GposSanguineos">
+            <End Role="GposSanguineos" EntitySet="GposSanguineos" />
+            <End Role="Pacientes" EntitySet="Pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recetas_Consulta" Association="dbHospitalModel.Store.FK_Recetas_Consulta">
+            <End Role="Consulta" EntitySet="Consulta" />
+            <End Role="Recetas" EntitySet="Recetas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recetas_Medicamentos" Association="dbHospitalModel.Store.FK_Recetas_Medicamentos">
+            <End Role="Medicamentos" EntitySet="Medicamentos" />
+            <End Role="Recetas" EntitySet="Recetas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOS_Hospitales" Association="dbHospitalModel.Store.FK_USUARIOS_Hospitales">
+            <End Role="Hospitales" EntitySet="Hospitales" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOS_Roles" Association="dbHospitalModel.Store.FK_USUARIOS_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Agenda">
+          <Key>
+            <PropertyRef Name="nIdAgenda" />
+          </Key>
+          <Property Name="nIdAgenda" Type="int" Nullable="false" />
+          <Property Name="nIdPaciente" Type="int" Nullable="false" />
+          <Property Name="nIdUsuario" Type="int" Nullable="false" />
+          <Property Name="dFecha" Type="datetime" Nullable="false" />
+          <Property Name="bActivo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CamposHistClin">
+          <Key>
+            <PropertyRef Name="nIdCampoHistClin" />
+          </Key>
+          <Property Name="nIdCampoHistClin" Type="int" Nullable="false" />
+          <Property Name="sDescripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="bActivo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Colonias">
+          <Key>
+            <PropertyRef Name="nIdColonia" />
+          </Key>
+          <Property Name="nIdColonia" Type="int" Nullable="false" />
+          <Property Name="sColonia" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="sCP" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="nIdMunicipio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Consulta">
+          <Key>
+            <PropertyRef Name="nIdConsulta" />
+          </Key>
+          <Property Name="nIdConsulta" Type="int" Nullable="false" />
+          <Property Name="nIdPaciente" Type="int" Nullable="false" />
+          <Property Name="nIdUsuario" Type="int" />
+          <Property Name="sObservaciones" Type="nchar" MaxLength="3000" />
+        </EntityType>
+        <EntityType Name="Cuidades">
+          <Key>
+            <PropertyRef Name="nIdCuidad" />
+          </Key>
+          <Property Name="nIdCuidad" Type="int" Nullable="false" />
+          <Property Name="sCuidad" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="nIdEstado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Direccion">
+          <Key>
+            <PropertyRef Name="nIdDireccion" />
+          </Key>
+          <Property Name="nIdDireccion" Type="int" Nullable="false" />
+          <Property Name="sCalle" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="sNoInterno" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="sNoExterno" Type="nchar" MaxLength="10" />
+          <Property Name="nIdColonia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="nIdEstado" />
+          </Key>
+          <Property Name="nIdEstado" Type="int" Nullable="false" />
+          <Property Name="sEstado" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="nIdPais" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GposSanguineos">
+          <Key>
+            <PropertyRef Name="nIdGpoSanguineo" />
+          </Key>
+          <Property Name="nIdGpoSanguineo" Type="int" Nullable="false" />
+          <Property Name="sDescripcion" Type="nchar" Nullable="false" MaxLength="30" />
+          <Property Name="bActivo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HitorialClinico">
+          <Key>
+            <PropertyRef Name="nIdHistorial" />
+          </Key>
+          <Property Name="nIdHistorial" Type="int" Nullable="false" />
+          <Property Name="nIdPaciente" Type="int" Nullable="false" />
+          <Property Name="nIdCampoHistClin" Type="int" Nullable="false" />
+          <Property Name="sObservaciones" Type="nchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Hospitales">
+          <Key>
+            <PropertyRef Name="nIdHospital" />
+          </Key>
+          <Property Name="nIdHospital" Type="int" Nullable="false" />
+          <Property Name="sNombre" Type="nchar" Nullable="false" MaxLength="200" />
+          <Property Name="sLogo" Type="nchar" MaxLength="100" />
+          <Property Name="sTel1" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="sTel2" Type="nchar" MaxLength="20" />
+          <Property Name="sEmail" Type="nchar" MaxLength="50" />
+          <Property Name="nIdDireccion" Type="int" Nullable="false" />
+          <Property Name="bActivo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medicamentos">
+          <Key>
+            <PropertyRef Name="nIdMedicamento" />
+          </Key>
+          <Property Name="nIdMedicamento" Type="int" Nullable="false" />
+          <Property Name="sNombre" Type="nchar" Nullable="false" MaxLength="200" />
+          <Property Name="sLaboratorio" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="bCompartido" Type="bit" Nullable="false" />
+          <Property Name="sComposicion" Type="nvarchar(max)" />
+          <Property Name="sPosologia" Type="nvarchar(max)" />
+          <Property Name="sIndicaciones" Type="nvarchar(max)" />
+          <Property Name="sContraindicaciones" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Municipios">
+          <Key>
+            <PropertyRef Name="nIdMunicipio" />
+          </Key>
+          <Property Name="nIdMunicipio" Type="int" Nullable="false" />
+          <Property Name="sMunicipio" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="nIdCuidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pacientes">
+          <Key>
+            <PropertyRef Name="nIdPaciente" />
+          </Key>
+          <Property Name="nIdPaciente" Type="int" Nullable="false" />
+          <Property Name="sNombre" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="sPrimerApellido" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="sSegundoApellido" Type="nchar" MaxLength="60" />
+          <Property Name="dFechaNac" Type="date" Nullable="false" />
+          <Property Name="sSexo" Type="nchar" MaxLength="1" />
+          <Property Name="nIdGpoSanguineo" Type="int" Nullable="false" />
+          <Property Name="sNSS" Type="nchar" MaxLength="20" />
+          <Property Name="sTelefono" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="sCelular" Type="nchar" MaxLength="20" />
+          <Property Name="sEmail" Type="nchar" MaxLength="100" />
+          <Property Name="bActivo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="nIdPais" />
+          </Key>
+          <Property Name="nIdPais" Type="int" Nullable="false" />
+          <Property Name="sPais" Type="nchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dbHospital.dbo.Recetas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Recetas">
+          <Key>
+            <PropertyRef Name="nIdreceta" />
+            <PropertyRef Name="nIdMedicamento" />
+            <PropertyRef Name="bActivo" />
+            <PropertyRef Name="nIdConsulta" />
+          </Key>
+          <Property Name="nIdreceta" Type="int" Nullable="false" />
+          <Property Name="nIdMedicamento" Type="int" Nullable="false" />
+          <Property Name="sObservaciones" Type="nchar" MaxLength="3000" />
+          <Property Name="bActivo" Type="bit" Nullable="false" />
+          <Property Name="nIdConsulta" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="nIdRol" />
+          </Key>
+          <Property Name="nIdRol" Type="int" Nullable="false" />
+          <Property Name="sDescripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="bActivo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="nIdUsuario" />
+          </Key>
+          <Property Name="nIdUsuario" Type="int" Nullable="false" />
+          <Property Name="sNombre" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="sPrimerApellido" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="sSegundoApellido" Type="nchar" MaxLength="60" />
+          <Property Name="nIdRol" Type="int" Nullable="false" />
+          <Property Name="sImagen" Type="nchar" MaxLength="100" />
+          <Property Name="sUsuario" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="sContraseña" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="nIdHospital" Type="int" Nullable="false" />
+          <Property Name="bActivo" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Agenda_Pacientes">
+          <End Role="Pacientes" Type="dbHospitalModel.Store.Pacientes" Multiplicity="1" />
+          <End Role="Agenda" Type="dbHospitalModel.Store.Agenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacientes">
+              <PropertyRef Name="nIdPaciente" />
+            </Principal>
+            <Dependent Role="Agenda">
+              <PropertyRef Name="nIdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Agenda_USUARIOS">
+          <End Role="USUARIOS" Type="dbHospitalModel.Store.USUARIOS" Multiplicity="1" />
+          <End Role="Agenda" Type="dbHospitalModel.Store.Agenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="nIdUsuario" />
+            </Principal>
+            <Dependent Role="Agenda">
+              <PropertyRef Name="nIdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Colonias_Municipios">
+          <End Role="Municipios" Type="dbHospitalModel.Store.Municipios" Multiplicity="1" />
+          <End Role="Colonias" Type="dbHospitalModel.Store.Colonias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="nIdMunicipio" />
+            </Principal>
+            <Dependent Role="Colonias">
+              <PropertyRef Name="nIdMunicipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consulta_Pacientes">
+          <End Role="Pacientes" Type="dbHospitalModel.Store.Pacientes" Multiplicity="1" />
+          <End Role="Consulta" Type="dbHospitalModel.Store.Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacientes">
+              <PropertyRef Name="nIdPaciente" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="nIdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consulta_USUARIOS">
+          <End Role="USUARIOS" Type="dbHospitalModel.Store.USUARIOS" Multiplicity="0..1" />
+          <End Role="Consulta" Type="dbHospitalModel.Store.Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="nIdUsuario" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="nIdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cuidades_Estados">
+          <End Role="Estados" Type="dbHospitalModel.Store.Estados" Multiplicity="1" />
+          <End Role="Cuidades" Type="dbHospitalModel.Store.Cuidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="nIdEstado" />
+            </Principal>
+            <Dependent Role="Cuidades">
+              <PropertyRef Name="nIdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Direccion_Colonias">
+          <End Role="Colonias" Type="dbHospitalModel.Store.Colonias" Multiplicity="1" />
+          <End Role="Direccion" Type="dbHospitalModel.Store.Direccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colonias">
+              <PropertyRef Name="nIdColonia" />
+            </Principal>
+            <Dependent Role="Direccion">
+              <PropertyRef Name="nIdColonia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estados_Paises">
+          <End Role="Paises" Type="dbHospitalModel.Store.Paises" Multiplicity="1" />
+          <End Role="Estados" Type="dbHospitalModel.Store.Estados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="nIdPais" />
+            </Principal>
+            <Dependent Role="Estados">
+              <PropertyRef Name="nIdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HitorialClinico_CamposHistClin">
+          <End Role="CamposHistClin" Type="dbHospitalModel.Store.CamposHistClin" Multiplicity="1" />
+          <End Role="HitorialClinico" Type="dbHospitalModel.Store.HitorialClinico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CamposHistClin">
+              <PropertyRef Name="nIdCampoHistClin" />
+            </Principal>
+            <Dependent Role="HitorialClinico">
+              <PropertyRef Name="nIdCampoHistClin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HitorialClinico_Pacientes">
+          <End Role="Pacientes" Type="dbHospitalModel.Store.Pacientes" Multiplicity="1" />
+          <End Role="HitorialClinico" Type="dbHospitalModel.Store.HitorialClinico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacientes">
+              <PropertyRef Name="nIdPaciente" />
+            </Principal>
+            <Dependent Role="HitorialClinico">
+              <PropertyRef Name="nIdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hospitales_Direccion">
+          <End Role="Direccion" Type="dbHospitalModel.Store.Direccion" Multiplicity="1" />
+          <End Role="Hospitales" Type="dbHospitalModel.Store.Hospitales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direccion">
+              <PropertyRef Name="nIdDireccion" />
+            </Principal>
+            <Dependent Role="Hospitales">
+              <PropertyRef Name="nIdDireccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipios_Cuidades">
+          <End Role="Cuidades" Type="dbHospitalModel.Store.Cuidades" Multiplicity="1" />
+          <End Role="Municipios" Type="dbHospitalModel.Store.Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cuidades">
+              <PropertyRef Name="nIdCuidad" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="nIdCuidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pacientes_GposSanguineos">
+          <End Role="GposSanguineos" Type="dbHospitalModel.Store.GposSanguineos" Multiplicity="1" />
+          <End Role="Pacientes" Type="dbHospitalModel.Store.Pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GposSanguineos">
+              <PropertyRef Name="nIdGpoSanguineo" />
+            </Principal>
+            <Dependent Role="Pacientes">
+              <PropertyRef Name="nIdGpoSanguineo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recetas_Consulta">
+          <End Role="Consulta" Type="dbHospitalModel.Store.Consulta" Multiplicity="1" />
+          <End Role="Recetas" Type="dbHospitalModel.Store.Recetas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consulta">
+              <PropertyRef Name="nIdConsulta" />
+            </Principal>
+            <Dependent Role="Recetas">
+              <PropertyRef Name="nIdConsulta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recetas_Medicamentos">
+          <End Role="Medicamentos" Type="dbHospitalModel.Store.Medicamentos" Multiplicity="1" />
+          <End Role="Recetas" Type="dbHospitalModel.Store.Recetas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicamentos">
+              <PropertyRef Name="nIdMedicamento" />
+            </Principal>
+            <Dependent Role="Recetas">
+              <PropertyRef Name="nIdMedicamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOS_Hospitales">
+          <End Role="Hospitales" Type="dbHospitalModel.Store.Hospitales" Multiplicity="1" />
+          <End Role="USUARIOS" Type="dbHospitalModel.Store.USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hospitales">
+              <PropertyRef Name="nIdHospital" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="nIdHospital" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOS_Roles">
+          <End Role="Roles" Type="dbHospitalModel.Store.Roles" Multiplicity="1" />
+          <End Role="USUARIOS" Type="dbHospitalModel.Store.USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="nIdRol" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="nIdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbHospitalModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbHospitalEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Agenda" EntityType="dbHospitalModel.Agenda" />
+          <EntitySet Name="CamposHistClin" EntityType="dbHospitalModel.CamposHistClin" />
+          <EntitySet Name="Colonias" EntityType="dbHospitalModel.Colonias" />
+          <EntitySet Name="Consulta" EntityType="dbHospitalModel.Consulta" />
+          <EntitySet Name="Cuidades" EntityType="dbHospitalModel.Cuidades" />
+          <EntitySet Name="Direccion" EntityType="dbHospitalModel.Direccion" />
+          <EntitySet Name="Estados" EntityType="dbHospitalModel.Estados" />
+          <EntitySet Name="GposSanguineos" EntityType="dbHospitalModel.GposSanguineos" />
+          <EntitySet Name="HitorialClinico" EntityType="dbHospitalModel.HitorialClinico" />
+          <EntitySet Name="Hospitales" EntityType="dbHospitalModel.Hospitales" />
+          <EntitySet Name="Medicamentos" EntityType="dbHospitalModel.Medicamentos" />
+          <EntitySet Name="Municipios" EntityType="dbHospitalModel.Municipios" />
+          <EntitySet Name="Pacientes" EntityType="dbHospitalModel.Pacientes" />
+          <EntitySet Name="Paises" EntityType="dbHospitalModel.Paises" />
+          <EntitySet Name="Recetas" EntityType="dbHospitalModel.Recetas" />
+          <EntitySet Name="Roles" EntityType="dbHospitalModel.Roles" />
+          <EntitySet Name="USUARIOS" EntityType="dbHospitalModel.USUARIOS" />
+          <AssociationSet Name="FK_Agenda_Pacientes" Association="dbHospitalModel.FK_Agenda_Pacientes">
+            <End Role="Pacientes" EntitySet="Pacientes" />
+            <End Role="Agenda" EntitySet="Agenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Agenda_USUARIOS" Association="dbHospitalModel.FK_Agenda_USUARIOS">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="Agenda" EntitySet="Agenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HitorialClinico_CamposHistClin" Association="dbHospitalModel.FK_HitorialClinico_CamposHistClin">
+            <End Role="CamposHistClin" EntitySet="CamposHistClin" />
+            <End Role="HitorialClinico" EntitySet="HitorialClinico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Colonias_Municipios" Association="dbHospitalModel.FK_Colonias_Municipios">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="Colonias" EntitySet="Colonias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Direccion_Colonias" Association="dbHospitalModel.FK_Direccion_Colonias">
+            <End Role="Colonias" EntitySet="Colonias" />
+            <End Role="Direccion" EntitySet="Direccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consulta_Pacientes" Association="dbHospitalModel.FK_Consulta_Pacientes">
+            <End Role="Pacientes" EntitySet="Pacientes" />
+            <End Role="Consulta" EntitySet="Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consulta_USUARIOS" Association="dbHospitalModel.FK_Consulta_USUARIOS">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="Consulta" EntitySet="Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recetas_Consulta" Association="dbHospitalModel.FK_Recetas_Consulta">
+            <End Role="Consulta" EntitySet="Consulta" />
+            <End Role="Recetas" EntitySet="Recetas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cuidades_Estados" Association="dbHospitalModel.FK_Cuidades_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Cuidades" EntitySet="Cuidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipios_Cuidades" Association="dbHospitalModel.FK_Municipios_Cuidades">
+            <End Role="Cuidades" EntitySet="Cuidades" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hospitales_Direccion" Association="dbHospitalModel.FK_Hospitales_Direccion">
+            <End Role="Direccion" EntitySet="Direccion" />
+            <End Role="Hospitales" EntitySet="Hospitales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estados_Paises" Association="dbHospitalModel.FK_Estados_Paises">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Estados" EntitySet="Estados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pacientes_GposSanguineos" Association="dbHospitalModel.FK_Pacientes_GposSanguineos">
+            <End Role="GposSanguineos" EntitySet="GposSanguineos" />
+            <End Role="Pacientes" EntitySet="Pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HitorialClinico_Pacientes" Association="dbHospitalModel.FK_HitorialClinico_Pacientes">
+            <End Role="Pacientes" EntitySet="Pacientes" />
+            <End Role="HitorialClinico" EntitySet="HitorialClinico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOS_Hospitales" Association="dbHospitalModel.FK_USUARIOS_Hospitales">
+            <End Role="Hospitales" EntitySet="Hospitales" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recetas_Medicamentos" Association="dbHospitalModel.FK_Recetas_Medicamentos">
+            <End Role="Medicamentos" EntitySet="Medicamentos" />
+            <End Role="Recetas" EntitySet="Recetas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOS_Roles" Association="dbHospitalModel.FK_USUARIOS_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Agenda">
+          <Key>
+            <PropertyRef Name="nIdAgenda" />
+          </Key>
+          <Property Name="nIdAgenda" Type="Int32" Nullable="false" />
+          <Property Name="nIdPaciente" Type="Int32" Nullable="false" />
+          <Property Name="nIdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="dFecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="bActivo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pacientes" Relationship="dbHospitalModel.FK_Agenda_Pacientes" FromRole="Agenda" ToRole="Pacientes" />
+          <NavigationProperty Name="USUARIOS" Relationship="dbHospitalModel.FK_Agenda_USUARIOS" FromRole="Agenda" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="CamposHistClin">
+          <Key>
+            <PropertyRef Name="nIdCampoHistClin" />
+          </Key>
+          <Property Name="nIdCampoHistClin" Type="Int32" Nullable="false" />
+          <Property Name="sDescripcion" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="bActivo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="HitorialClinico" Relationship="dbHospitalModel.FK_HitorialClinico_CamposHistClin" FromRole="CamposHistClin" ToRole="HitorialClinico" />
+        </EntityType>
+        <EntityType Name="Colonias">
+          <Key>
+            <PropertyRef Name="nIdColonia" />
+          </Key>
+          <Property Name="nIdColonia" Type="Int32" Nullable="false" />
+          <Property Name="sColonia" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="sCP" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="nIdMunicipio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Municipios" Relationship="dbHospitalModel.FK_Colonias_Municipios" FromRole="Colonias" ToRole="Municipios" />
+          <NavigationProperty Name="Direccion" Relationship="dbHospitalModel.FK_Direccion_Colonias" FromRole="Colonias" ToRole="Direccion" />
+        </EntityType>
+        <EntityType Name="Consulta">
+          <Key>
+            <PropertyRef Name="nIdConsulta" />
+          </Key>
+          <Property Name="nIdConsulta" Type="Int32" Nullable="false" />
+          <Property Name="nIdPaciente" Type="Int32" Nullable="false" />
+          <Property Name="nIdUsuario" Type="Int32" />
+          <Property Name="sObservaciones" Type="String" MaxLength="3000" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Pacientes" Relationship="dbHospitalModel.FK_Consulta_Pacientes" FromRole="Consulta" ToRole="Pacientes" />
+          <NavigationProperty Name="USUARIOS" Relationship="dbHospitalModel.FK_Consulta_USUARIOS" FromRole="Consulta" ToRole="USUARIOS" />
+          <NavigationProperty Name="Recetas" Relationship="dbHospitalModel.FK_Recetas_Consulta" FromRole="Consulta" ToRole="Recetas" />
+        </EntityType>
+        <EntityType Name="Cuidades">
+          <Key>
+            <PropertyRef Name="nIdCuidad" />
+          </Key>
+          <Property Name="nIdCuidad" Type="Int32" Nullable="false" />
+          <Property Name="sCuidad" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="nIdEstado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Estados" Relationship="dbHospitalModel.FK_Cuidades_Estados" FromRole="Cuidades" ToRole="Estados" />
+          <NavigationProperty Name="Municipios" Relationship="dbHospitalModel.FK_Municipios_Cuidades" FromRole="Cuidades" ToRole="Municipios" />
+        </EntityType>
+        <EntityType Name="Direccion">
+          <Key>
+            <PropertyRef Name="nIdDireccion" />
+          </Key>
+          <Property Name="nIdDireccion" Type="Int32" Nullable="false" />
+          <Property Name="sCalle" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="sNoInterno" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="sNoExterno" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="nIdColonia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Colonias" Relationship="dbHospitalModel.FK_Direccion_Colonias" FromRole="Direccion" ToRole="Colonias" />
+          <NavigationProperty Name="Hospitales" Relationship="dbHospitalModel.FK_Hospitales_Direccion" FromRole="Direccion" ToRole="Hospitales" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="nIdEstado" />
+          </Key>
+          <Property Name="nIdEstado" Type="Int32" Nullable="false" />
+          <Property Name="sEstado" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="nIdPais" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cuidades" Relationship="dbHospitalModel.FK_Cuidades_Estados" FromRole="Estados" ToRole="Cuidades" />
+          <NavigationProperty Name="Paises" Relationship="dbHospitalModel.FK_Estados_Paises" FromRole="Estados" ToRole="Paises" />
+        </EntityType>
+        <EntityType Name="GposSanguineos">
+          <Key>
+            <PropertyRef Name="nIdGpoSanguineo" />
+          </Key>
+          <Property Name="nIdGpoSanguineo" Type="Int32" Nullable="false" />
+          <Property Name="sDescripcion" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="true" />
+          <Property Name="bActivo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pacientes" Relationship="dbHospitalModel.FK_Pacientes_GposSanguineos" FromRole="GposSanguineos" ToRole="Pacientes" />
+        </EntityType>
+        <EntityType Name="HitorialClinico">
+          <Key>
+            <PropertyRef Name="nIdHistorial" />
+          </Key>
+          <Property Name="nIdHistorial" Type="Int32" Nullable="false" />
+          <Property Name="nIdPaciente" Type="Int32" Nullable="false" />
+          <Property Name="nIdCampoHistClin" Type="Int32" Nullable="false" />
+          <Property Name="sObservaciones" Type="String" MaxLength="500" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="CamposHistClin" Relationship="dbHospitalModel.FK_HitorialClinico_CamposHistClin" FromRole="HitorialClinico" ToRole="CamposHistClin" />
+          <NavigationProperty Name="Pacientes" Relationship="dbHospitalModel.FK_HitorialClinico_Pacientes" FromRole="HitorialClinico" ToRole="Pacientes" />
+        </EntityType>
+        <EntityType Name="Hospitales">
+          <Key>
+            <PropertyRef Name="nIdHospital" />
+          </Key>
+          <Property Name="nIdHospital" Type="Int32" Nullable="false" />
+          <Property Name="sNombre" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="true" />
+          <Property Name="sLogo" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="sTel1" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="sTel2" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="sEmail" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="nIdDireccion" Type="Int32" Nullable="false" />
+          <Property Name="bActivo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Direccion" Relationship="dbHospitalModel.FK_Hospitales_Direccion" FromRole="Hospitales" ToRole="Direccion" />
+          <NavigationProperty Name="USUARIOS" Relationship="dbHospitalModel.FK_USUARIOS_Hospitales" FromRole="Hospitales" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="Medicamentos">
+          <Key>
+            <PropertyRef Name="nIdMedicamento" />
+          </Key>
+          <Property Name="nIdMedicamento" Type="Int32" Nullable="false" />
+          <Property Name="sNombre" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="true" />
+          <Property Name="sLaboratorio" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="bCompartido" Type="Boolean" Nullable="false" />
+          <Property Name="sComposicion" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="sPosologia" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="sIndicaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="sContraindicaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Recetas" Relationship="dbHospitalModel.FK_Recetas_Medicamentos" FromRole="Medicamentos" ToRole="Recetas" />
+        </EntityType>
+        <EntityType Name="Municipios">
+          <Key>
+            <PropertyRef Name="nIdMunicipio" />
+          </Key>
+          <Property Name="nIdMunicipio" Type="Int32" Nullable="false" />
+          <Property Name="sMunicipio" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="nIdCuidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Colonias" Relationship="dbHospitalModel.FK_Colonias_Municipios" FromRole="Municipios" ToRole="Colonias" />
+          <NavigationProperty Name="Cuidades" Relationship="dbHospitalModel.FK_Municipios_Cuidades" FromRole="Municipios" ToRole="Cuidades" />
+        </EntityType>
+        <EntityType Name="Pacientes">
+          <Key>
+            <PropertyRef Name="nIdPaciente" />
+          </Key>
+          <Property Name="nIdPaciente" Type="Int32" Nullable="false" />
+          <Property Name="sNombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="sPrimerApellido" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="true" />
+          <Property Name="sSegundoApellido" Type="String" MaxLength="60" Unicode="true" FixedLength="true" />
+          <Property Name="dFechaNac" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="sSexo" Type="String" MaxLength="1" Unicode="true" FixedLength="true" />
+          <Property Name="nIdGpoSanguineo" Type="Int32" Nullable="false" />
+          <Property Name="sNSS" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="sTelefono" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="sCelular" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="sEmail" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="bActivo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Agenda" Relationship="dbHospitalModel.FK_Agenda_Pacientes" FromRole="Pacientes" ToRole="Agenda" />
+          <NavigationProperty Name="Consulta" Relationship="dbHospitalModel.FK_Consulta_Pacientes" FromRole="Pacientes" ToRole="Consulta" />
+          <NavigationProperty Name="GposSanguineos" Relationship="dbHospitalModel.FK_Pacientes_GposSanguineos" FromRole="Pacientes" ToRole="GposSanguineos" />
+          <NavigationProperty Name="HitorialClinico" Relationship="dbHospitalModel.FK_HitorialClinico_Pacientes" FromRole="Pacientes" ToRole="HitorialClinico" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="nIdPais" />
+          </Key>
+          <Property Name="nIdPais" Type="Int32" Nullable="false" />
+          <Property Name="sPais" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Estados" Relationship="dbHospitalModel.FK_Estados_Paises" FromRole="Paises" ToRole="Estados" />
+        </EntityType>
+        <EntityType Name="Recetas">
+          <Key>
+            <PropertyRef Name="nIdreceta" />
+            <PropertyRef Name="nIdMedicamento" />
+            <PropertyRef Name="bActivo" />
+            <PropertyRef Name="nIdConsulta" />
+          </Key>
+          <Property Name="nIdreceta" Type="Int32" Nullable="false" />
+          <Property Name="nIdMedicamento" Type="Int32" Nullable="false" />
+          <Property Name="sObservaciones" Type="String" MaxLength="3000" Unicode="true" FixedLength="true" />
+          <Property Name="bActivo" Type="Boolean" Nullable="false" />
+          <Property Name="nIdConsulta" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Consulta" Relationship="dbHospitalModel.FK_Recetas_Consulta" FromRole="Recetas" ToRole="Consulta" />
+          <NavigationProperty Name="Medicamentos" Relationship="dbHospitalModel.FK_Recetas_Medicamentos" FromRole="Recetas" ToRole="Medicamentos" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="nIdRol" />
+          </Key>
+          <Property Name="nIdRol" Type="Int32" Nullable="false" />
+          <Property Name="sDescripcion" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="bActivo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="USUARIOS" Relationship="dbHospitalModel.FK_USUARIOS_Roles" FromRole="Roles" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="nIdUsuario" />
+          </Key>
+          <Property Name="nIdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="sNombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="sPrimerApellido" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="true" />
+          <Property Name="sSegundoApellido" Type="String" MaxLength="60" Unicode="true" FixedLength="true" />
+          <Property Name="nIdRol" Type="Int32" Nullable="false" />
+          <Property Name="sImagen" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="sUsuario" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="sContraseña" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="nIdHospital" Type="Int32" Nullable="false" />
+          <Property Name="bActivo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Agenda" Relationship="dbHospitalModel.FK_Agenda_USUARIOS" FromRole="USUARIOS" ToRole="Agenda" />
+          <NavigationProperty Name="Consulta" Relationship="dbHospitalModel.FK_Consulta_USUARIOS" FromRole="USUARIOS" ToRole="Consulta" />
+          <NavigationProperty Name="Hospitales" Relationship="dbHospitalModel.FK_USUARIOS_Hospitales" FromRole="USUARIOS" ToRole="Hospitales" />
+          <NavigationProperty Name="Roles" Relationship="dbHospitalModel.FK_USUARIOS_Roles" FromRole="USUARIOS" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK_Agenda_Pacientes">
+          <End Role="Pacientes" Type="dbHospitalModel.Pacientes" Multiplicity="1" />
+          <End Role="Agenda" Type="dbHospitalModel.Agenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacientes">
+              <PropertyRef Name="nIdPaciente" />
+            </Principal>
+            <Dependent Role="Agenda">
+              <PropertyRef Name="nIdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Agenda_USUARIOS">
+          <End Role="USUARIOS" Type="dbHospitalModel.USUARIOS" Multiplicity="1" />
+          <End Role="Agenda" Type="dbHospitalModel.Agenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="nIdUsuario" />
+            </Principal>
+            <Dependent Role="Agenda">
+              <PropertyRef Name="nIdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HitorialClinico_CamposHistClin">
+          <End Role="CamposHistClin" Type="dbHospitalModel.CamposHistClin" Multiplicity="1" />
+          <End Role="HitorialClinico" Type="dbHospitalModel.HitorialClinico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CamposHistClin">
+              <PropertyRef Name="nIdCampoHistClin" />
+            </Principal>
+            <Dependent Role="HitorialClinico">
+              <PropertyRef Name="nIdCampoHistClin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Colonias_Municipios">
+          <End Role="Municipios" Type="dbHospitalModel.Municipios" Multiplicity="1" />
+          <End Role="Colonias" Type="dbHospitalModel.Colonias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="nIdMunicipio" />
+            </Principal>
+            <Dependent Role="Colonias">
+              <PropertyRef Name="nIdMunicipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Direccion_Colonias">
+          <End Role="Colonias" Type="dbHospitalModel.Colonias" Multiplicity="1" />
+          <End Role="Direccion" Type="dbHospitalModel.Direccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colonias">
+              <PropertyRef Name="nIdColonia" />
+            </Principal>
+            <Dependent Role="Direccion">
+              <PropertyRef Name="nIdColonia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consulta_Pacientes">
+          <End Role="Pacientes" Type="dbHospitalModel.Pacientes" Multiplicity="1" />
+          <End Role="Consulta" Type="dbHospitalModel.Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacientes">
+              <PropertyRef Name="nIdPaciente" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="nIdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consulta_USUARIOS">
+          <End Role="USUARIOS" Type="dbHospitalModel.USUARIOS" Multiplicity="0..1" />
+          <End Role="Consulta" Type="dbHospitalModel.Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="nIdUsuario" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="nIdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recetas_Consulta">
+          <End Role="Consulta" Type="dbHospitalModel.Consulta" Multiplicity="1" />
+          <End Role="Recetas" Type="dbHospitalModel.Recetas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consulta">
+              <PropertyRef Name="nIdConsulta" />
+            </Principal>
+            <Dependent Role="Recetas">
+              <PropertyRef Name="nIdConsulta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cuidades_Estados">
+          <End Role="Estados" Type="dbHospitalModel.Estados" Multiplicity="1" />
+          <End Role="Cuidades" Type="dbHospitalModel.Cuidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="nIdEstado" />
+            </Principal>
+            <Dependent Role="Cuidades">
+              <PropertyRef Name="nIdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipios_Cuidades">
+          <End Role="Cuidades" Type="dbHospitalModel.Cuidades" Multiplicity="1" />
+          <End Role="Municipios" Type="dbHospitalModel.Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cuidades">
+              <PropertyRef Name="nIdCuidad" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="nIdCuidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hospitales_Direccion">
+          <End Role="Direccion" Type="dbHospitalModel.Direccion" Multiplicity="1" />
+          <End Role="Hospitales" Type="dbHospitalModel.Hospitales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direccion">
+              <PropertyRef Name="nIdDireccion" />
+            </Principal>
+            <Dependent Role="Hospitales">
+              <PropertyRef Name="nIdDireccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estados_Paises">
+          <End Role="Paises" Type="dbHospitalModel.Paises" Multiplicity="1" />
+          <End Role="Estados" Type="dbHospitalModel.Estados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="nIdPais" />
+            </Principal>
+            <Dependent Role="Estados">
+              <PropertyRef Name="nIdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pacientes_GposSanguineos">
+          <End Role="GposSanguineos" Type="dbHospitalModel.GposSanguineos" Multiplicity="1" />
+          <End Role="Pacientes" Type="dbHospitalModel.Pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GposSanguineos">
+              <PropertyRef Name="nIdGpoSanguineo" />
+            </Principal>
+            <Dependent Role="Pacientes">
+              <PropertyRef Name="nIdGpoSanguineo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HitorialClinico_Pacientes">
+          <End Role="Pacientes" Type="dbHospitalModel.Pacientes" Multiplicity="1" />
+          <End Role="HitorialClinico" Type="dbHospitalModel.HitorialClinico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacientes">
+              <PropertyRef Name="nIdPaciente" />
+            </Principal>
+            <Dependent Role="HitorialClinico">
+              <PropertyRef Name="nIdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOS_Hospitales">
+          <End Role="Hospitales" Type="dbHospitalModel.Hospitales" Multiplicity="1" />
+          <End Role="USUARIOS" Type="dbHospitalModel.USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hospitales">
+              <PropertyRef Name="nIdHospital" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="nIdHospital" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recetas_Medicamentos">
+          <End Role="Medicamentos" Type="dbHospitalModel.Medicamentos" Multiplicity="1" />
+          <End Role="Recetas" Type="dbHospitalModel.Recetas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicamentos">
+              <PropertyRef Name="nIdMedicamento" />
+            </Principal>
+            <Dependent Role="Recetas">
+              <PropertyRef Name="nIdMedicamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOS_Roles">
+          <End Role="Roles" Type="dbHospitalModel.Roles" Multiplicity="1" />
+          <End Role="USUARIOS" Type="dbHospitalModel.USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="nIdRol" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="nIdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbHospitalModelStoreContainer" CdmEntityContainer="dbHospitalEntities">
+          <EntitySetMapping Name="Agenda">
+            <EntityTypeMapping TypeName="dbHospitalModel.Agenda">
+              <MappingFragment StoreEntitySet="Agenda">
+                <ScalarProperty Name="nIdAgenda" ColumnName="nIdAgenda" />
+                <ScalarProperty Name="nIdPaciente" ColumnName="nIdPaciente" />
+                <ScalarProperty Name="nIdUsuario" ColumnName="nIdUsuario" />
+                <ScalarProperty Name="dFecha" ColumnName="dFecha" />
+                <ScalarProperty Name="bActivo" ColumnName="bActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CamposHistClin">
+            <EntityTypeMapping TypeName="dbHospitalModel.CamposHistClin">
+              <MappingFragment StoreEntitySet="CamposHistClin">
+                <ScalarProperty Name="nIdCampoHistClin" ColumnName="nIdCampoHistClin" />
+                <ScalarProperty Name="sDescripcion" ColumnName="sDescripcion" />
+                <ScalarProperty Name="bActivo" ColumnName="bActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colonias">
+            <EntityTypeMapping TypeName="dbHospitalModel.Colonias">
+              <MappingFragment StoreEntitySet="Colonias">
+                <ScalarProperty Name="nIdColonia" ColumnName="nIdColonia" />
+                <ScalarProperty Name="sColonia" ColumnName="sColonia" />
+                <ScalarProperty Name="sCP" ColumnName="sCP" />
+                <ScalarProperty Name="nIdMunicipio" ColumnName="nIdMunicipio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Consulta">
+            <EntityTypeMapping TypeName="dbHospitalModel.Consulta">
+              <MappingFragment StoreEntitySet="Consulta">
+                <ScalarProperty Name="nIdConsulta" ColumnName="nIdConsulta" />
+                <ScalarProperty Name="nIdPaciente" ColumnName="nIdPaciente" />
+                <ScalarProperty Name="nIdUsuario" ColumnName="nIdUsuario" />
+                <ScalarProperty Name="sObservaciones" ColumnName="sObservaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cuidades">
+            <EntityTypeMapping TypeName="dbHospitalModel.Cuidades">
+              <MappingFragment StoreEntitySet="Cuidades">
+                <ScalarProperty Name="nIdCuidad" ColumnName="nIdCuidad" />
+                <ScalarProperty Name="sCuidad" ColumnName="sCuidad" />
+                <ScalarProperty Name="nIdEstado" ColumnName="nIdEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Direccion">
+            <EntityTypeMapping TypeName="dbHospitalModel.Direccion">
+              <MappingFragment StoreEntitySet="Direccion">
+                <ScalarProperty Name="nIdDireccion" ColumnName="nIdDireccion" />
+                <ScalarProperty Name="sCalle" ColumnName="sCalle" />
+                <ScalarProperty Name="sNoInterno" ColumnName="sNoInterno" />
+                <ScalarProperty Name="sNoExterno" ColumnName="sNoExterno" />
+                <ScalarProperty Name="nIdColonia" ColumnName="nIdColonia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estados">
+            <EntityTypeMapping TypeName="dbHospitalModel.Estados">
+              <MappingFragment StoreEntitySet="Estados">
+                <ScalarProperty Name="nIdEstado" ColumnName="nIdEstado" />
+                <ScalarProperty Name="sEstado" ColumnName="sEstado" />
+                <ScalarProperty Name="nIdPais" ColumnName="nIdPais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GposSanguineos">
+            <EntityTypeMapping TypeName="dbHospitalModel.GposSanguineos">
+              <MappingFragment StoreEntitySet="GposSanguineos">
+                <ScalarProperty Name="nIdGpoSanguineo" ColumnName="nIdGpoSanguineo" />
+                <ScalarProperty Name="sDescripcion" ColumnName="sDescripcion" />
+                <ScalarProperty Name="bActivo" ColumnName="bActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HitorialClinico">
+            <EntityTypeMapping TypeName="dbHospitalModel.HitorialClinico">
+              <MappingFragment StoreEntitySet="HitorialClinico">
+                <ScalarProperty Name="nIdHistorial" ColumnName="nIdHistorial" />
+                <ScalarProperty Name="nIdPaciente" ColumnName="nIdPaciente" />
+                <ScalarProperty Name="nIdCampoHistClin" ColumnName="nIdCampoHistClin" />
+                <ScalarProperty Name="sObservaciones" ColumnName="sObservaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hospitales">
+            <EntityTypeMapping TypeName="dbHospitalModel.Hospitales">
+              <MappingFragment StoreEntitySet="Hospitales">
+                <ScalarProperty Name="nIdHospital" ColumnName="nIdHospital" />
+                <ScalarProperty Name="sNombre" ColumnName="sNombre" />
+                <ScalarProperty Name="sLogo" ColumnName="sLogo" />
+                <ScalarProperty Name="sTel1" ColumnName="sTel1" />
+                <ScalarProperty Name="sTel2" ColumnName="sTel2" />
+                <ScalarProperty Name="sEmail" ColumnName="sEmail" />
+                <ScalarProperty Name="nIdDireccion" ColumnName="nIdDireccion" />
+                <ScalarProperty Name="bActivo" ColumnName="bActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicamentos">
+            <EntityTypeMapping TypeName="dbHospitalModel.Medicamentos">
+              <MappingFragment StoreEntitySet="Medicamentos">
+                <ScalarProperty Name="nIdMedicamento" ColumnName="nIdMedicamento" />
+                <ScalarProperty Name="sNombre" ColumnName="sNombre" />
+                <ScalarProperty Name="sLaboratorio" ColumnName="sLaboratorio" />
+                <ScalarProperty Name="bCompartido" ColumnName="bCompartido" />
+                <ScalarProperty Name="sComposicion" ColumnName="sComposicion" />
+                <ScalarProperty Name="sPosologia" ColumnName="sPosologia" />
+                <ScalarProperty Name="sIndicaciones" ColumnName="sIndicaciones" />
+                <ScalarProperty Name="sContraindicaciones" ColumnName="sContraindicaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Municipios">
+            <EntityTypeMapping TypeName="dbHospitalModel.Municipios">
+              <MappingFragment StoreEntitySet="Municipios">
+                <ScalarProperty Name="nIdMunicipio" ColumnName="nIdMunicipio" />
+                <ScalarProperty Name="sMunicipio" ColumnName="sMunicipio" />
+                <ScalarProperty Name="nIdCuidad" ColumnName="nIdCuidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pacientes">
+            <EntityTypeMapping TypeName="dbHospitalModel.Pacientes">
+              <MappingFragment StoreEntitySet="Pacientes">
+                <ScalarProperty Name="nIdPaciente" ColumnName="nIdPaciente" />
+                <ScalarProperty Name="sNombre" ColumnName="sNombre" />
+                <ScalarProperty Name="sPrimerApellido" ColumnName="sPrimerApellido" />
+                <ScalarProperty Name="sSegundoApellido" ColumnName="sSegundoApellido" />
+                <ScalarProperty Name="dFechaNac" ColumnName="dFechaNac" />
+                <ScalarProperty Name="sSexo" ColumnName="sSexo" />
+                <ScalarProperty Name="nIdGpoSanguineo" ColumnName="nIdGpoSanguineo" />
+                <ScalarProperty Name="sNSS" ColumnName="sNSS" />
+                <ScalarProperty Name="sTelefono" ColumnName="sTelefono" />
+                <ScalarProperty Name="sCelular" ColumnName="sCelular" />
+                <ScalarProperty Name="sEmail" ColumnName="sEmail" />
+                <ScalarProperty Name="bActivo" ColumnName="bActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paises">
+            <EntityTypeMapping TypeName="dbHospitalModel.Paises">
+              <MappingFragment StoreEntitySet="Paises">
+                <ScalarProperty Name="nIdPais" ColumnName="nIdPais" />
+                <ScalarProperty Name="sPais" ColumnName="sPais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recetas">
+            <EntityTypeMapping TypeName="dbHospitalModel.Recetas">
+              <MappingFragment StoreEntitySet="Recetas">
+                <ScalarProperty Name="nIdreceta" ColumnName="nIdreceta" />
+                <ScalarProperty Name="nIdMedicamento" ColumnName="nIdMedicamento" />
+                <ScalarProperty Name="sObservaciones" ColumnName="sObservaciones" />
+                <ScalarProperty Name="bActivo" ColumnName="bActivo" />
+                <ScalarProperty Name="nIdConsulta" ColumnName="nIdConsulta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="dbHospitalModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="nIdRol" ColumnName="nIdRol" />
+                <ScalarProperty Name="sDescripcion" ColumnName="sDescripcion" />
+                <ScalarProperty Name="bActivo" ColumnName="bActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOS">
+            <EntityTypeMapping TypeName="dbHospitalModel.USUARIOS">
+              <MappingFragment StoreEntitySet="USUARIOS">
+                <ScalarProperty Name="nIdUsuario" ColumnName="nIdUsuario" />
+                <ScalarProperty Name="sNombre" ColumnName="sNombre" />
+                <ScalarProperty Name="sPrimerApellido" ColumnName="sPrimerApellido" />
+                <ScalarProperty Name="sSegundoApellido" ColumnName="sSegundoApellido" />
+                <ScalarProperty Name="nIdRol" ColumnName="nIdRol" />
+                <ScalarProperty Name="sImagen" ColumnName="sImagen" />
+                <ScalarProperty Name="sUsuario" ColumnName="sUsuario" />
+                <ScalarProperty Name="sContraseña" ColumnName="sContraseña" />
+                <ScalarProperty Name="nIdHospital" ColumnName="nIdHospital" />
+                <ScalarProperty Name="bActivo" ColumnName="bActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

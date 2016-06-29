@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace MyHospital.Pacientes
+namespace MyHospital.Medicamento
 {
-    public partial class VerPacientes : System.Web.UI.Page
+    public partial class AgregarMedicamento : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
