@@ -72,42 +72,42 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Agenda.cs">
+    <Compile Include="Modelo\Agenda.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="bdHospital.cs">
+    <Compile Include="Modelo\bdHospital.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="CamposHistClin.cs">
+    <Compile Include="Modelo\CamposHistClin.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Colonias.cs">
+    <Compile Include="Modelo\Colonias.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Consulta.cs">
+    <Compile Include="Modelo\Consulta.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Cuidades.cs">
+    <Compile Include="Modelo\Cuidades.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Direccion.cs">
+    <Compile Include="Modelo\Direccion.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Estados.cs">
+    <Compile Include="Modelo\Estados.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="GposSanguineos.cs">
+    <Compile Include="Modelo\GposSanguineos.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="HitorialClinico.cs">
+    <Compile Include="Modelo\HitorialClinico.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Hospitales.cs">
+    <Compile Include="Modelo\Hospitales.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Medicamentos.cs">
+    <Compile Include="Modelo\Medicamentos.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Medicamento\AgregarMedicamento.aspx.cs">
@@ -117,22 +117,22 @@
     <Compile Include="Medicamento\AgregarMedicamento.aspx.designer.cs">
       <DependentUpon>AgregarMedicamento.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Municipios.cs">
+    <Compile Include="Modelo\Municipios.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pacientes.cs">
+    <Compile Include="Modelo\Pacientes.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Paises.cs">
+    <Compile Include="Modelo\Paises.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Recetas.cs">
+    <Compile Include="Modelo\Recetas.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Roles.cs">
+    <Compile Include="Modelo\Roles.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="USUARIOS.cs">
+    <Compile Include="Modelo\USUARIOS.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
     <Content Include="Content\css\custom.css" />
@@ -141,12 +141,12 @@
     <Content Include="Content\js\custom.js" />
     <Content Include="Content\js\custom.min.js" />
     <Content Include="Default.aspx" />
-    <Compile Include="bdHospital.Context.cs">
+    <Compile Include="Modelo\bdHospital.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bdHospital.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="bdHospital.Designer.cs">
+    <Compile Include="Modelo\bdHospital.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bdHospital.edmx</DependentUpon>
@@ -3570,19 +3570,19 @@
     <Content Include="vendors\validator\.bower.json" />
     <Content Include="vendors\validator\README.md" />
     <Content Include="vendors\validator\validator.jquery.json" />
-    <EntityDeploy Include="bdHospital.edmx">
+    <EntityDeploy Include="Modelo\bdHospital.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>bdHospital.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="bdHospital.Context.tt">
+    <Content Include="Modelo\bdHospital.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>bdHospital.edmx</DependentUpon>
       <LastGenOutput>bdHospital.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="bdHospital.edmx.diagram">
+    <Content Include="Modelo\bdHospital.edmx.diagram">
       <DependentUpon>bdHospital.edmx</DependentUpon>
     </Content>
-    <Content Include="bdHospital.tt">
+    <Content Include="Modelo\bdHospital.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>bdHospital.edmx</DependentUpon>
       <LastGenOutput>bdHospital.cs</LastGenOutput>

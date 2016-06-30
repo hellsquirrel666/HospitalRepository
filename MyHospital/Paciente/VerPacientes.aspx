@@ -21,7 +21,7 @@
                     <h2>Datos del paciente</h2>
                     <div class="clearfix"></div>
                     <div class="x_content">
-                        <asp:GridView runat="server" ID="gvPacientes" CssClass="table table-hover" OnRowCommand="gvPacientes_RowCommand" ItemType="MyHospital.Pacientes.VerPacientes+Paciente"
+                        <asp:GridView runat="server" ID="gvPacientes" CssClass="table table-hover" OnRowCommand="gvPacientes_RowCommand" ItemType="MyHospital.Paciente.VerPacientes+Paciente"
                              AutoGenerateColumns="false">
                             <Columns>
                                 <asp:BoundField HeaderText="IdPaciente" DataField="IdPaciente" />

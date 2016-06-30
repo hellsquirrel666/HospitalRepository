@@ -7,21 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHospital
+namespace MyHospital.Modelo
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Paises
+    public partial class Roles
     {
-        public Paises()
+        public Roles()
         {
-            this.Estados = new HashSet<Estados>();
+            this.USUARIOS = new HashSet<USUARIOS>();
         }
     
-        public int nIdPais { get; set; }
-        public string sPais { get; set; }
+        public int nIdRol { get; set; }
+        public string sDescripcion { get; set; }
+        public bool bActivo { get; set; }
     
-        public virtual ICollection<Estados> Estados { get; set; }
+        public virtual ICollection<USUARIOS> USUARIOS { get; set; }
     }
 }

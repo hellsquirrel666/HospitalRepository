@@ -7,20 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHospital
+namespace MyHospital.Modelo
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Agenda
+    public partial class Colonias
     {
-        public int nIdAgenda { get; set; }
-        public int nIdPaciente { get; set; }
-        public int nIdUsuario { get; set; }
-        public System.DateTime dFecha { get; set; }
-        public bool bActivo { get; set; }
+        public Colonias()
+        {
+            this.Direccion = new HashSet<Direccion>();
+        }
     
-        public virtual Pacientes Pacientes { get; set; }
-        public virtual USUARIOS USUARIOS { get; set; }
+        public int nIdColonia { get; set; }
+        public string sColonia { get; set; }
+        public string sCP { get; set; }
+        public int nIdMunicipio { get; set; }
+    
+        public virtual Municipios Municipios { get; set; }
+        public virtual ICollection<Direccion> Direccion { get; set; }
     }
 }

@@ -7,22 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHospital
+namespace MyHospital.Modelo
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class GposSanguineos
+    public partial class CamposHistClin
     {
-        public GposSanguineos()
+        public CamposHistClin()
         {
-            this.Pacientes = new HashSet<Pacientes>();
+            this.HitorialClinico = new HashSet<HitorialClinico>();
         }
     
-        public int nIdGpoSanguineo { get; set; }
+        public int nIdCampoHistClin { get; set; }
         public string sDescripcion { get; set; }
         public bool bActivo { get; set; }
     
-        public virtual ICollection<Pacientes> Pacientes { get; set; }
+        public virtual ICollection<HitorialClinico> HitorialClinico { get; set; }
     }
 }

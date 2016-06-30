@@ -7,27 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHospital
+namespace MyHospital.Modelo
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Medicamentos
+    public partial class Hospitales
     {
-        public Medicamentos()
+        public Hospitales()
         {
-            this.Recetas = new HashSet<Recetas>();
+            this.USUARIOS = new HashSet<USUARIOS>();
         }
     
-        public int nIdMedicamento { get; set; }
+        public int nIdHospital { get; set; }
         public string sNombre { get; set; }
-        public string sLaboratorio { get; set; }
-        public bool bCompartido { get; set; }
-        public string sComposicion { get; set; }
-        public string sPosologia { get; set; }
-        public string sIndicaciones { get; set; }
-        public string sContraindicaciones { get; set; }
+        public string sLogo { get; set; }
+        public string sTel1 { get; set; }
+        public string sTel2 { get; set; }
+        public string sEmail { get; set; }
+        public int nIdDireccion { get; set; }
+        public bool bActivo { get; set; }
     
-        public virtual ICollection<Recetas> Recetas { get; set; }
+        public virtual Direccion Direccion { get; set; }
+        public virtual ICollection<USUARIOS> USUARIOS { get; set; }
     }
 }

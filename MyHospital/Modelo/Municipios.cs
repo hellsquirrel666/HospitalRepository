@@ -7,25 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHospital
+namespace MyHospital.Modelo
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Direccion
+    public partial class Municipios
     {
-        public Direccion()
+        public Municipios()
         {
-            this.Hospitales = new HashSet<Hospitales>();
+            this.Colonias = new HashSet<Colonias>();
         }
     
-        public int nIdDireccion { get; set; }
-        public string sCalle { get; set; }
-        public string sNoInterno { get; set; }
-        public string sNoExterno { get; set; }
-        public int nIdColonia { get; set; }
+        public int nIdMunicipio { get; set; }
+        public string sMunicipio { get; set; }
+        public int nIdCuidad { get; set; }
     
-        public virtual Colonias Colonias { get; set; }
-        public virtual ICollection<Hospitales> Hospitales { get; set; }
+        public virtual ICollection<Colonias> Colonias { get; set; }
+        public virtual Cuidades Cuidades { get; set; }
     }
 }
