@@ -72,6 +72,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Medicamento\VerMedicamentos.aspx.cs">
+      <DependentUpon>VerMedicamentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Medicamento\VerMedicamentos.aspx.designer.cs">
+      <DependentUpon>VerMedicamentos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Agenda.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
@@ -164,6 +171,7 @@
     </Compile>
     <Content Include="LogIn.aspx" />
     <Content Include="Medicamento\AgregarMedicamento.aspx" />
+    <Content Include="Medicamento\VerMedicamentos.aspx" />
     <Content Include="Paciente\DatosPaciente.aspx" />
     <Content Include="Paciente\VerPacientes.aspx" />
     <Content Include="Site.css" />

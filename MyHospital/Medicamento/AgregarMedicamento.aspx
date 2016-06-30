@@ -40,7 +40,7 @@
 			                        Compartido:
 		                        </td>
 		                        <td colspan="2">
-			                        <asp:DropdownList runat="server" ID="ddlSexo" CssClass="form-control" AppendDataBoundItems="true">
+			                        <asp:DropdownList runat="server" ID="ddlCompartido" CssClass="form-control" AppendDataBoundItems="true">
                                         <asp:ListItem Selected="True" Text="-- Seleccione una opcion --  "></asp:ListItem>
                                         <asp:ListItem Text="Masculino" Value="Si"></asp:ListItem>
                                         <asp:ListItem Text="Femenino" Value="No"></asp:ListItem>
@@ -60,14 +60,14 @@
 			                        Posologia
 		                        </td>
 		                        <td colspan="5">
-			                        <asp:TextBox runat="server" ID="txtNoPoliza" CssClass="form-control" TextMode="MultiLine"/>
+			                        <asp:TextBox runat="server" ID="txtPosologia" CssClass="form-control" TextMode="MultiLine"/>
 		                        </td>
                             <tr>
                                 <td>
 			                        Indicaciones:
 		                        </td>
 		                        <td colspan="5">
-			                        <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" TextMode="MultiLine"/>
+			                        <asp:TextBox runat="server" ID="txtIndicaciones" CssClass="form-control" TextMode="MultiLine"/>
 		                        </td>
                             </tr>
                             <tr>
@@ -75,13 +75,12 @@
 			                        Contraindicaciones:
 		                        </td>
 		                        <td colspan="5">
-			                        <asp:TextBox runat="server" ID="TextBox2" CssClass="form-control" TextMode="MultiLine"/>
+			                        <asp:TextBox runat="server" ID="txtContraindicaciones" CssClass="form-control" TextMode="MultiLine"/>
 		                        </td>
                             </tr>
                         </table>
                         <div class="form-group" style="text-align:right">
-                            <button type="btnGuardar" class="btn btn-primary">Guardar</button> &nbsp&nbsp&nbsp&nbsp&nbsp
-                            <button type="btnCancelar" class="btn btn-danger">Cancelar</button>
+                            <asp:Button ID="LoginButton" runat="server" CommandName="Guardar" Text="Guardar" class="btn btn-primary"  OnClick="GuardarButton_Click" />
                         </div>
                     </div>
                 </div>

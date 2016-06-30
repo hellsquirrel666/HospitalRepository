@@ -6,12 +6,12 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
     <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet"/>
     <!-- jQuery custom content scroller -->
     <link href="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
 
@@ -28,7 +28,7 @@
                     <div class="row text-center ">
                         <div class="col-md-12">
                             <br /><br />
-                            <h2> Iniciar sesión</h2>
+                            <h1> Iniciar sesión</h1>
                             <h5></h5>
                             <br />
                         </div>
@@ -60,12 +60,11 @@
                                      <div class="form-group">    
                                             <label class="checkbox-inline">
 
-                                                <asp:CheckBox ID="RememberMe" runat="server" Text="Remember me next time." />
-                
+                                               
                                                 <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
                                             </label>
                                      </div>
-                                        <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" ValidationGroup="LogIn"  OnClick="LoginButton_Click" />
+                                        <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Ingresar" ValidationGroup="LogIn"  OnClick="LoginButton_Click" />
                                      </form>
                                     </div>
                                 </div>

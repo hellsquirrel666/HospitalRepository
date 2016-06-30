@@ -40,13 +40,13 @@ namespace MyHospital.Medicamento {
         protected global::System.Web.UI.WebControls.TextBox txtLaboratorio;
         
         /// <summary>
-        /// Control ddlSexo.
+        /// Control ddlCompartido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCompartido;
         
         /// <summary>
         /// Control txtComposicion.
@@ -58,30 +58,39 @@ namespace MyHospital.Medicamento {
         protected global::System.Web.UI.WebControls.TextBox txtComposicion;
         
         /// <summary>
-        /// Control txtNoPoliza.
+        /// Control txtPosologia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNoPoliza;
+        protected global::System.Web.UI.WebControls.TextBox txtPosologia;
         
         /// <summary>
-        /// Control TextBox1.
+        /// Control txtIndicaciones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtIndicaciones;
         
         /// <summary>
-        /// Control TextBox2.
+        /// Control txtContraindicaciones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtContraindicaciones;
+        
+        /// <summary>
+        /// Control LoginButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LoginButton;
     }
 }
