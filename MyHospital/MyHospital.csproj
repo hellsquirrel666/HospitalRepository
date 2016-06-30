@@ -123,6 +123,20 @@
     <Compile Include="Pacientes.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
+    <Compile Include="Paciente\Consulta.aspx.cs">
+      <DependentUpon>Consulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paciente\Consulta.aspx.designer.cs">
+      <DependentUpon>Consulta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paciente\DatosPaciente.aspx.cs">
+      <DependentUpon>DatosPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paciente\DatosPaciente.aspx.designer.cs">
+      <DependentUpon>DatosPaciente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paises.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
@@ -164,6 +178,7 @@
     </Compile>
     <Content Include="LogIn.aspx" />
     <Content Include="Medicamento\AgregarMedicamento.aspx" />
+    <Content Include="Paciente\Consulta.aspx" />
     <Content Include="Paciente\DatosPaciente.aspx" />
     <Content Include="Paciente\VerPacientes.aspx" />
     <Content Include="Site.css" />
@@ -174,13 +189,6 @@
     </Compile>
     <Compile Include="LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Paciente\DatosPaciente.aspx.cs">
-      <DependentUpon>DatosPaciente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Paciente\DatosPaciente.aspx.designer.cs">
-      <DependentUpon>DatosPaciente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paciente\VerPacientes.aspx.cs">
       <DependentUpon>VerPacientes.aspx</DependentUpon>
