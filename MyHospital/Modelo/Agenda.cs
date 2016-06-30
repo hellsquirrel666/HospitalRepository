@@ -7,19 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHospital
+namespace MyHospital.Modelo
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class HitorialClinico
+    public partial class Agenda
     {
-        public int nIdHistorial { get; set; }
+        public int nIdAgenda { get; set; }
         public int nIdPaciente { get; set; }
-        public int nIdCampoHistClin { get; set; }
-        public string sObservaciones { get; set; }
+        public int nIdUsuario { get; set; }
+        public System.DateTime dFecha { get; set; }
+        public bool bActivo { get; set; }
     
-        public virtual CamposHistClin CamposHistClin { get; set; }
         public virtual Pacientes Pacientes { get; set; }
+        public virtual USUARIOS USUARIOS { get; set; }
     }
 }
