@@ -7,25 +7,25 @@ using System.Web;
 
 namespace MyHospital.LogicEntities
 {
-    public class PacienteLogic
+    public class DireccionLogic
     {
-        public void ActualizarOGuardarPaciente(Modelo.Pacientes paciente)
+        public Direccion ActualizarOGuardarDireccion(Direccion direccion)
         {
-            try 
+            try
             {
-                if (paciente == null)
+                if (direccion == null)
                 {
-                    throw new ArgumentException("No se puede guardar un valor nulo en Paciente.", "Paciente");
+                    throw new ArgumentException("No se puede guardar un valor nulo en Direccion.", "direccion");
                 }
                 using (var db = new dbHospitalEntities())
                 {
-                    db.Entry(paciente).State = paciente.nIdPaciente == null ? EntityState.Added : EntityState.Modified;
+                    db.Entry(direccion).State = direccion.nIdDireccion == null ? EntityState.Added : EntityState.Modified;
                     db.SaveChanges();
+                    return direccion;
                 }
             }
             catch (Exception e)
             {
-                if (e.InnerException != null)
                 throw new Exception("Ocurrió un error en el servicio web.", e);
             }
         }

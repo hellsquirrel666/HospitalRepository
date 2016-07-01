@@ -138,8 +138,7 @@
 			                        Codigo postal
 		                        </td>
 		                        <td>
-                                    <%--<asp:TextBox runat="server" CssClass="form-control" onkeydown="return ValidaSoloNumeros(event);" ID="txtCP" MaxLength="5" OnTextChanged="btnCp_Change" AutoPostBack="true" ></asp:TextBox>--%>
-                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCP" ></asp:TextBox>
+                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCP" AutoPostBack="true" OnTextChanged="txtCP_TextChanged" TextMode="Number" ></asp:TextBox>
                                 </td>
                                 <td>
                                     Colonia:
