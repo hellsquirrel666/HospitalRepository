@@ -21,12 +21,12 @@
                     <h2>Datos del paciente</h2>
                     <div class="clearfix"></div>
                     <div class="x_content">
-                        <asp:GridView runat="server" ID="gvPacientes" CssClass="table table-hover" OnRowCommand="gvPacientes_RowCommand" ItemType="MyHospital.Paciente.VerPacientes+Paciente"
+                        <asp:GridView runat="server" ID="gvPacientes" CssClass="table table-hover" OnRowCommand="gvPacientes_RowCommand" ItemType="MyHospital.Modelo.Pacientes"
                              AutoGenerateColumns="false">
                             <Columns>
-                                <asp:BoundField HeaderText="IdPaciente" DataField="IdPaciente" />
-                                <asp:BoundField HeaderText="Nombre" DataField="Apellido" />
-                                <asp:BoundField HeaderText="Apellido" DataField="Nombre" />
+                                <asp:BoundField HeaderText="IdPaciente" DataField="nIdPaciente" />
+                                <asp:BoundField HeaderText="Nombre" DataField="sPrimerApellido" />
+                                <asp:BoundField HeaderText="Apellido" DataField="SNombre" />
                                 <asp:TemplateField ItemStyle-CssClass="gridview_menu">
                                     <ItemTemplate>
                                         <div class="dropdown" style="cursor: pointer;">

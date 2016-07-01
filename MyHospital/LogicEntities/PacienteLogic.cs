@@ -28,5 +28,21 @@ namespace MyHospital.LogicEntities
                 throw new Exception("Ocurrió un error en el servicio web.", e);
             }
         }
+
+        public List<Pacientes> ListaPacientes() 
+        {
+            try
+            {
+                using (var db = new dbHospitalEntities())
+                {
+                    var query = db.Pacientes.AsQueryable();
+                    return query.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrió un error en el servicio web.", e);
+            }
+        }
     }
 }
