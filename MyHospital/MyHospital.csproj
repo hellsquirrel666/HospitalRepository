@@ -72,6 +72,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LogicEntities\PacienteLogic.cs" />
     <Compile Include="Medicamento\VerMedicamentos.aspx.cs">
       <DependentUpon>VerMedicamentos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,6 +186,7 @@
     </Compile>
     <Compile Include="Paciente\DatosPaciente.aspx.cs">
       <DependentUpon>DatosPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Paciente\DatosPaciente.aspx.designer.cs">
       <DependentUpon>DatosPaciente.aspx</DependentUpon>

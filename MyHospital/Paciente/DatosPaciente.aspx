@@ -64,7 +64,9 @@
 			                        Grupo sanguineo
 		                        </td>
 		                        <td>
-			                        <asp:TextBox runat="server" ID="txtGpo" CssClass="form-control" />
+			                        <asp:DropdownList runat="server" ID="ddlGpoSanguineo" CssClass="form-control" AppendDataBoundItems="true">
+                                        <asp:ListItem Selected="True" Text="-- Seleccione una opcion --  "></asp:ListItem>
+                                        </asp:DropdownList>
 		                        </td>
                                 <td>
 			                        N.S.S.
@@ -169,8 +171,8 @@
                             </tr>
                         </table>
                         <div class="form-group" style="text-align:right">
-                            <button type="btnGuardar" class="btn btn-primary">Guardar</button> &nbsp&nbsp&nbsp&nbsp&nbsp
-                            <button type="btnCancelar" class="btn btn-danger">Cancelar</button>
+                            <asp:button runat="server" ID="btnGuardar" class="btn btn-primary" OnClick="btnGuardar_Click" Text="Guardar" /> &nbsp&nbsp&nbsp&nbsp&nbsp
+                            <asp:button runat="server" ID="btnCancelar" class="btn btn-danger" OnClick="btnCancelar_Click" Text="Cancelar"/>
                         </div>
                     </div>
                 </div>

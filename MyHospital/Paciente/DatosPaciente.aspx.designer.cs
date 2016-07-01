@@ -67,13 +67,13 @@ namespace MyHospital.Paciente {
         protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
         
         /// <summary>
-        /// txtGpo control.
+        /// ddlGpoSanguineo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGpo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGpoSanguineo;
         
         /// <summary>
         /// txtNSS control.
@@ -182,5 +182,23 @@ namespace MyHospital.Paciente {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
+        
+        /// <summary>
+        /// btnGuardar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        
+        /// <summary>
+        /// btnCancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
     }
 }
