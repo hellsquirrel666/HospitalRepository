@@ -14,15 +14,8 @@ namespace MyHospital.Modelo
     
     public partial class Roles
     {
-        public Roles()
-        {
-            this.USUARIOS = new HashSet<USUARIOS>();
-        }
-    
         public int nIdRol { get; set; }
         public string sDescripcion { get; set; }
         public bool bActivo { get; set; }
-    
-        public virtual ICollection<USUARIOS> USUARIOS { get; set; }
     }
 }

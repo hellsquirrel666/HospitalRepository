@@ -16,7 +16,7 @@ namespace MyHospital.Modelo
     {
         public Direccion()
         {
-            this.Hospitales = new HashSet<Hospitales>();
+            this.Pacientes = new HashSet<Pacientes>();
         }
     
         public int nIdDireccion { get; set; }
@@ -25,7 +25,6 @@ namespace MyHospital.Modelo
         public string sNoExterno { get; set; }
         public int nIdColonia { get; set; }
     
-        public virtual Colonias Colonias { get; set; }
-        public virtual ICollection<Hospitales> Hospitales { get; set; }
+        public virtual ICollection<Pacientes> Pacientes { get; set; }
     }
 }
