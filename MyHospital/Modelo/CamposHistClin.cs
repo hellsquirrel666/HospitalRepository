@@ -14,15 +14,8 @@ namespace MyHospital.Modelo
     
     public partial class CamposHistClin
     {
-        public CamposHistClin()
-        {
-            this.HitorialClinico = new HashSet<HitorialClinico>();
-        }
-    
         public int nIdCampoHistClin { get; set; }
         public string sDescripcion { get; set; }
         public bool bActivo { get; set; }
-    
-        public virtual ICollection<HitorialClinico> HitorialClinico { get; set; }
     }
 }

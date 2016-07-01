@@ -19,8 +19,5 @@ namespace MyHospital.Modelo
         public int nIdUsuario { get; set; }
         public System.DateTime dFecha { get; set; }
         public bool bActivo { get; set; }
-    
-        public virtual Pacientes Pacientes { get; set; }
-        public virtual USUARIOS USUARIOS { get; set; }
     }
 }

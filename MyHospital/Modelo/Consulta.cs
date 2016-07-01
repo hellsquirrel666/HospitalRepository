@@ -14,18 +14,9 @@ namespace MyHospital.Modelo
     
     public partial class Consulta
     {
-        public Consulta()
-        {
-            this.Recetas = new HashSet<Recetas>();
-        }
-    
         public int nIdConsulta { get; set; }
         public int nIdPaciente { get; set; }
         public Nullable<int> nIdUsuario { get; set; }
         public string sObservaciones { get; set; }
-    
-        public virtual Pacientes Pacientes { get; set; }
-        public virtual USUARIOS USUARIOS { get; set; }
-        public virtual ICollection<Recetas> Recetas { get; set; }
     }
 }

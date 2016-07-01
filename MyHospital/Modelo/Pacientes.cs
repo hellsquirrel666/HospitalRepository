@@ -14,13 +14,6 @@ namespace MyHospital.Modelo
     
     public partial class Pacientes
     {
-        public Pacientes()
-        {
-            this.Agenda = new HashSet<Agenda>();
-            this.Consulta = new HashSet<Consulta>();
-            this.HitorialClinico = new HashSet<HitorialClinico>();
-        }
-    
         public int nIdPaciente { get; set; }
         public string sNombre { get; set; }
         public string sPrimerApellido { get; set; }
@@ -33,10 +26,8 @@ namespace MyHospital.Modelo
         public string sCelular { get; set; }
         public string sEmail { get; set; }
         public bool bActivo { get; set; }
+        public Nullable<int> nIdDireccion { get; set; }
     
-        public virtual ICollection<Agenda> Agenda { get; set; }
-        public virtual ICollection<Consulta> Consulta { get; set; }
-        public virtual GposSanguineos GposSanguineos { get; set; }
-        public virtual ICollection<HitorialClinico> HitorialClinico { get; set; }
+        public virtual Direccion Direccion { get; set; }
     }
 }

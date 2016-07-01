@@ -14,15 +14,8 @@ namespace MyHospital.Modelo
     
     public partial class GposSanguineos
     {
-        public GposSanguineos()
-        {
-            this.Pacientes = new HashSet<Pacientes>();
-        }
-    
         public int nIdGpoSanguineo { get; set; }
         public string sDescripcion { get; set; }
         public bool bActivo { get; set; }
-    
-        public virtual ICollection<Pacientes> Pacientes { get; set; }
     }
 }

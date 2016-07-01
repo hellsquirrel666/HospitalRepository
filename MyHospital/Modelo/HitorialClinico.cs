@@ -18,8 +18,5 @@ namespace MyHospital.Modelo
         public int nIdPaciente { get; set; }
         public int nIdCampoHistClin { get; set; }
         public string sObservaciones { get; set; }
-    
-        public virtual CamposHistClin CamposHistClin { get; set; }
-        public virtual Pacientes Pacientes { get; set; }
     }
 }

@@ -14,16 +14,8 @@ namespace MyHospital.Modelo
     
     public partial class Estados
     {
-        public Estados()
-        {
-            this.Cuidades = new HashSet<Cuidades>();
-        }
-    
         public int nIdEstado { get; set; }
         public string sEstado { get; set; }
         public int nIdPais { get; set; }
-    
-        public virtual ICollection<Cuidades> Cuidades { get; set; }
-        public virtual Paises Paises { get; set; }
     }
 }

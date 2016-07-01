@@ -19,8 +19,5 @@ namespace MyHospital.Modelo
         public string sObservaciones { get; set; }
         public bool bActivo { get; set; }
         public int nIdConsulta { get; set; }
-    
-        public virtual Consulta Consulta { get; set; }
-        public virtual Medicamentos Medicamentos { get; set; }
     }
 }

@@ -16,8 +16,7 @@ namespace MyHospital.Modelo
     {
         public USUARIOS()
         {
-            this.Agenda = new HashSet<Agenda>();
-            this.Consulta = new HashSet<Consulta>();
+            this.Medicamentos = new HashSet<Medicamentos>();
         }
     
         public int nIdUsuario { get; set; }
@@ -30,10 +29,8 @@ namespace MyHospital.Modelo
         public string sContraseña { get; set; }
         public int nIdHospital { get; set; }
         public bool bActivo { get; set; }
+        public Nullable<int> nIdDireccion { get; set; }
     
-        public virtual ICollection<Agenda> Agenda { get; set; }
-        public virtual ICollection<Consulta> Consulta { get; set; }
-        public virtual Hospitales Hospitales { get; set; }
-        public virtual Roles Roles { get; set; }
+        public virtual ICollection<Medicamentos> Medicamentos { get; set; }
     }
 }
