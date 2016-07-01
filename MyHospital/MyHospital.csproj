@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LogicEntities\PacienteLogic.cs" />
+    <Compile Include="LogicEntities\UsuarioLogic.cs" />
     <Compile Include="Medicamento\VerMedicamentos.aspx.cs">
       <DependentUpon>VerMedicamentos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

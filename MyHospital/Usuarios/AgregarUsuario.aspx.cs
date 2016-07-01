@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MyHospital.LogicEntities;
 using MyHospital.Modelo;
 
 namespace MyHospital.Usuarios
@@ -14,51 +15,48 @@ namespace MyHospital.Usuarios
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            VistaInicial();
+            if (!this.IsPostBack)
+            {
+                InitializeControls();
+            }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            
+            UsuarioLogic pl = new UsuarioLogic();
+            pl.ActualizarOGuardarPaciente(ObtenerPaciente());
         }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/");
+        }
+
 
         #region "Metodos"
-        private void VistaInicial()
+        private void InitializeControls()
         {
-
-            ddlRoles.DataValueField = "nIdRol";
-            ddlRoles.DataTextField = "sDescripcion";
-            ddlRoles.DataSource = (from r in _dataModel.Roles
-                                    where r.bActivo==true
-                                    select new {r.nIdRol,r.sDescripcion}).ToList();
-            ddlRoles.DataBind(); 
+            var idPaciente = Request.QueryString["Paciente"];
+            if (!string.IsNullOrEmpty(idPaciente))
+            {
+                //Llenadatos
+            }
         }
 
-        private void GuardarUsuario()
+        public USUARIOS ObtenerPaciente()
         {
-            USUARIOS usuario = new USUARIOS();
-
-            usuario.sNombre = txtNombre.Text;
-            usuario.sPrimerApellido = txtApellidoMaterno.Text;
-            usuario.sSegundoApellido = txtApellidoPaterno.Text;
-            usuario.nIdRol = Convert.ToInt32(ddlRoles.SelectedItem.Value);
-            usuario.sImagen = fuImagen.FileName;
-            usuario.sUsuario = txtUsuario.Text;
-            usuario.sContraseña = txtContraseña.Text;
-            
-
-            _dataModel.USUARIOS.Add(usuario);
-
-            _dataModel.SaveChanges();
+            USUARIOS usuario = new USUARIOS()
+            {
+                sPrimerApellido = txtApellidoPaterno.Text,
+                sSegundoApellido = txtApellidoMaterno.Text,
+                sNombre = txtNombre.Text,
+                nIdRol =  Convert.ToInt32(ddlRoles.SelectedItem.Value),
+                sImagen = fuImagen.FileName,
+                sUsuario = txtUsuario.Text,
+                sContraseña = txtContraseña.Text
+            };
+            return usuario;
         }
         #endregion
-
-        protected void txtCel_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        
-        
     }
 }
