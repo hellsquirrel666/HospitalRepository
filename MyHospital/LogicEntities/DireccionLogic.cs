@@ -19,7 +19,7 @@ namespace MyHospital.LogicEntities
                 }
                 using (var db = new dbHospitalEntities())
                 {
-                    db.Entry(direccion).State = direccion.nIdDireccion == null ? EntityState.Added : EntityState.Modified;
+                    db.Entry(direccion).State = direccion.nIdDireccion == 0 ? EntityState.Added : EntityState.Modified;
                     db.SaveChanges();
                     return direccion;
                 }

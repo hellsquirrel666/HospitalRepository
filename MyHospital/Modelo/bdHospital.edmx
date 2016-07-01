@@ -656,7 +656,6 @@
           <Property Name="sNoInterno" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
           <Property Name="sNoExterno" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
           <Property Name="nIdColonia" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Pacientes" Relationship="dbHospitalModel.FK_Pacientes_Direccion" FromRole="Direccion" ToRole="Pacientes" />
         </EntityType>
         <EntityType Name="Estados">
           <Key>
@@ -709,7 +708,6 @@
           <Property Name="sIndicaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="sContraindicaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Type="Int32" Name="nIdUsuario" />
-          <NavigationProperty Name="USUARIOS" Relationship="dbHospitalModel.FK_Medicamentos_USUARIOS" FromRole="Medicamentos" ToRole="USUARIOS" />
         </EntityType>
         <EntityType Name="Municipios">
           <Key>
@@ -736,7 +734,6 @@
           <Property Name="sEmail" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
           <Property Name="bActivo" Type="Boolean" Nullable="false" />
           <Property Type="Int32" Name="nIdDireccion" />
-          <NavigationProperty Name="Direccion" Relationship="dbHospitalModel.FK_Pacientes_Direccion" FromRole="Pacientes" ToRole="Direccion" />
         </EntityType>
         <EntityType Name="Paises">
           <Key>
@@ -781,7 +778,6 @@
           <Property Name="nIdHospital" Type="Int32" Nullable="false" />
           <Property Name="bActivo" Type="Boolean" Nullable="false" />
           <Property Type="Int32" Name="nIdDireccion" />
-          <NavigationProperty Name="Medicamentos" Relationship="dbHospitalModel.FK_Medicamentos_USUARIOS" FromRole="USUARIOS" ToRole="Medicamentos" />
         </EntityType>
         <Association Name="FK_Agenda_Pacientes">
           <End Role="Pacientes" Type="dbHospitalModel.Pacientes" Multiplicity="1" />

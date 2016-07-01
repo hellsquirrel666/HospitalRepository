@@ -104,6 +104,8 @@ namespace MyHospital.Paciente
                 ddlColonia.DataSource = colonias;
                 ddlColonia.DataBind();
 
+
+
                 //obtiene municipios, ciudades y estados que coinciden con CP
                 var municipios = (from c in _dataModel.Colonias
                                   join m in _dataModel.Municipios on c.nIdMunicipio equals m.nIdMunicipio

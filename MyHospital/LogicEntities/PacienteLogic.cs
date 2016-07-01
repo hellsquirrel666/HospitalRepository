@@ -19,13 +19,12 @@ namespace MyHospital.LogicEntities
                 }
                 using (var db = new dbHospitalEntities())
                 {
-                    db.Entry(paciente).State = paciente.nIdPaciente == null ? EntityState.Added : EntityState.Modified;
+                    db.Entry(paciente).State = paciente.nIdPaciente == 0 ? EntityState.Added : EntityState.Modified;
                     db.SaveChanges();
                 }
             }
             catch (Exception e)
             {
-                if (e.InnerException != null)
                 throw new Exception("Ocurrió un error en el servicio web.", e);
             }
         }

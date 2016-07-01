@@ -55,9 +55,9 @@
 		                        </td>
 		                        <td colspan="2">
 			                        <asp:DropdownList runat="server" ID="ddlSexo" CssClass="form-control" AppendDataBoundItems="true">
-                                        <asp:ListItem Selected="True" Text="-- Seleccione una opcion --  "></asp:ListItem>
-                                        <asp:ListItem Text="Masculino" Value="Masculino"></asp:ListItem>
-                                        <asp:ListItem Text="Femenino" Value="Femenino"></asp:ListItem>
+                                        <asp:ListItem Text="-- Seleccione una opcion --  "></asp:ListItem>
+                                        <asp:ListItem Text="Masculino" Value="M"></asp:ListItem>
+                                        <asp:ListItem Text="Femenino" Value="F"></asp:ListItem>
                                         </asp:DropdownList>
 		                        </td>
 		                        <td>

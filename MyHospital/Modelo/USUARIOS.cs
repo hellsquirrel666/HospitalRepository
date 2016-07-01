@@ -14,11 +14,6 @@ namespace MyHospital.Modelo
     
     public partial class USUARIOS
     {
-        public USUARIOS()
-        {
-            this.Medicamentos = new HashSet<Medicamentos>();
-        }
-    
         public int nIdUsuario { get; set; }
         public string sNombre { get; set; }
         public string sPrimerApellido { get; set; }
@@ -30,7 +25,5 @@ namespace MyHospital.Modelo
         public int nIdHospital { get; set; }
         public bool bActivo { get; set; }
         public Nullable<int> nIdDireccion { get; set; }
-    
-        public virtual ICollection<Medicamentos> Medicamentos { get; set; }
     }
 }
