@@ -14,17 +14,10 @@ namespace MyHospital.Modelo
     
     public partial class Direccion
     {
-        public Direccion()
-        {
-            this.Pacientes = new HashSet<Pacientes>();
-        }
-    
         public int nIdDireccion { get; set; }
         public string sCalle { get; set; }
         public string sNoInterno { get; set; }
         public string sNoExterno { get; set; }
         public int nIdColonia { get; set; }
-    
-        public virtual ICollection<Pacientes> Pacientes { get; set; }
     }
 }

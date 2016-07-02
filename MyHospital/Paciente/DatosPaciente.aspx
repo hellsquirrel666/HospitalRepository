@@ -55,9 +55,9 @@
 		                        </td>
 		                        <td colspan="2">
 			                        <asp:DropdownList runat="server" ID="ddlSexo" CssClass="form-control" AppendDataBoundItems="true">
-                                        <asp:ListItem Selected="True" Text="-- Seleccione una opcion --  "></asp:ListItem>
-                                        <asp:ListItem Text="Masculino" Value="Masculino"></asp:ListItem>
-                                        <asp:ListItem Text="Femenino" Value="Femenino"></asp:ListItem>
+                                        <asp:ListItem Text="-- Seleccione una opcion --  "></asp:ListItem>
+                                        <asp:ListItem Text="Masculino" Value="M"></asp:ListItem>
+                                        <asp:ListItem Text="Femenino" Value="F"></asp:ListItem>
                                         </asp:DropdownList>
 		                        </td>
 		                        <td>
@@ -138,8 +138,7 @@
 			                        Codigo postal
 		                        </td>
 		                        <td>
-                                    <%--<asp:TextBox runat="server" CssClass="form-control" onkeydown="return ValidaSoloNumeros(event);" ID="txtCP" MaxLength="5" OnTextChanged="btnCp_Change" AutoPostBack="true" ></asp:TextBox>--%>
-                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCP" ></asp:TextBox>
+                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCP" AutoPostBack="true" OnTextChanged="txtCP_TextChanged" TextMode="Number" ></asp:TextBox>
                                 </td>
                                 <td>
                                     Colonia:
