@@ -66,7 +66,7 @@
 			                        Contraseña
 		                        </td>
 		                        <td colspan="2">
-			                        <asp:TextBox runat="server" ID="txtContraseña" CssClass="form-control" OnTextChanged="txtCel_TextChanged" />
+			                        <asp:TextBox runat="server" ID="txtContraseña" CssClass="form-control" />
 		                        </td>
                                 <td>
 			                        Confirmar contraseña
@@ -78,6 +78,8 @@
                         </table>
                         <div class="form-group" style="text-align:right">
                             <asp:Button runat="server" ID="btnGuardar" Text="Guardar" class="btn btn-primary" OnClick="btnGuardar_Click"/>
+                            <asp:Button runat="server" ID="btnCancelar" Text="Cancelar" class="btn btn-danger" OnClick="btnCancelar_Click"/>
+
                         </div>
                     </div>
                 </div>
