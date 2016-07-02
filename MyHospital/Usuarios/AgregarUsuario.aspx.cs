@@ -25,7 +25,7 @@ namespace MyHospital.Usuarios
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             UsuarioLogic pl = new UsuarioLogic();
-            pl.ActualizarOGuardarPaciente(ObtenerPaciente());
+            pl.ActualizarOGuardarPaciente(ObtenerUsuario());
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace MyHospital.Usuarios
             }
         }
 
-        public USUARIOS ObtenerPaciente()
+        public USUARIOS ObtenerUsuario()
         {
             USUARIOS usuario = new USUARIOS()
             {
@@ -68,7 +68,10 @@ namespace MyHospital.Usuarios
                 nIdRol =  Convert.ToInt32(ddlRoles.SelectedItem.Value),
                 sImagen = fuImagen.FileName,
                 sUsuario = txtUsuario.Text,
-                sContraseña = txtContraseña.Text
+                sContraseña = txtContraseña.Text,
+                nIdHospital= (int)Session["IdHospital"],
+
+
             };
             return usuario;
         }

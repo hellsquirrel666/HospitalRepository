@@ -7,16 +7,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet nofollow"/>
     <!-- Font Awesome -->
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
     <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet"/>
     <!-- jQuery custom content scroller -->
-    <link href="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+    <link href="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet nofollow"/>
 
     <!-- Custom Theme Style -->
-    <link href="../Content/css/custom.min.css" rel="stylesheet">
+    <link href="../Content/css/custom.min.css" rel="stylesheet nofollow"/>
 
 </head>
 <body>
@@ -45,14 +45,14 @@
                                      <div class="form-group input-group">
                                         <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
                                
-                                        <asp:TextBox ID="UserName" runat="server" class="form-control" placeholder="Usuario"></asp:TextBox>
+                                        <asp:TextBox ID="UserName" runat="server" class="form-control"></asp:TextBox>
                                      </div>
                                      <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="LogIn">*</asp:RequiredFieldValidator>
                                     
                                     <div class="form-group input-group">
                                         <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
                                   
-                                        <asp:TextBox ID="Password" runat="server" TextMode="Password" class="form-control" placeholder="Contraseña"></asp:TextBox>
+                                        <asp:TextBox ID="Password" runat="server" TextMode="Password" class="form-control"></asp:TextBox>
                                      </div>
                                      <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="LogIn">*</asp:RequiredFieldValidator>
                                  

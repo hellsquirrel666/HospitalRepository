@@ -27,7 +27,7 @@ namespace MyHospital
         #region "Metodos"
         private void GetUsuario() 
         {
-            var result = _dataModel.USUARIOS.FirstOrDefault(i => i.sUsuario.Equals(LogInUser.UserName) && i.sContraseña.Equals(LogInUser.Password) && i.bActivo.Equals(1));
+            var result = _dataModel.USUARIOS.FirstOrDefault(i => i.sUsuario.Equals(LogInUser.UserName) && i.sContraseña.Equals(LogInUser.Password) && i.bActivo.Equals(true));
             if (result != null)
             {
                 Session["Nombre"] = result.sNombre + ' ' + result.sPrimerApellido + ' ' + result.sSegundoApellido;
