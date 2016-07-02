@@ -40,7 +40,7 @@
                                                 </li>
                                                 <li role="presentation">
                                                     <asp:LinkButton ID="LinkButton2" runat="server" Text="Historia Clínica" 
-                                                        PostBackUrl='<%# string.Format("~/HistoriasClinicas/VerHistorial.aspx?Paciente={0}", Item.nIdPaciente) %>'/>
+                                                        PostBackUrl='<%# string.Format("~/Paciente/VerHistorial.aspx?Paciente={0}", Item.nIdPaciente) %>'/>
                                                 </li>
                                                 <li role="presentation">
                                                     <asp:LinkButton ID="LinkButton5" runat="server" Text="Agendar Cita" 

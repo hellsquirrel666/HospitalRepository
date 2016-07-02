@@ -163,6 +163,13 @@
     <Compile Include="Modelo\USUARIOS.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
+    <Compile Include="Paciente\VerHistorial.aspx.cs">
+      <DependentUpon>VerHistorial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paciente\VerHistorial.aspx.designer.cs">
+      <DependentUpon>VerHistorial.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios\AgregarUsuario.aspx.cs">
       <DependentUpon>AgregarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -211,6 +218,7 @@
     <Content Include="Medicamento\VerMedicamentos.aspx" />
     <Content Include="Modelo\bdHospital.edmx.sql" />
     <Content Include="Paciente\DatosPaciente.aspx" />
+    <Content Include="Paciente\VerHistorial.aspx" />
     <Content Include="Paciente\VerPacientes.aspx" />
     <Content Include="Site.css" />
     <Content Include="Site.master" />
@@ -3635,6 +3643,7 @@
       <DependentUpon>bdHospital.edmx</DependentUpon>
       <LastGenOutput>bdHospital.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\myHospital.pubxml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -3658,7 +3667,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>4201</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:2006/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
