@@ -35,7 +35,10 @@ namespace MyHospital.Paciente
                 var lista = (from c in _dataModel.CamposHistClin
                                 join hc in _dataModel.HitorialClinico on c.nIdCampoHistClin equals hc.nIdCampoHistClin into gj
                                 from subhc in gj.DefaultIfEmpty()
-                                select new { c.nIdCampoHistClin, c.sDescripcion,  Obs = (subhc == null ? String.Empty : subhc.sObservaciones)}
+                             select new {   c.nIdCampoHistClin, 
+                                            c.sDescripcion, 
+                                            nIdHistorial = (subhc == null ? 0 : subhc.nIdHistorial),
+                                            sObservaciones = (subhc == null ? String.Empty : subhc.sObservaciones) }
                     ).ToList();
                 gvPacientes.DataSource = lista;
                 gvPacientes.DataBind();

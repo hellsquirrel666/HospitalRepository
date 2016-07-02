@@ -18,14 +18,15 @@
                     <h2>HIstorial del paciente</h2>
                     <div class="clearfix"></div>
                     <div class="x_content">
-                        <asp:GridView runat="server" ID="gvPacientes" CssClass="table table-hover" ItemType="MyHospital.Modelo.Pacientes"
+                        <asp:GridView runat="server" ID="gvPacientes" CssClass="table table-hover"
                              AutoGenerateColumns="false">
                             <Columns>
                                 <asp:BoundField HeaderText="IdCampo" DataField="nIdCampoHistClin" />
+                                <asp:BoundField HeaderText="IdHistorial" DataField="nIdHistorial" Visible="false"/>
                                 <asp:BoundField HeaderText="Campo" DataField="sDescripcion" />
                                 <asp:TemplateField ItemStyle-CssClass="gridview_menu">
                                     <ItemTemplate>
-                                        <asp:TextBox runat="server" ID="txtObservaciones"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtObservaciones" Text='<%# Bind("sObservaciones") %>'></asp:TextBox>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
