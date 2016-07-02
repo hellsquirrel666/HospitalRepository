@@ -42,6 +42,7 @@ namespace MyHospital.Administar
         {
             Hospitales paciente = new Hospitales()
             {
+                nIdHospital=string.IsNullOrEmpty(hfIdDireccion.Value)? default(int) : int.Parse(hfIdDireccion.Value),
                 sNombre=txtNombre.Text,
                 sLogo=fuLogo.FileName,
                 sTel1 = txtTel1.Text,
@@ -66,11 +67,51 @@ namespace MyHospital.Administar
 
         private void InitializeControls()
         {
-            var idPaciente = Request.QueryString["Hospital"];
-            if (!string.IsNullOrEmpty(idPaciente))
+            var idHospital = Session["IdHospital"].ToString();
+            if (!string.IsNullOrEmpty(idHospital))
             {
-                //Llenadatos
+                int idPac;
+                if (int.TryParse(idHospital, out idPac))
+                {
+                    HospitalLogic pl = new HospitalLogic();
+                    Hospitales hospital = pl.ObtenerHospital(int.Parse(idHospital));
+                    if (hospital == null)
+                    {
+                        Page.ClientScript.RegisterStartupScript(
+                            Page.GetType(),
+                            "MessageBox",
+                            "<script language='javascript'>alert('" + "No se encontró el Hospital." + "');</script>"
+                         );
+                        Response.Redirect("~/");
+                    }
+                    else
+                    {
+                        DireccionLogic dl = new DireccionLogic();
+                        Direccion dir = dl.ObtenerDireccion(hospital.nIdDireccion);
+                        if (dir == null)
+                        {
+                            Page.ClientScript.RegisterStartupScript(
+                                Page.GetType(),
+                                "MessageBox",
+                                "<script language='javascript'>alert('" + "No se encontró la dirección del cliente." + "');</script>"
+                             );
+                            Response.Redirect("~/");
+                        }
+                        LlenarDatos(hospital, dir);
+                    } 
+                }
             }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "No se encontró el chospital." + "');</script>"
+                 );
+                Response.Redirect("~/");
+            }
+
+
         }
 
         public void IncializaDdlDirecciones()
@@ -118,6 +159,29 @@ namespace MyHospital.Administar
                 ddlEstado.DataBind();
             }
         }
+
+        public void LlenarDatos(Hospitales hospital, Direccion direccion) 
+        {
+            txtNombre.Text = hospital.sNombre;
+            txtTel1.Text = hospital.sTel1;
+            txtxTel2.Text = hospital.sTel2;
+            txtMail.Text = hospital.sEmail;
+                
+            hfIdDireccion.Value = hospital.nIdDireccion.ToString();
+
+            ddlColonia.SelectedValue = direccion.nIdColonia.ToString();
+            txtCalle.Text = direccion.sCalle;
+            txtNoExt.Text = direccion.sNoExterno;
+            txtNoInt.Text = direccion.sNoInterno;
+
+            using (var db = new dbHospitalEntities())
+            {
+                var colonia = db.Colonias.Where(c => c.nIdColonia == direccion.nIdColonia).FirstOrDefault();
+                txtCP.Text = colonia.sCP;
+            }
+            txtCP_TextChanged(this, EventArgs.Empty);
+
+
+        }
     }
-    
 }

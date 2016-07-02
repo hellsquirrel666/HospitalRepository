@@ -81,7 +81,7 @@
                   <li><a><i class="fa fa-hospital-o"></i>Administrar <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="../Administrar/AdmonHistoriaClinica.aspx"><i class="fa fa-desktop"></i>Administracion Historia Clinica</a></li>
-                      <%--<li><a href="../Administrar/DatosClinica.aspx"><i class="fa fa-edit"></i>Datos Clinica</a></li>--%>
+                      <li><a href="../Administrar/DatosClinica.aspx"><i class="fa fa-edit"></i>Datos Clinica</a></li>
                     </ul>
                   </li>
                 </ul>
