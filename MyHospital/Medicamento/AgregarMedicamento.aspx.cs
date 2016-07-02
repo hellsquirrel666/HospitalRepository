@@ -87,15 +87,6 @@ namespace MyHospital.Medicamento
                     LlenarDatos(medicamento);
                 }
             }
-            else
-            {
-                Page.ClientScript.RegisterStartupScript(
-                    Page.GetType(),
-                    "MessageBox",
-                    "<script language='javascript'>alert('" + "No se encontró el chospital." + "');</script>"
-                 );
-                Response.Redirect("~/");
-            }
         }
 
         public void LlenarDatos(Medicamentos medicamento) 

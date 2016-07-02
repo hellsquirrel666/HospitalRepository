@@ -73,6 +73,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrar\AdmonHistoriaClinica.aspx.cs">
       <DependentUpon>AdmonHistoriaClinica.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -86,6 +93,13 @@
     </Compile>
     <Compile Include="Administrar\DatosClinica.aspx.designer.cs">
       <DependentUpon>DatosClinica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="LogicEntities\CamposHistorialClinicoLogic.cs" />
     <Compile Include="LogicEntities\DireccionLogic.cs" />
@@ -185,6 +199,7 @@
     <Compile Include="Usuarios\VerUsuarios.aspx.designer.cs">
       <DependentUpon>VerUsuarios.aspx</DependentUpon>
     </Compile>
+    <Content Include="404.aspx" />
     <Content Include="Administrar\AdmonHistoriaClinica.aspx" />
     <Content Include="Administrar\DatosClinica.aspx" />
     <Content Include="Content\css\custom.css" />
@@ -210,6 +225,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
