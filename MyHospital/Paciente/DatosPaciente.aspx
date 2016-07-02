@@ -15,7 +15,8 @@
         </div>
 
         <div class="clearfix"></div>
-        
+        <asp:HiddenField runat="server" ID="hfIdPaciente" Visible="false" />
+        <asp:HiddenField runat="server" ID="hfIdDireccion" Visible="false" />
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -138,7 +139,7 @@
 			                        Codigo postal
 		                        </td>
 		                        <td>
-                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCP" AutoPostBack="true" OnTextChanged="txtCP_TextChanged" TextMode="Number" ></asp:TextBox>
+                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCP" AutoPostBack="true" OnTextChanged="txtCP_TextChanged" MaxLength="5" ></asp:TextBox>
                                 </td>
                                 <td>
                                     Colonia:

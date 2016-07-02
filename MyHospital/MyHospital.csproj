@@ -55,6 +55,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Extensions.Design" />
@@ -99,6 +100,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
+    <Compile Include="Medicamento\AgregarMedicamento.aspx.cs">
+      <DependentUpon>AgregarMedicamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Medicamento\AgregarMedicamento.aspx.designer.cs">
+      <DependentUpon>AgregarMedicamento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\CamposHistClin.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
@@ -128,13 +136,6 @@
     </Compile>
     <Compile Include="Modelo\Medicamentos.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Medicamento\AgregarMedicamento.aspx.cs">
-      <DependentUpon>AgregarMedicamento.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Medicamento\AgregarMedicamento.aspx.designer.cs">
-      <DependentUpon>AgregarMedicamento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Municipios.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
