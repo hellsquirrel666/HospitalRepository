@@ -46,8 +46,37 @@ namespace MyHospital.Paciente
         {
             var idPaciente = Request.QueryString["Paciente"];
             if (!string.IsNullOrEmpty(idPaciente)) 
-            { 
-                //Llenadatos
+            {
+                int idPac;
+                if(int.TryParse(idPaciente, out idPac))
+                {
+                    PacienteLogic pl = new PacienteLogic();
+                    Pacientes paciente = pl.ObtenerPaciente(int.Parse(idPaciente));
+                    if (paciente == null)
+                    {
+                        Page.ClientScript.RegisterStartupScript(
+                            Page.GetType(),
+                            "MessageBox",
+                            "<script language='javascript'>alert('" + "No se encontró el cliente." + "');</script>"
+                         );
+                        Response.Redirect("~/");
+                    }
+                    else 
+                    {
+                        DireccionLogic dl = new DireccionLogic();
+                        Direccion dir = dl.ObtenerDireccion(paciente.nIdDireccion);
+                        if (dir == null)
+                        {
+                            Page.ClientScript.RegisterStartupScript(
+                                Page.GetType(),
+                                "MessageBox",
+                                "<script language='javascript'>alert('" + "No se encontró la dirección del cliente." + "');</script>"
+                             );
+                            Response.Redirect("~/");
+                        }
+                        LlenarPaciente(paciente, dir);
+                    } 
+                }
             }
 
             GpoSanguineoLogic gsl = new GpoSanguineoLogic();
@@ -61,6 +90,7 @@ namespace MyHospital.Paciente
         {
             Pacientes paciente = new Pacientes()
             {
+                nIdPaciente = string.IsNullOrEmpty(hfIdPaciente.Value)? default(int) : int.Parse(hfIdPaciente.Value),
                 sPrimerApellido = txtApellidoPaterno.Text,
                 sSegundoApellido = txtApellidoMaterno.Text,
                 sNombre = txtNombre.Text,
@@ -81,6 +111,7 @@ namespace MyHospital.Paciente
         {
             Direccion direccion = new Direccion
             {
+                nIdDireccion = string.IsNullOrEmpty(hfIdDireccion.Value) ? default(int) : int.Parse(hfIdDireccion.Value),
                 nIdColonia = int.Parse(ddlColonia.SelectedValue),
                 sCalle = txtCalle.Text,
                 sNoExterno =txtNoExt.Text,
@@ -133,6 +164,36 @@ namespace MyHospital.Paciente
                 ddlEstado.DataSource = municipios;
                 ddlEstado.DataBind();
             }
+        }
+
+        public void LlenarPaciente(Pacientes paciente, Direccion dirPaciente)
+        {
+            hfIdPaciente.Value = paciente.nIdPaciente.ToString();
+
+            txtApellidoPaterno.Text = paciente.sPrimerApellido;
+            txtApellidoMaterno.Text = paciente.sSegundoApellido;
+            txtNombre.Text = paciente.sNombre;
+            txtFechaNacimiento.Text = paciente.dFechaNac.ToString("dd/MM/yyyy");
+            ddlSexo.SelectedValue = paciente.sSexo;
+            ddlGpoSanguineo.SelectedValue = paciente.nIdGpoSanguineo.ToString();
+            txtNSS.Text = paciente.sNSS;
+            txtTelefono.Text = paciente.sTelefono;
+            txtCel.Text = paciente.sCelular;
+            txtEmail.Text = paciente.sEmail;
+
+            hfIdDireccion.Value = paciente.nIdDireccion.ToString();
+            
+            ddlColonia.SelectedValue = dirPaciente.nIdColonia.ToString();
+            txtCalle.Text = dirPaciente.sCalle;
+            txtNoExt.Text = dirPaciente.sNoExterno;
+            txtNoInt.Text = dirPaciente.sNoInterno;
+            
+            using (var db = new dbHospitalEntities())
+            {
+                var colonia = db.Colonias.Where(c=>c.nIdColonia == dirPaciente.nIdColonia).FirstOrDefault();
+                txtCP.Text = colonia.sCP;
+            }
+            txtCP_TextChanged(this, EventArgs.Empty);
         }
     }
     #endregion

@@ -26,7 +26,9 @@
                             <Columns>
                                 <asp:BoundField HeaderText="IdPaciente" DataField="nIdPaciente" />
                                 <asp:BoundField HeaderText="Nombre" DataField="sPrimerApellido" />
+                                <asp:BoundField HeaderText="Nombre" DataField="sSegundoApellido" />
                                 <asp:BoundField HeaderText="Apellido" DataField="SNombre" />
+                                <asp:BoundField HeaderText="Numero Seguro Social" DataField="sNSS" />
                                 <asp:TemplateField ItemStyle-CssClass="gridview_menu">
                                     <ItemTemplate>
                                         <div class="dropdown" style="cursor: pointer;">
@@ -34,16 +36,15 @@
                                             <ul class="dropdown-menu" role="menu" aria-labelledby="ddmOpciones">
                                                 <li role="presentation">
                                                     <asp:LinkButton ID="LinkButton1" runat="server" Text="Editar" 
-                                                        PostBackUrl='<%# string.Format("~/Clientes/Detalle/?{0}={1}", "Paciente", "Item.IdPaciente") %>'/>
+                                                        PostBackUrl='<%# string.Format("~/Paciente/DatosPaciente.aspx?Paciente={0}", Item.nIdPaciente) %>'/>
                                                 </li>
                                                 <li role="presentation">
                                                     <asp:LinkButton ID="LinkButton2" runat="server" Text="Historia Clínica" 
-                                                        PostBackUrl='<%# string.Format("~/Clientes/Empleados/?{0}={1}", "Paciente", "Item.IdPaciente") %>'/>
+                                                        PostBackUrl='<%# string.Format("~/HistoriasClinicas/VerHistorial.aspx?Paciente={0}", Item.nIdPaciente) %>'/>
                                                 </li>
                                                 <li role="presentation">
                                                     <asp:LinkButton ID="LinkButton5" runat="server" Text="Agendar Cita" 
-                                                        PostBackUrl='<%# string.Format("~/Empresas/Cuentas/Balance?{0}={1}&{2}={3}", "Paciente", "Item.IdPaciente",
-                                                    "Core.Utils.Constants.QueryStringNames.ReturnURL", Request.RawUrl) %>'/>
+                                                        PostBackUrl='<%# string.Format("~/Citas/AgendarCita.aspx?Paciente={0}", Item.nIdPaciente) %>'/>
                                                 </li>
                                             </ul>
                                         </div>

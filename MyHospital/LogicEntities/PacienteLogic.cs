@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 namespace MyHospital.LogicEntities
@@ -38,6 +39,34 @@ namespace MyHospital.LogicEntities
                     var query = db.Pacientes.AsQueryable();
                     return query.ToList();
                 }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrió un error en el servicio web.", e);
+            }
+        }
+
+        public Pacientes ObtenerPaciente(int idPaciente)
+        {
+            try
+            {
+                if (idPaciente == null || idPaciente == 0)
+                {
+                    throw new ArgumentException("No se puede obtener el cliente. idCliente no puede estar vacío.", "idCliente");
+                }
+                using (var db = new dbHospitalEntities())
+                {
+                    Pacientes pac = db.Pacientes.Where(p => p.nIdPaciente == idPaciente).SingleOrDefault();
+                    if (pac == null)
+                    {
+                        throw new FaultException(string.Format("Paciente {0} no existe.", idPaciente));
+                    }
+                    return pac;
+                }
+            }
+            catch (FaultException e)
+            {
+                throw e;
             }
             catch (Exception e)
             {

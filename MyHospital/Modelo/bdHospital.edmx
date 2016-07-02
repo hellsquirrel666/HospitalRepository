@@ -230,7 +230,7 @@
           <Property Name="sCelular" Type="nchar" MaxLength="20" />
           <Property Name="sEmail" Type="nchar" MaxLength="100" />
           <Property Name="bActivo" Type="bit" Nullable="false" />
-          <Property Name="nIdDireccion" Type="int" />
+          <Property Name="nIdDireccion" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Paises">
           <Key>
@@ -433,7 +433,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Pacientes_Direccion">
-          <End Role="Direccion" Type="dbHospitalModel.Store.Direccion" Multiplicity="0..1" />
+          <End Role="Direccion" Type="dbHospitalModel.Store.Direccion" Multiplicity="1" />
           <End Role="Pacientes" Type="dbHospitalModel.Store.Pacientes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Direccion">
@@ -733,7 +733,7 @@
           <Property Name="sCelular" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
           <Property Name="sEmail" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
           <Property Name="bActivo" Type="Boolean" Nullable="false" />
-          <Property Type="Int32" Name="nIdDireccion" />
+          <Property Type="Int32" Name="nIdDireccion" Nullable="false" />
         </EntityType>
         <EntityType Name="Paises">
           <Key>
@@ -984,7 +984,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Pacientes_Direccion">
-          <End Type="dbHospitalModel.Direccion" Role="Direccion" Multiplicity="0..1" />
+          <End Type="dbHospitalModel.Direccion" Role="Direccion" Multiplicity="1" />
           <End Type="dbHospitalModel.Pacientes" Role="Pacientes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Direccion">
