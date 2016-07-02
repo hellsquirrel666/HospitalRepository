@@ -27,34 +27,24 @@
 	                        <tr>
 		                        <td>
 			                        Apellido paterno
-		                        </td>
-		                        <td colspan="2">
 			                        <asp:TextBox runat="server" ID="txtApellidoPaterno" CssClass="form-control" />
 		                        </td>
 		                        <td>
 			                        Apellido materno
-		                        </td>
-		                        <td colspan="2">
 			                        <asp:TextBox runat="server" ID="txtApellidoMaterno" CssClass="form-control" />
 		                        </td>
-		                        <td>
-			                        Nombre (s)
-		                        </td>
 		                        <td colspan="2">
+			                        Nombre (s)
 			                        <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" />
 		                        </td>
 	                        </tr>
                             <tr>
                                 <td>
 			                        Fecha de nacimiento
-		                        </td>
-		                        <td>
 			                        <asp:TextBox runat="server" ID="txtFechaNacimiento" CssClass="form-control" />
 		                        </td>
                                 <td>
 			                        Sexo
-		                        </td>
-		                        <td colspan="2">
 			                        <asp:DropdownList runat="server" ID="ddlSexo" CssClass="form-control" AppendDataBoundItems="true">
                                         <asp:ListItem Text="-- Seleccione una opcion --  "></asp:ListItem>
                                         <asp:ListItem Text="Masculino" Value="M"></asp:ListItem>
@@ -63,36 +53,26 @@
 		                        </td>
 		                        <td>
 			                        Grupo sanguineo
-		                        </td>
-		                        <td>
 			                        <asp:DropdownList runat="server" ID="ddlGpoSanguineo" CssClass="form-control" AppendDataBoundItems="true">
                                         <asp:ListItem Selected="True" Text="-- Seleccione una opcion --  "></asp:ListItem>
                                         </asp:DropdownList>
 		                        </td>
                                 <td>
 			                        N.S.S.
-		                        </td>
-		                        <td>
 			                        <asp:TextBox runat="server" ID="txtNSS" CssClass="form-control" />
 		                        </td>
                             </tr>
                             <tr>
                                 <td>
 			                        Telefono
-		                        </td>
-		                        <td>
 			                        <asp:TextBox runat="server" ID="txtTelefono" CssClass="form-control" />
 		                        </td>
                                 <td>
 			                        Celular
-		                        </td>
-		                        <td>
 			                        <asp:TextBox runat="server" ID="txtCel" CssClass="form-control" />
-		                        </td>
-                                <td>
-			                        e-mail
-		                        </td>
-		                        <td>
+                                </td>
+                                <td colspan="2">
+			                        Correo electronico
 			                        <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
 		                        </td>
 <%--                                <td>
@@ -116,55 +96,42 @@
 		                        <td colspan="2">
 			                        <asp:TextBox runat="server" ID="txtNoTarjeta" CssClass="form-control" />
 		                        </td>--%>
-		                        <td>
-                                    Calle:
-                                </td>
-                                <td colspan="2">
-                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCalle"></asp:TextBox>
-                                </td>
                             </tr>
                             <tr>
+		                        <td>
+                                    Calle:
+                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCalle"></asp:TextBox>
+                                </td>
+                          
                                 <td>
                                     No. Ext.:
-                                </td>
-                                <td>
                                     <asp:TextBox runat="server" CssClass="form-control" ID="txtNoExt"></asp:TextBox>
                                 </td>
                                 <td>
                                     No. Int.:
-                                </td>
-                                <td>
                                     <asp:TextBox runat="server" CssClass="form-control" ID="txtNoInt"></asp:TextBox>
                                 <td>
 			                        Codigo postal
-		                        </td>
-		                        <td>
                                     <asp:TextBox runat="server" CssClass="form-control" ID="txtCP" AutoPostBack="true" OnTextChanged="txtCP_TextChanged" MaxLength="5" ></asp:TextBox>
                                 </td>
-                                <td>
-                                    Colonia:
-                                </td>
-                                <td colspan="2">
-                                    <asp:DropDownList runat="server" CssClass="form-control" ID="ddlColonia"></asp:DropDownList>
-                                </td>
+
                             </tr>
                             <tr>
                                 <td>
-                                    Delegacion / Municipio:
+                                    Colonia:
+                                    <asp:DropDownList runat="server" CssClass="form-control" ID="ddlColonia"></asp:DropDownList>
                                 </td>
-                                <td colspan="2">
+                            
+                                <td>
+                                    Delegacion / Municipio:
                                     <asp:DropDownList runat="server" CssClass="form-control" ID="ddlDelegacion"></asp:DropDownList>
                                 </td>
                                 <td>
                                     Ciudad:
-                                </td>
-                                <td colspan="2">
                                     <asp:DropDownList runat="server" CssClass="form-control" ID="ddlCiudad"></asp:DropDownList>
                                 </td>
                                 <td>
                                     Estado:
-                                </td>
-                                <td colspan="2">
                                     <asp:DropDownList runat="server" CssClass="form-control" ID="ddlEstado"></asp:DropDownList>
                                 </td>
 
