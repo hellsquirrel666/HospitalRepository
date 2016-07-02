@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyHospital.Modelo;
@@ -33,8 +34,10 @@ namespace MyHospital
                 Session["Usuario"] = result.sUsuario;
                 Session["IdUsuario"] = result.nIdUsuario;
                 Session["IdRol"] = result.nIdRol;
+                Session["IdHospital"] = result.nIdHospital;
 
-                Response.Redirect("Default.aspx");
+                FormsAuthentication.RedirectFromLoginPage(result.sUsuario, true, "Default.aspx");
+
             }
             else
                 LogInUser.FailureText = "Usuario y/o contraseña incorrectos";

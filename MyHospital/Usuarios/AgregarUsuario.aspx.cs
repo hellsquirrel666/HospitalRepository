@@ -17,6 +17,7 @@ namespace MyHospital.Usuarios
         {
             if (!this.IsPostBack)
             {
+                LlenarDdlRol();
                 InitializeControls();
             }
         }
@@ -32,11 +33,25 @@ namespace MyHospital.Usuarios
             Response.Redirect("~/");
         }
 
-
         #region "Metodos"
+
+        private void LlenarDdlRol()
+        {
+           
+            var Roles = (from r in _dataModel.Roles
+                            where r.bActivo==true
+                            select new { r.nIdRol,r.sDescripcion}
+                          ).ToList();
+            //llena Roles
+            ddlRoles.DataValueField = "nIdRol";
+            ddlRoles.DataTextField = "sDescripcion";
+            ddlRoles.DataSource = Roles;
+            ddlRoles.DataBind();
+        }
+        
         private void InitializeControls()
         {
-            var idPaciente = Request.QueryString["Paciente"];
+            var idPaciente = Request.QueryString["Usuario"];
             if (!string.IsNullOrEmpty(idPaciente))
             {
                 //Llenadatos

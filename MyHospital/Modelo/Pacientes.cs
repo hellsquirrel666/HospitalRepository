@@ -26,6 +26,6 @@ namespace MyHospital.Modelo
         public string sCelular { get; set; }
         public string sEmail { get; set; }
         public bool bActivo { get; set; }
-        public Nullable<int> nIdDireccion { get; set; }
+        public int nIdDireccion { get; set; }
     }
 }
