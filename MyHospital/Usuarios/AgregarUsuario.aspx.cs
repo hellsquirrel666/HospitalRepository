@@ -25,7 +25,7 @@ namespace MyHospital.Usuarios
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             UsuarioLogic pl = new UsuarioLogic();
-            pl.ActualizarOGuardarPaciente(ObtenerUsuario());
+            pl.ActualizarOGuardarUsuario(ObtenerUsuario());
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -37,10 +37,10 @@ namespace MyHospital.Usuarios
 
         private void LlenarDdlRol()
         {
-           
+
             var Roles = (from r in _dataModel.Roles
-                            where r.bActivo==true
-                            select new { r.nIdRol,r.sDescripcion}
+                         where r.bActivo == true
+                         select new { r.nIdRol, r.sDescripcion }
                           ).ToList();
             //llena Roles
             ddlRoles.DataValueField = "nIdRol";
@@ -48,13 +48,29 @@ namespace MyHospital.Usuarios
             ddlRoles.DataSource = Roles;
             ddlRoles.DataBind();
         }
-        
+
         private void InitializeControls()
         {
-            var idPaciente = Request.QueryString["Usuario"];
-            if (!string.IsNullOrEmpty(idPaciente))
+            var idUsuario = Request.QueryString["Usuario"];
+            if (!string.IsNullOrEmpty(idUsuario))
             {
-                //Llenadatos
+                int idPac;
+                if (int.TryParse(idUsuario, out idPac))
+                {
+                    UsuarioLogic ul = new UsuarioLogic();
+                    USUARIOS usuario = ul.ObtenerUsuario(int.Parse(idUsuario));
+                    if (usuario == null)
+                    {
+                        Page.ClientScript.RegisterStartupScript(
+                            Page.GetType(),
+                            "MessageBox",
+                            "<script language='javascript'>alert('" + "No se encontró el usuario." + "');</script>"
+                         );
+                        Response.Redirect("~/");
+                    }
+                    LlenarUsuario(usuario);
+                }
+
             }
         }
 
@@ -62,18 +78,32 @@ namespace MyHospital.Usuarios
         {
             USUARIOS usuario = new USUARIOS()
             {
+                nIdUsuario = string.IsNullOrEmpty(hfIdUsuario.Value) ? default(int) : int.Parse(hfIdUsuario.Value),
                 sPrimerApellido = txtApellidoPaterno.Text,
                 sSegundoApellido = txtApellidoMaterno.Text,
                 sNombre = txtNombre.Text,
-                nIdRol =  Convert.ToInt32(ddlRoles.SelectedItem.Value),
+                nIdRol = Convert.ToInt32(ddlRoles.SelectedItem.Value),
                 sImagen = fuImagen.FileName,
                 sUsuario = txtUsuario.Text,
-                sContraseña = txtContraseña.Text,
-                nIdHospital= (int)Session["IdHospital"],
-
-
+                nIdHospital = (int)Session["IdHospital"],
+                bActivo=true,
+                sContraseña = txtContraseña.Text
             };
             return usuario;
+        }
+
+        public void LlenarUsuario(USUARIOS usuario)
+        {
+            hfIdUsuario.Value = usuario.nIdUsuario.ToString();
+
+            txtApellidoPaterno.Text = usuario.sPrimerApellido;
+            txtApellidoMaterno.Text = usuario.sSegundoApellido;
+            txtNombre.Text = usuario.sNombre;
+            ddlRoles.SelectedValue = usuario.nIdRol.ToString();
+            //Logica para cargar imagen
+            txtUsuario.Text = usuario.sUsuario;
+            txtUsuario.Enabled = false;
+            txtContraseña.Text = usuario.sContraseña;
         }
         #endregion
     }
