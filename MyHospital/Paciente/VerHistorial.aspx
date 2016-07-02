@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="VerHistorial.aspx.cs" Inherits="MyHospital.Paciente.VerHistorial" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="BodyContent" runat="server">
-</asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
     <form id="Form1" runat="server" class="right_col" role="main">
         <div class="page-title">
@@ -20,7 +18,7 @@
                     <h2>HIstorial del paciente</h2>
                     <div class="clearfix"></div>
                     <div class="x_content">
-                        <asp:GridView runat="server" ID="gvPacientes" CssClass="table table-hover" OnRowCommand="gvPacientes_RowCommand" ItemType="MyHospital.Modelo.Pacientes"
+                        <asp:GridView runat="server" ID="gvPacientes" CssClass="table table-hover" ItemType="MyHospital.Modelo.Pacientes"
                              AutoGenerateColumns="false">
                             <Columns>
                                 <asp:BoundField HeaderText="IdCampo" DataField="nIdCampoHistClin" />
@@ -42,3 +40,4 @@
         </div>
         <div class="clearfix"></div>
     </form>
+    </asp:Content>

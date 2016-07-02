@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MyHospital.Modelo;
 
 namespace MyHospital.Paciente
 {
@@ -28,40 +29,17 @@ namespace MyHospital.Paciente
 
         private void InitializeControls()
         {
-            //var idPaciente = Request.QueryString["Paciente"];
-            //if (!string.IsNullOrEmpty(idPaciente))
-            //{
-            //    int idPac;
-            //    if (int.TryParse(idPaciente, out idPac))
-            //    {
-            //        Cam pl = new PacienteLogic();
-            //        Pacientes paciente = pl.ObtenerPaciente(int.Parse(idPaciente));
-            //        if (paciente == null)
-            //        {
-            //            Page.ClientScript.RegisterStartupScript(
-            //                Page.GetType(),
-            //                "MessageBox",
-            //                "<script language='javascript'>alert('" + "No se encontró el cliente." + "');</script>"
-            //             );
-            //            Response.Redirect("~/");
-            //        }
-            //        else
-            //        {
-            //            DireccionLogic dl = new DireccionLogic();
-            //            Direccion dir = dl.ObtenerDireccion(paciente.nIdDireccion);
-            //            if (dir == null)
-            //            {
-            //                Page.ClientScript.RegisterStartupScript(
-            //                    Page.GetType(),
-            //                    "MessageBox",
-            //                    "<script language='javascript'>alert('" + "No se encontró la dirección del cliente." + "');</script>"
-            //                 );
-            //                Response.Redirect("~/");
-            //            }
-            //            LlenarPaciente(paciente, dir);
-            //        }
-            //    }
-            //}
+            var idPaciente = Request.QueryString["Paciente"];
+            using (var _dataModel = new dbHospitalEntities())
+            {
+                var lista = (from c in _dataModel.CamposHistClin
+                                join hc in _dataModel.HitorialClinico on c.nIdCampoHistClin equals hc.nIdCampoHistClin into gj
+                                from subhc in gj.DefaultIfEmpty()
+                                select new { c.nIdCampoHistClin, c.sDescripcion,  Obs = (subhc == null ? String.Empty : subhc.sObservaciones)}
+                    ).ToList();
+                gvPacientes.DataSource = lista;
+                gvPacientes.DataBind();
+            }
         }
 
     }
