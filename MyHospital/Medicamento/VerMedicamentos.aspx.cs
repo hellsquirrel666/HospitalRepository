@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyHospital.Modelo;
+using MyHospital.LogicEntities;
 
 namespace MyHospital.Medicamento
 {
@@ -21,11 +22,8 @@ namespace MyHospital.Medicamento
         #region "Metodos"
         private void GetUsuarios()
         {
-            var query =from m in _dataModel.Medicamentos
-                       select new {m.nIdMedicamento, m.sNombre, m.sLaboratorio};
-
-            var results = query.ToList();
-
+            MedicamentoLogic ml = new MedicamentoLogic();
+            var results = ml.ListaMedicamentos();
             gvMedicamentos.DataSource = results;
             gvMedicamentos.DataBind();
         }
