@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyHospital.Modelo;
+using MyHospital.LogicEntities;
 
 namespace MyHospital.Medicamento
 {
@@ -17,14 +18,18 @@ namespace MyHospital.Medicamento
         #region "Eventos"
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!this.IsPostBack)
+            {
+                InitializeControls();
+            }
         }
         
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             try
             {
-                GuardarUsuario();
+                MedicamentoLogic ml = new MedicamentoLogic();
+                ml.ActualizarOGuardarMedicamento(ObtenerMedicamentos());
 
                  Page.ClientScript.RegisterStartupScript(
                     Page.GetType(),
@@ -45,24 +50,66 @@ namespace MyHospital.Medicamento
         #endregion
 
         #region "Metodos"
-        private void GuardarUsuario()
+        private Medicamentos ObtenerMedicamentos()
         {
-            Medicamentos medicamento = new Medicamentos();
-
-            medicamento.sNombre=txtNombre.Text;
-            medicamento.sLaboratorio=txtLaboratorio.Text;
-            medicamento.bCompartido= ddlCompartido.SelectedValue=="Si"? true:false;
-            medicamento.sComposicion=txtComposicion.Text;
-            medicamento.sPosologia=txtPosologia.Text;
-            medicamento.sIndicaciones=txtIndicaciones.Text;
-            medicamento.sContraindicaciones=txtContraindicaciones.Text;
-
-            _dataModel.Medicamentos.Add(medicamento);
-
-            _dataModel.SaveChanges();
+            Medicamentos medicamento = new Medicamentos(){
+                nIdMedicamento= string.IsNullOrEmpty(hfIdMedicamento.Value)? default(int) : int.Parse(hfIdMedicamento.Value),
+                sNombre=txtNombre.Text,
+                sLaboratorio=txtLaboratorio.Text,
+                bCompartido= ddlCompartido.SelectedValue=="true"? true:false,
+                sComposicion=txtComposicion.Text,
+                sPosologia=txtPosologia.Text,
+                sIndicaciones=txtIndicaciones.Text,
+                sContraindicaciones=txtContraindicaciones.Text
+            };
+            return medicamento;
         }
-        #endregion
 
-        
+        private void InitializeControls()
+        {
+            var idMedicamento = Request.QueryString["Medicamento"];
+            if (!string.IsNullOrEmpty(idMedicamento))
+            {
+                int idMed;
+                if (int.TryParse(idMedicamento, out idMed))
+                {
+                    MedicamentoLogic ml = new MedicamentoLogic();
+                    Medicamentos medicamento = ml.ObtenerMedicamento(int.Parse(idMedicamento));
+                    if (medicamento == null)
+                    {
+                        Page.ClientScript.RegisterStartupScript(
+                            Page.GetType(),
+                            "MessageBox",
+                            "<script language='javascript'>alert('" + "No se encontró el Medicamento." + "');</script>"
+                         );
+                        Response.Redirect("~/");
+                    }
+                    LlenarDatos(medicamento);
+                }
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "No se encontró el chospital." + "');</script>"
+                 );
+                Response.Redirect("~/");
+            }
+        }
+
+        public void LlenarDatos(Medicamentos medicamento) 
+        {
+            hfIdMedicamento.Value = medicamento.nIdMedicamento.ToString();
+            txtNombre.Text = medicamento.sNombre;
+            txtLaboratorio.Text = medicamento.sLaboratorio;
+            ddlCompartido.SelectedValue = medicamento.bCompartido.ToString();
+            txtComposicion.Text = medicamento.sComposicion;
+            txtPosologia.Text = medicamento.sPosologia;
+            txtIndicaciones.Text = medicamento.sIndicaciones;
+            txtContraindicaciones.Text = medicamento.sContraindicaciones;
+        }
+
+        #endregion
     }
 }

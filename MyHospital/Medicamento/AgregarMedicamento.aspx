@@ -13,7 +13,7 @@
         </div>
 
         <div class="clearfix"></div>
-        
+        <asp:HiddenField runat="server" ID="hfIdMedicamento" Visible="false" />
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -42,8 +42,8 @@
 		                        <td colspan="2">
 			                        <asp:DropdownList runat="server" ID="ddlCompartido" CssClass="form-control" AppendDataBoundItems="true">
                                         <asp:ListItem Selected="True" Text="-- Seleccione una opcion --  "></asp:ListItem>
-                                        <asp:ListItem Text="Masculino" Value="Si"></asp:ListItem>
-                                        <asp:ListItem Text="Femenino" Value="No"></asp:ListItem>
+                                        <asp:ListItem Text="Si" Value="True"></asp:ListItem>
+                                        <asp:ListItem Text="No" Value="False"></asp:ListItem>
                                         </asp:DropdownList>
 		                        </td>
                             </tr>

@@ -18,19 +18,26 @@
                     <%--<h2>Datos del medicamento</h2>--%>
                     <div class="clearfix"></div>
                     <div class="x_content">
-                        <asp:GridView runat="server" ID="gvMedicamentos" CssClass="table table-hover"  AutoGenerateColumns="false">
+                        <asp:GridView runat="server" ID="gvMedicamentos" CssClass="table table-hover"  AutoGenerateColumns="false" ItemType="MyHospital.Modelo.Medicamentos">
                             <Columns>
                                 <asp:BoundField HeaderText="IdMedicamento" DataField="nIdMedicamento" />
                                 <asp:BoundField HeaderText="Nombre" DataField="sNombre" />
                                 <asp:BoundField HeaderText="Laboratorio" DataField="sLaboratorio" />
                                 <asp:TemplateField ItemStyle-CssClass="gridview_menu">
                                     <ItemTemplate>
-                                         <asp:LinkButton ID="lnkDetalle" runat="server" Text="Detalle"/>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField ItemStyle-CssClass="gridview_menu">
-                                     <ItemTemplate>
-                                         <asp:LinkButton ID="lnkEditar" runat="server" Text="Editar"/>
+                                        <div class="dropdown" style="cursor: pointer;">
+                                            <a class="dropdown-toggle list-inline" id="ddmOpciones" data-toggle="dropdown">Opciones<span class="caret"></span></a>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="ddmOpciones">
+                                                <li role="presentation">
+                                                    <asp:LinkButton ID="LinkButton1" runat="server" Text="Editar" 
+                                                        PostBackUrl='<%# string.Format("~/Medicamento/AgregarMedicamento.aspx?Medicamento={0}", Item.nIdMedicamento) %>'/>
+                                                </li>
+                                                <li role="presentation">
+                                                    <asp:LinkButton ID="LinkButton2" runat="server" Text="Detalle" 
+                                                        PostBackUrl='<%# string.Format("~/Medicamento/VerMedicamentos.aspx?Medicamento={0}", Item.nIdMedicamento) %>'/>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
