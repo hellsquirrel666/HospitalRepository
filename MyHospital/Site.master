@@ -69,19 +69,19 @@
                   <li><a><i class="fa fa-medkit"></i> Medicamentos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="../Medicamento/AgregarMedicamento.aspx"><i class="fa fa-edit"></i>Registrar</a></li>
-                      <li><a href=""><i class="fa fa-table"></i>Ver medicamentos</a></li>
+                      <li><a href="../Medicamento/VerMedicamentos.aspx"><i class="fa fa-table"></i>Ver medicamentos</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-stethoscope"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="form.html"><i class="fa fa-edit"></i>Registrar</a></li>
-                      <li><a href="form_advanced.html"><i class="fa fa-table"></i>Ver usuarios</a></li>
+                      <li><a href="../Usuarios/AgregarUsuario.aspx"><i class="fa fa-edit"></i>Registrar</a></li>
+                      <li><a href="../Usuarios/VerUsuarios.aspx"><i class="fa fa-table"></i>Ver usuarios</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-hospital-o"></i>Clínica <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-hospital-o"></i>Administrar <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                      <li><a href="fixed_footer.html">Fixed Footer</a></li>
+                      <li><a href="../Administrar/AdmonHistoriaClinica.aspx"><i class="fa fa-desktop"></i>Administracion Historia Clinica</a></li>
+                      <%--<li><a href="../Administrar/DatosClinica.aspx"><i class="fa fa-edit"></i>Datos Clinica</a></li>--%>
                     </ul>
                   </li>
                 </ul>

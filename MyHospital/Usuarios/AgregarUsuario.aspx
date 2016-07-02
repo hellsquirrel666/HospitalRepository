@@ -13,7 +13,7 @@
         </div>
 
         <div class="clearfix"></div>
-        
+        <asp:HiddenField runat="server" ID="hfIdUsuario" Visible="false" />
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -66,13 +66,13 @@
 			                        Contraseña
 		                        </td>
 		                        <td colspan="2">
-			                        <asp:TextBox runat="server" ID="txtContraseña" CssClass="form-control" />
+			                        <asp:TextBox runat="server" ID="txtContraseña" CssClass="form-control" TextMode="Password" />
 		                        </td>
                                 <td>
 			                        Confirmar contraseña
 		                        </td>
 		                        <td colspan="2">
-			                        <asp:TextBox runat="server" ID="txtConfirmaConstraseña" CssClass="form-control" />
+			                        <asp:TextBox runat="server" ID="txtConfirmaConstraseña" CssClass="form-control" TextMode="Password" />
 		                        </td>
 	                        
                         </table>

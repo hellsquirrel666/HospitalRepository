@@ -73,18 +73,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administar\AdmonHistoriaClinica.aspx.cs">
+    <Compile Include="Administrar\AdmonHistoriaClinica.aspx.cs">
       <DependentUpon>AdmonHistoriaClinica.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administar\AdmonHistoriaClinica.aspx.designer.cs">
+    <Compile Include="Administrar\AdmonHistoriaClinica.aspx.designer.cs">
       <DependentUpon>AdmonHistoriaClinica.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administar\DatosClinica.aspx.cs">
+    <Compile Include="Administrar\DatosClinica.aspx.cs">
       <DependentUpon>DatosClinica.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administar\DatosClinica.aspx.designer.cs">
+    <Compile Include="Administrar\DatosClinica.aspx.designer.cs">
       <DependentUpon>DatosClinica.aspx</DependentUpon>
     </Compile>
     <Compile Include="LogicEntities\CamposHistorialClinicoLogic.cs" />
@@ -177,8 +177,15 @@
     <Compile Include="Usuarios\AgregarUsuario.aspx.designer.cs">
       <DependentUpon>AgregarUsuario.aspx</DependentUpon>
     </Compile>
-    <Content Include="Administar\AdmonHistoriaClinica.aspx" />
-    <Content Include="Administar\DatosClinica.aspx" />
+    <Compile Include="Usuarios\VerUsuarios.aspx.cs">
+      <DependentUpon>VerUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios\VerUsuarios.aspx.designer.cs">
+      <DependentUpon>VerUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Content Include="Administrar\AdmonHistoriaClinica.aspx" />
+    <Content Include="Administrar\DatosClinica.aspx" />
     <Content Include="Content\css\custom.css" />
     <Content Include="Content\css\custom.min.css" />
     <Content Include="Content\css\maps\jquery-jvectormap-2.0.3.css" />
@@ -244,6 +251,7 @@
       <DependentUpon>Site.master</DependentUpon>
     </Compile>
     <Content Include="Usuarios\AgregarUsuario.aspx" />
+    <Content Include="Usuarios\VerUsuarios.aspx" />
     <Content Include="vendors\animate.css\animate.css" />
     <Content Include="vendors\animate.css\animate.min.css" />
     <Content Include="vendors\animate.css\gulpfile.js" />
