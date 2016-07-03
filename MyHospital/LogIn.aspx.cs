@@ -16,7 +16,11 @@ namespace MyHospital
         #region "Eventos"
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["Nombre"] = string.Empty;
+            Session["Usuario"] = string.Empty;
+            Session["IdUsuario"] = string.Empty;
+            Session["IdRol"] = string.Empty;
+            Session["IdHospital"] = string.Empty;
         }
         protected void LoginButton_Click(object sender, EventArgs e)
         {
