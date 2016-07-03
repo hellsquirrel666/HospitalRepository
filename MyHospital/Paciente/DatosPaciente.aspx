@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="DatosPaciente.aspx.cs" Inherits="MyHospital.Paciente.DatosPaciente" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolKit" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="TitleContent" runat="server">
 </asp:Content>
@@ -42,6 +43,8 @@
                                 <td>
 			                        Fecha de nacimiento
 			                        <asp:TextBox runat="server" ID="txtFechaNacimiento" CssClass="form-control" />
+                                    <ajaxToolKit:CalendarExtender runat="server" ID="ceFechaRegistro" TargetControlID="txtFechaNacimiento" 
+		                                Format="dd/MM/yyyy" CssClass="fa-calendar-plus-o" />
 		                        </td>
                                 <td>
 			                        Sexo
