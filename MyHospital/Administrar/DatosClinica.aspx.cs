@@ -42,8 +42,8 @@ namespace MyHospital.Administar
         {
             Hospitales paciente = new Hospitales()
             {
-                nIdHospital=string.IsNullOrEmpty(hfIdDireccion.Value)? default(int) : int.Parse(hfIdDireccion.Value),
-                sNombre=txtNombre.Text,
+                nIdHospital = int.Parse(Session["IdHospital"].ToString()),
+                sNombre = txtNombre.Text,
                 sLogo=fuLogo.FileName,
                 sTel1 = txtTel1.Text,
                 sTel2 = txtxTel2.Text,
@@ -57,6 +57,7 @@ namespace MyHospital.Administar
         {
             Direccion direccion = new Direccion
             {
+                nIdDireccion = string.IsNullOrEmpty(hfIdDireccion.Value) ? default(int) : int.Parse(hfIdDireccion.Value),
                 nIdColonia = int.Parse(ddlColonia.SelectedValue),
                 sCalle = txtCalle.Text,
                 sNoExterno = txtNoExt.Text,
