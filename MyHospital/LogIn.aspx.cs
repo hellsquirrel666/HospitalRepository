@@ -36,8 +36,8 @@ namespace MyHospital
                 Session["IdRol"] = result.nIdRol;
                 Session["IdHospital"] = result.nIdHospital;
 
-                FormsAuthentication.RedirectFromLoginPage(result.sUsuario, true, "Default.aspx");
-
+                //FormsAuthentication.RedirectFromLoginPage(result.sUsuario, true, "Default.aspx");
+                Response.Redirect("~/");
             }
             else
                 LogInUser.FailureText = "Usuario y/o contraseña incorrectos";
