@@ -41,7 +41,7 @@
                             <tr>
                                 <td>
 			                        Fecha de nacimiento
-			                        <asp:TextBox runat="server" ID="txtFechaNacimiento" CssClass="form-control" />
+			                        <asp:TextBox runat="server" ID="txtFechaNacimiento" CssClass="form-control" Type="Date"/>
 		                        </td>
                                 <td>
 			                        Sexo

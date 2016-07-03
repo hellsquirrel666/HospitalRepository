@@ -36,14 +36,6 @@
                                                     <asp:LinkButton ID="LinkButton1" runat="server" Text="Editar" 
                                                         PostBackUrl='<%# string.Format("~/Usuarios/AgregarUsuario.aspx?Usuario={0}", Item.nIdUsuario) %>'/>
                                                 </li>
-                                                <li role="presentation">
-                                                    <asp:LinkButton ID="LinkButton2" runat="server" Text="Historia Clínica" 
-                                                        PostBackUrl='<%# string.Format("~/HistoriasClinicas/VerHistorial.aspx?Paciente={0}", Item.nIdUsuario) %>'/>
-                                                </li>
-                                                <li role="presentation">
-                                                    <asp:LinkButton ID="LinkButton5" runat="server" Text="Agendar Cita" 
-                                                        PostBackUrl='<%# string.Format("~/Citas/AgendarCita.aspx?Paciente={0}", Item.nIdUsuario) %>'/>
-                                                </li>
                                             </ul>
                                         </div>
                                     </ItemTemplate>

@@ -712,6 +712,7 @@
       <DependentUpon>bdHospital.edmx</DependentUpon>
       <LastGenOutput>bdHospital.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Properties\PublishProfiles\myHospital.pubxml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>

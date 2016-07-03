@@ -115,7 +115,7 @@
             <PropertyRef Name="nIdCampoHistClin" />
           </Key>
           <Property Name="nIdCampoHistClin" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sDescripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="sDescripcion" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="bActivo" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Colonias">
@@ -123,8 +123,8 @@
             <PropertyRef Name="nIdColonia" />
           </Key>
           <Property Name="nIdColonia" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sColonia" Type="nchar" Nullable="false" MaxLength="100" />
-          <Property Name="sCP" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="sColonia" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="sCP" Type="nvarchar" Nullable="false" MaxLength="5" />
           <Property Name="nIdMunicipio" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Consulta">
@@ -134,14 +134,14 @@
           <Property Name="nIdConsulta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="nIdPaciente" Type="int" Nullable="false" />
           <Property Name="nIdUsuario" Type="int" />
-          <Property Name="sObservaciones" Type="nchar" MaxLength="3000" />
+          <Property Name="sObservaciones" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Cuidades">
           <Key>
             <PropertyRef Name="nIdCuidad" />
           </Key>
           <Property Name="nIdCuidad" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sCuidad" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="sCuidad" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="nIdEstado" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Direccion">
@@ -149,9 +149,9 @@
             <PropertyRef Name="nIdDireccion" />
           </Key>
           <Property Name="nIdDireccion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sCalle" Type="nchar" Nullable="false" MaxLength="10" />
-          <Property Name="sNoInterno" Type="nchar" Nullable="false" MaxLength="10" />
-          <Property Name="sNoExterno" Type="nchar" MaxLength="10" />
+          <Property Name="sCalle" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="sNoInterno" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="sNoExterno" Type="nvarchar" MaxLength="50" />
           <Property Name="nIdColonia" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Estados">
@@ -167,7 +167,7 @@
             <PropertyRef Name="nIdGpoSanguineo" />
           </Key>
           <Property Name="nIdGpoSanguineo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sDescripcion" Type="nchar" Nullable="false" MaxLength="30" />
+          <Property Name="sDescripcion" Type="nvarchar" Nullable="false" MaxLength="5" />
           <Property Name="bActivo" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="HitorialClinico">
@@ -177,18 +177,18 @@
           <Property Name="nIdHistorial" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="nIdPaciente" Type="int" Nullable="false" />
           <Property Name="nIdCampoHistClin" Type="int" Nullable="false" />
-          <Property Name="sObservaciones" Type="nchar" MaxLength="500" />
+          <Property Name="sObservaciones" Type="nvarchar" Nullable="false" MaxLength="500" />
         </EntityType>
         <EntityType Name="Hospitales">
           <Key>
             <PropertyRef Name="nIdHospital" />
           </Key>
           <Property Name="nIdHospital" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sNombre" Type="nchar" Nullable="false" MaxLength="200" />
-          <Property Name="sLogo" Type="nchar" MaxLength="100" />
-          <Property Name="sTel1" Type="nchar" Nullable="false" MaxLength="20" />
-          <Property Name="sTel2" Type="nchar" MaxLength="20" />
-          <Property Name="sEmail" Type="nchar" MaxLength="50" />
+          <Property Name="sNombre" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="sLogo" Type="nvarchar" MaxLength="100" />
+          <Property Name="sTel1" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="sTel2" Type="nvarchar" MaxLength="20" />
+          <Property Name="sEmail" Type="nvarchar" MaxLength="50" />
           <Property Name="nIdDireccion" Type="int" Nullable="false" />
           <Property Name="bActivo" Type="bit" Nullable="false" />
         </EntityType>
@@ -197,8 +197,8 @@
             <PropertyRef Name="nIdMedicamento" />
           </Key>
           <Property Name="nIdMedicamento" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sNombre" Type="nchar" Nullable="false" MaxLength="200" />
-          <Property Name="sLaboratorio" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="sNombre" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="sLaboratorio" Type="nvarchar" Nullable="false" MaxLength="200" />
           <Property Name="bCompartido" Type="bit" Nullable="false" />
           <Property Name="sComposicion" Type="nvarchar(max)" />
           <Property Name="sPosologia" Type="nvarchar(max)" />
@@ -211,7 +211,7 @@
             <PropertyRef Name="nIdMunicipio" />
           </Key>
           <Property Name="nIdMunicipio" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sMunicipio" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="sMunicipio" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="nIdCuidad" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Pacientes">
@@ -219,16 +219,16 @@
             <PropertyRef Name="nIdPaciente" />
           </Key>
           <Property Name="nIdPaciente" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sNombre" Type="nchar" Nullable="false" MaxLength="100" />
-          <Property Name="sPrimerApellido" Type="nchar" Nullable="false" MaxLength="60" />
-          <Property Name="sSegundoApellido" Type="nchar" MaxLength="60" />
+          <Property Name="sNombre" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="sPrimerApellido" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="sSegundoApellido" Type="nvarchar" MaxLength="100" />
           <Property Name="dFechaNac" Type="datetime" Nullable="false" />
-          <Property Name="sSexo" Type="nchar" MaxLength="1" />
+          <Property Name="sSexo" Type="nvarchar" MaxLength="1" />
           <Property Name="nIdGpoSanguineo" Type="int" Nullable="false" />
-          <Property Name="sNSS" Type="nchar" MaxLength="20" />
-          <Property Name="sTelefono" Type="nchar" Nullable="false" MaxLength="20" />
-          <Property Name="sCelular" Type="nchar" MaxLength="20" />
-          <Property Name="sEmail" Type="nchar" MaxLength="100" />
+          <Property Name="sNSS" Type="nvarchar" MaxLength="20" />
+          <Property Name="sTelefono" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="sCelular" Type="nvarchar" MaxLength="20" />
+          <Property Name="sEmail" Type="nvarchar" MaxLength="100" />
           <Property Name="bActivo" Type="bit" Nullable="false" />
           <Property Name="nIdDireccion" Type="int" Nullable="false" />
         </EntityType>
@@ -237,7 +237,7 @@
             <PropertyRef Name="nIdPais" />
           </Key>
           <Property Name="nIdPais" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sPais" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="sPais" Type="nvarchar" Nullable="false" MaxLength="100" />
         </EntityType>
         <EntityType Name="Recetas">
           <Key>
@@ -248,7 +248,7 @@
           </Key>
           <Property Name="nIdreceta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="nIdMedicamento" Type="int" Nullable="false" />
-          <Property Name="sObservaciones" Type="nchar" MaxLength="3000" />
+          <Property Name="sObservaciones" Type="nvarchar(max)" />
           <Property Name="bActivo" Type="bit" Nullable="false" />
           <Property Name="nIdConsulta" Type="int" Nullable="false" />
         </EntityType>
@@ -257,7 +257,7 @@
             <PropertyRef Name="nIdRol" />
           </Key>
           <Property Name="nIdRol" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sDescripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="sDescripcion" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="bActivo" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="USUARIOS">
@@ -265,13 +265,13 @@
             <PropertyRef Name="nIdUsuario" />
           </Key>
           <Property Name="nIdUsuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="sNombre" Type="nchar" Nullable="false" MaxLength="100" />
-          <Property Name="sPrimerApellido" Type="nchar" Nullable="false" MaxLength="60" />
-          <Property Name="sSegundoApellido" Type="nchar" MaxLength="60" />
+          <Property Name="sNombre" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="sPrimerApellido" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="sSegundoApellido" Type="nvarchar" MaxLength="100" />
           <Property Name="nIdRol" Type="int" Nullable="false" />
-          <Property Name="sImagen" Type="nchar" MaxLength="100" />
-          <Property Name="sUsuario" Type="nchar" Nullable="false" MaxLength="20" />
-          <Property Name="sContraseña" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="sImagen" Type="nvarchar" MaxLength="100" />
+          <Property Name="sUsuario" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="sContraseña" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="nIdHospital" Type="int" Nullable="false" />
           <Property Name="bActivo" Type="bit" Nullable="false" />
           <Property Name="nIdDireccion" Type="int" />
@@ -618,7 +618,7 @@
             <PropertyRef Name="nIdCampoHistClin" />
           </Key>
           <Property Name="nIdCampoHistClin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sDescripcion" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="sDescripcion" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="bActivo" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Colonias">
@@ -626,8 +626,8 @@
             <PropertyRef Name="nIdColonia" />
           </Key>
           <Property Name="nIdColonia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sColonia" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
-          <Property Name="sCP" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="sColonia" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="sCP" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
           <Property Name="nIdMunicipio" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Consulta">
@@ -637,14 +637,14 @@
           <Property Name="nIdConsulta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nIdPaciente" Type="Int32" Nullable="false" />
           <Property Name="nIdUsuario" Type="Int32" />
-          <Property Name="sObservaciones" Type="String" MaxLength="3000" Unicode="true" FixedLength="true" />
+          <Property Name="sObservaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Cuidades">
           <Key>
             <PropertyRef Name="nIdCuidad" />
           </Key>
           <Property Name="nIdCuidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sCuidad" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="sCuidad" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="nIdEstado" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Direccion">
@@ -652,9 +652,9 @@
             <PropertyRef Name="nIdDireccion" />
           </Key>
           <Property Name="nIdDireccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sCalle" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
-          <Property Name="sNoInterno" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
-          <Property Name="sNoExterno" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="sCalle" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="sNoInterno" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="sNoExterno" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="nIdColonia" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Estados">
@@ -670,7 +670,7 @@
             <PropertyRef Name="nIdGpoSanguineo" />
           </Key>
           <Property Name="nIdGpoSanguineo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sDescripcion" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="true" />
+          <Property Name="sDescripcion" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
           <Property Name="bActivo" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="HitorialClinico">
@@ -680,18 +680,18 @@
           <Property Name="nIdHistorial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nIdPaciente" Type="Int32" Nullable="false" />
           <Property Name="nIdCampoHistClin" Type="Int32" Nullable="false" />
-          <Property Name="sObservaciones" Type="String" MaxLength="500" Unicode="true" FixedLength="true" />
+          <Property Name="sObservaciones" Type="String" MaxLength="500" Unicode="true" FixedLength="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Hospitales">
           <Key>
             <PropertyRef Name="nIdHospital" />
           </Key>
           <Property Name="nIdHospital" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sNombre" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="true" />
-          <Property Name="sLogo" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
-          <Property Name="sTel1" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
-          <Property Name="sTel2" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
-          <Property Name="sEmail" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="sNombre" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="sLogo" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="sTel1" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="sTel2" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="sEmail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="nIdDireccion" Type="Int32" Nullable="false" />
           <Property Name="bActivo" Type="Boolean" Nullable="false" />
         </EntityType>
@@ -700,8 +700,8 @@
             <PropertyRef Name="nIdMedicamento" />
           </Key>
           <Property Name="nIdMedicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sNombre" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="true" />
-          <Property Name="sLaboratorio" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="sNombre" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="sLaboratorio" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
           <Property Name="bCompartido" Type="Boolean" Nullable="false" />
           <Property Name="sComposicion" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="sPosologia" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -714,7 +714,7 @@
             <PropertyRef Name="nIdMunicipio" />
           </Key>
           <Property Name="nIdMunicipio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sMunicipio" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="sMunicipio" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="nIdCuidad" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Pacientes">
@@ -722,16 +722,16 @@
             <PropertyRef Name="nIdPaciente" />
           </Key>
           <Property Name="nIdPaciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sNombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
-          <Property Name="sPrimerApellido" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="true" />
-          <Property Name="sSegundoApellido" Type="String" MaxLength="60" Unicode="true" FixedLength="true" />
+          <Property Name="sNombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="sPrimerApellido" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="sSegundoApellido" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="dFechaNac" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="sSexo" Type="String" MaxLength="1" Unicode="true" FixedLength="true" />
+          <Property Name="sSexo" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
           <Property Name="nIdGpoSanguineo" Type="Int32" Nullable="false" />
-          <Property Name="sNSS" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
-          <Property Name="sTelefono" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
-          <Property Name="sCelular" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
-          <Property Name="sEmail" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="sNSS" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="sTelefono" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="sCelular" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="sEmail" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="bActivo" Type="Boolean" Nullable="false" />
           <Property Type="Int32" Name="nIdDireccion" Nullable="false" />
         </EntityType>
@@ -740,7 +740,7 @@
             <PropertyRef Name="nIdPais" />
           </Key>
           <Property Name="nIdPais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sPais" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="sPais" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="Recetas">
           <Key>
@@ -751,7 +751,7 @@
           </Key>
           <Property Name="nIdreceta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nIdMedicamento" Type="Int32" Nullable="false" />
-          <Property Name="sObservaciones" Type="String" MaxLength="3000" Unicode="true" FixedLength="true" />
+          <Property Name="sObservaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="bActivo" Type="Boolean" Nullable="false" />
           <Property Name="nIdConsulta" Type="Int32" Nullable="false" />
         </EntityType>
@@ -760,7 +760,7 @@
             <PropertyRef Name="nIdRol" />
           </Key>
           <Property Name="nIdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sDescripcion" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="sDescripcion" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="bActivo" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="USUARIOS">
@@ -768,13 +768,13 @@
             <PropertyRef Name="nIdUsuario" />
           </Key>
           <Property Name="nIdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sNombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
-          <Property Name="sPrimerApellido" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="true" />
-          <Property Name="sSegundoApellido" Type="String" MaxLength="60" Unicode="true" FixedLength="true" />
+          <Property Name="sNombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="sPrimerApellido" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="sSegundoApellido" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="nIdRol" Type="Int32" Nullable="false" />
-          <Property Name="sImagen" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
-          <Property Name="sUsuario" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
-          <Property Name="sContraseña" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="sImagen" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="sUsuario" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="sContraseña" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="nIdHospital" Type="Int32" Nullable="false" />
           <Property Name="bActivo" Type="Boolean" Nullable="false" />
           <Property Type="Int32" Name="nIdDireccion" />

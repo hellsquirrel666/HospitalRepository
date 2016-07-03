@@ -15,7 +15,7 @@ namespace MyHospital
                 lblNombre.Text = (string)Session["Nombre"];
              }
             else
-            Response.Redirect("login.aspx");
+                Response.Redirect("~/Login.aspx",false);
             
         }
 
