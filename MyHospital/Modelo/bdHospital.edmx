@@ -10,14 +10,27 @@
           <EntitySet Name="CamposHistClin" EntityType="dbHospitalModel.Store.CamposHistClin" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Colonias" EntityType="dbHospitalModel.Store.Colonias" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Consulta" EntityType="dbHospitalModel.Store.Consulta" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Cuidades" EntityType="dbHospitalModel.Store.Cuidades" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Cuidades" EntityType="dbHospitalModel.Store.Cuidades" store:Type="Tables" store:Schema="dbo" store:Name="Cuidades">
+            <DefiningQuery>SELECT 
+      [Cuidades].[nIdCuidad] AS [nIdCuidad], 
+      [Cuidades].[sCuidad] AS [sCuidad], 
+      [Cuidades].[nIdEstado] AS [nIdEstado]
+      FROM [dbo].[Cuidades] AS [Cuidades]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Direccion" EntityType="dbHospitalModel.Store.Direccion" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Estados" EntityType="dbHospitalModel.Store.Estados" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="GposSanguineos" EntityType="dbHospitalModel.Store.GposSanguineos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="HitorialClinico" EntityType="dbHospitalModel.Store.HitorialClinico" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Hospitales" EntityType="dbHospitalModel.Store.Hospitales" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Medicamentos" EntityType="dbHospitalModel.Store.Medicamentos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Municipios" EntityType="dbHospitalModel.Store.Municipios" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Municipios" EntityType="dbHospitalModel.Store.Municipios" store:Type="Tables" store:Schema="dbo" store:Name="Municipios">
+            <DefiningQuery>SELECT 
+      [Municipios].[nIdMunicipio] AS [nIdMunicipio], 
+      [Municipios].[sMunicipio] AS [sMunicipio], 
+      [Municipios].[nIdCuidad] AS [nIdCuidad], 
+      [Municipios].[nIdEstado] AS [nIdEstado]
+      FROM [dbo].[Municipios] AS [Municipios]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Pacientes" EntityType="dbHospitalModel.Store.Pacientes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Paises" EntityType="dbHospitalModel.Store.Paises" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Recetas" EntityType="dbHospitalModel.Store.Recetas" store:Type="Tables" Schema="dbo" />
@@ -30,10 +43,6 @@
           <AssociationSet Name="FK_Agenda_USUARIOS" Association="dbHospitalModel.Store.FK_Agenda_USUARIOS">
             <End Role="USUARIOS" EntitySet="USUARIOS" />
             <End Role="Agenda" EntitySet="Agenda" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Colonias_Municipios" Association="dbHospitalModel.Store.FK_Colonias_Municipios">
-            <End Role="Municipios" EntitySet="Municipios" />
-            <End Role="Colonias" EntitySet="Colonias" />
           </AssociationSet>
           <AssociationSet Name="FK_Consulta_Pacientes" Association="dbHospitalModel.Store.FK_Consulta_Pacientes">
             <End Role="Pacientes" EntitySet="Pacientes" />
@@ -70,10 +79,6 @@
           <AssociationSet Name="FK_Medicamentos_USUARIOS" Association="dbHospitalModel.Store.FK_Medicamentos_USUARIOS">
             <End Role="USUARIOS" EntitySet="USUARIOS" />
             <End Role="Medicamentos" EntitySet="Medicamentos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Municipios_Cuidades" Association="dbHospitalModel.Store.FK_Municipios_Cuidades">
-            <End Role="Cuidades" EntitySet="Cuidades" />
-            <End Role="Municipios" EntitySet="Municipios" />
           </AssociationSet>
           <AssociationSet Name="FK_Pacientes_Direccion" Association="dbHospitalModel.Store.FK_Pacientes_Direccion">
             <End Role="Direccion" EntitySet="Direccion" />
@@ -126,6 +131,7 @@
           <Property Name="sColonia" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="sCP" Type="nvarchar" Nullable="false" MaxLength="5" />
           <Property Name="nIdMunicipio" Type="int" Nullable="false" />
+          <Property Name="nIdCiudad" Type="int" />
         </EntityType>
         <EntityType Name="Consulta">
           <Key>
@@ -136,9 +142,14 @@
           <Property Name="nIdUsuario" Type="int" />
           <Property Name="sObservaciones" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_A06759_LAURAPINEDA911.dbo.Cuidades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
         <EntityType Name="Cuidades">
           <Key>
             <PropertyRef Name="nIdCuidad" />
+            
+            
           </Key>
           <Property Name="nIdCuidad" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="sCuidad" Type="nvarchar" Nullable="false" MaxLength="100" />
@@ -206,13 +217,19 @@
           <Property Name="sContraindicaciones" Type="nvarchar(max)" />
           <Property Name="nIdUsuario" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_A06759_LAURAPINEDA911.dbo.Municipios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
         <EntityType Name="Municipios">
           <Key>
             <PropertyRef Name="nIdMunicipio" />
+            
+            
           </Key>
           <Property Name="nIdMunicipio" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="sMunicipio" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="nIdCuidad" Type="int" Nullable="false" />
+          <Property Name="nIdEstado" Type="int" />
         </EntityType>
         <EntityType Name="Pacientes">
           <Key>
@@ -297,18 +314,6 @@
             </Principal>
             <Dependent Role="Agenda">
               <PropertyRef Name="nIdUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Colonias_Municipios">
-          <End Role="Municipios" Type="dbHospitalModel.Store.Municipios" Multiplicity="1" />
-          <End Role="Colonias" Type="dbHospitalModel.Store.Colonias" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Municipios">
-              <PropertyRef Name="nIdMunicipio" />
-            </Principal>
-            <Dependent Role="Colonias">
-              <PropertyRef Name="nIdMunicipio" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -417,18 +422,6 @@
             </Principal>
             <Dependent Role="Medicamentos">
               <PropertyRef Name="nIdUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Municipios_Cuidades">
-          <End Role="Cuidades" Type="dbHospitalModel.Store.Cuidades" Multiplicity="1" />
-          <End Role="Municipios" Type="dbHospitalModel.Store.Municipios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cuidades">
-              <PropertyRef Name="nIdCuidad" />
-            </Principal>
-            <Dependent Role="Municipios">
-              <PropertyRef Name="nIdCuidad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -629,6 +622,7 @@
           <Property Name="sColonia" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="sCP" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
           <Property Name="nIdMunicipio" Type="Int32" Nullable="false" />
+          <Property Type="Int32" Name="nIdCiudad" />
         </EntityType>
         <EntityType Name="Consulta">
           <Key>
@@ -716,6 +710,7 @@
           <Property Name="nIdMunicipio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="sMunicipio" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="nIdCuidad" Type="Int32" Nullable="false" />
+          <Property Type="Int32" Name="nIdEstado" />
         </EntityType>
         <EntityType Name="Pacientes">
           <Key>
@@ -1036,7 +1031,8 @@
     <EntitySetMapping Name="Colonias">
       <EntityTypeMapping TypeName="IsTypeOf(dbHospitalModel.Colonias)">
         <MappingFragment StoreEntitySet="Colonias">
-          <ScalarProperty Name="nIdColonia" ColumnName="nIdColonia" />
+          <ScalarProperty Name="nIdCiudad" ColumnName="nIdCiudad" />
+                <ScalarProperty Name="nIdColonia" ColumnName="nIdColonia" />
           <ScalarProperty Name="sColonia" ColumnName="sColonia" />
           <ScalarProperty Name="sCP" ColumnName="sCP" />
           <ScalarProperty Name="nIdMunicipio" ColumnName="nIdMunicipio" />
@@ -1133,7 +1129,8 @@
     <EntitySetMapping Name="Municipios">
       <EntityTypeMapping TypeName="IsTypeOf(dbHospitalModel.Municipios)">
         <MappingFragment StoreEntitySet="Municipios">
-          <ScalarProperty Name="nIdMunicipio" ColumnName="nIdMunicipio" />
+          <ScalarProperty Name="nIdEstado" ColumnName="nIdEstado" />
+                <ScalarProperty Name="nIdMunicipio" ColumnName="nIdMunicipio" />
           <ScalarProperty Name="sMunicipio" ColumnName="sMunicipio" />
           <ScalarProperty Name="nIdCuidad" ColumnName="nIdCuidad" />
         </MappingFragment>

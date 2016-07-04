@@ -18,5 +18,6 @@ namespace MyHospital.Modelo
         public string sColonia { get; set; }
         public string sCP { get; set; }
         public int nIdMunicipio { get; set; }
+        public Nullable<int> nIdCiudad { get; set; }
     }
 }
