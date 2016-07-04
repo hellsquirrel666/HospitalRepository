@@ -14,7 +14,6 @@
 
         <div class="clearfix"></div>
         <asp:HiddenField runat="server" ID="hfIdPaciente" Visible="false" />
-        <asp:HiddenField runat="server" ID="hfIdDireccion" Visible="false" />
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -25,14 +24,14 @@
 	                        <tr>
                                 <td>
                                     Numero de consulta:
-                                    <asp:TextBox runat="server" ID="txtNoConsulta" CssClass="form-control" type="date"/>
+                                    <asp:TextBox runat="server" ID="txtNoConsulta" CssClass="form-control" Enabled="false"/>
                                 </td>
                                 <td>
                                    
                                 </td>
 		                        <td>
 			                        Fecha
-			                        <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" type="date"/>
+			                        <asp:TextBox runat="server" ID="txtFecha" CssClass="form-control" type="date"/>
 		                        </td>
 	                        </tr>
                             <tr>
