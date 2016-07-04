@@ -45,10 +45,13 @@ namespace MyHospital.Paciente
         protected void txtCP_TextChanged(object sender, EventArgs e)
         {
             pnlError.Visible=false;
-            if (!this.IsValid)
+            if (this.IsPostBack)
             {
-                pnlError.Visible = true;
-                ValidationSummary1.ShowSummary = true;
+                if (!this.IsValid)
+                {
+                    pnlError.Visible = true;
+                    ValidationSummary1.ShowSummary = true;
+                }
             }
             IncializaDdlDirecciones();
         }
@@ -188,7 +191,7 @@ namespace MyHospital.Paciente
             txtApellidoPaterno.Text = paciente.sPrimerApellido;
             txtApellidoMaterno.Text = paciente.sSegundoApellido;
             txtNombre.Text = paciente.sNombre;
-            txtFechaNacimiento.Text = paciente.dFechaNac.ToString("dd/MM/yyyy");
+            txtFechaNacimiento.Text = paciente.dFechaNac.ToString("yyyy-MM-dd");
             ddlSexo.SelectedValue = paciente.sSexo;
             ddlGpoSanguineo.SelectedValue = paciente.nIdGpoSanguineo.ToString();
             txtNSS.Text = paciente.sNSS;
