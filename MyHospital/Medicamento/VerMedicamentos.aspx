@@ -32,10 +32,6 @@
                                                     <asp:LinkButton ID="LinkButton1" runat="server" Text="Editar" 
                                                         PostBackUrl='<%# string.Format("~/Medicamento/AgregarMedicamento.aspx?Medicamento={0}", Item.nIdMedicamento) %>'/>
                                                 </li>
-                                                <li role="presentation">
-                                                    <asp:LinkButton ID="LinkButton2" runat="server" Text="Detalle" 
-                                                        PostBackUrl='<%# string.Format("~/Medicamento/VerMedicamentos.aspx?Medicamento={0}", Item.nIdMedicamento) %>'/>
-                                                </li>
                                             </ul>
                                         </div>
                                     </ItemTemplate>
