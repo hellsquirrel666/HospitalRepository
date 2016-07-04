@@ -181,10 +181,6 @@
     <Compile Include="Modelo\USUARIOS.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Paciente\AgregarMedicamento.aspx.cs">
-      <DependentUpon>AgregarMedicamento.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Paciente\AgregarMedicamento.aspx.designer.cs">
       <DependentUpon>AgregarMedicamento.aspx</DependentUpon>
     </Compile>
