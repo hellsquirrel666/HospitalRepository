@@ -132,6 +132,7 @@
           <Property Name="sCP" Type="nvarchar" Nullable="false" MaxLength="5" />
           <Property Name="nIdMunicipio" Type="int" Nullable="false" />
           <Property Name="nIdCiudad" Type="int" />
+          <Property Name="nIdEstado" Type="int" />
         </EntityType>
         <EntityType Name="Consulta">
           <Key>
@@ -623,6 +624,7 @@
           <Property Name="sCP" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
           <Property Name="nIdMunicipio" Type="Int32" Nullable="false" />
           <Property Type="Int32" Name="nIdCiudad" />
+          <Property Type="Int32" Name="nIdEstado" />
         </EntityType>
         <EntityType Name="Consulta">
           <Key>
@@ -1031,7 +1033,8 @@
     <EntitySetMapping Name="Colonias">
       <EntityTypeMapping TypeName="IsTypeOf(dbHospitalModel.Colonias)">
         <MappingFragment StoreEntitySet="Colonias">
-          <ScalarProperty Name="nIdCiudad" ColumnName="nIdCiudad" />
+          <ScalarProperty Name="nIdEstado" ColumnName="nIdEstado" />
+                <ScalarProperty Name="nIdCiudad" ColumnName="nIdCiudad" />
                 <ScalarProperty Name="nIdColonia" ColumnName="nIdColonia" />
           <ScalarProperty Name="sColonia" ColumnName="sColonia" />
           <ScalarProperty Name="sCP" ColumnName="sCP" />

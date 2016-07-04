@@ -19,5 +19,6 @@ namespace MyHospital.Modelo
         public string sCP { get; set; }
         public int nIdMunicipio { get; set; }
         public Nullable<int> nIdCiudad { get; set; }
+        public Nullable<int> nIdEstado { get; set; }
     }
 }
