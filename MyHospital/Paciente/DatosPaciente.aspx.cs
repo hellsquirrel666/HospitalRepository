@@ -22,10 +22,19 @@ namespace MyHospital.Paciente
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            DireccionLogic dl = new DireccionLogic();
-            var dir = dl.ActualizarOGuardarDireccion(ObtenerDireccion());
-            PacienteLogic pl = new PacienteLogic();
-            pl.ActualizarOGuardarPaciente(ObtenerPaciente(dir.nIdDireccion));
+            pnlError.Visible=false;
+            if (this.IsValid)
+            {
+                DireccionLogic dl = new DireccionLogic();
+                var dir = dl.ActualizarOGuardarDireccion(ObtenerDireccion());
+                PacienteLogic pl = new PacienteLogic();
+                pl.ActualizarOGuardarPaciente(ObtenerPaciente(dir.nIdDireccion));
+            }
+            else 
+            {
+                pnlError.Visible = true;
+                ValidationSummary1.ShowSummary = true;
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -35,6 +44,12 @@ namespace MyHospital.Paciente
 
         protected void txtCP_TextChanged(object sender, EventArgs e)
         {
+            pnlError.Visible=false;
+            if (!this.IsValid)
+            {
+                pnlError.Visible = true;
+                ValidationSummary1.ShowSummary = true;
+            }
             IncializaDdlDirecciones();
         }
 
