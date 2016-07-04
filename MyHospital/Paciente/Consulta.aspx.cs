@@ -24,10 +24,14 @@ namespace MyHospital.Paciente
             if (string.IsNullOrEmpty(txtNoConsulta.Text))
             {
                 GuardarConsulta();
+                var id = txtNoConsulta.Text;
+                Page.RegisterStartupScript("script", "<script>window.open('AgregarMedicamento.aspx?Consulta=" + id + "' ,'Titulo','height=400', 'width=200')</script>");
+
             }
             else
             {
-                Page.RegisterStartupScript("script", "<script>window.open('AgregarMedicamento.aspx?Consulta=" + hfIdPaciente.Value + " ,'Titulo','height=400', 'width=200')</script>");
+                var id = txtNoConsulta.Text;
+                Page.RegisterStartupScript("script", "<script>window.open('AgregarMedicamento.aspx?Consulta="+id+"' ,'Titulo','height=400', 'width=200')</script>");
             }
         }
 

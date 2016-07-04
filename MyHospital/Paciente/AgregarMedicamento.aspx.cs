@@ -25,6 +25,7 @@ namespace MyHospital.Paciente
             "MessageBox",
             "<script language='javascript'>alert('" + "Se guardó correctamente el medicamento." + "');</script>"
              );
+            Page.RegisterStartupScript("script", "<script>function refreshParent() {window.self.location.reload(true); } window.close();</script>");
             
         }
 
