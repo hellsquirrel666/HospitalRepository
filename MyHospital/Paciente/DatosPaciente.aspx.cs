@@ -157,10 +157,10 @@ namespace MyHospital.Paciente
 
                 //obtiene municipios, ciudades y estados que coinciden con CP
                 var municipios = (from c in _dataModel.Colonias
-                                  join m in _dataModel.Municipios on c.nIdMunicipio equals m.nIdMunicipio
-                                  join ciu in _dataModel.Cuidades on m.nIdCuidad equals ciu.nIdCuidad
+                                  join m in _dataModel.Municipios on c.nIdMunicipio equals m.nIdMunicipio 
+                                  join ciu in _dataModel.Cuidades on m.nIdCuidad equals ciu.nIdCuidad 
                                   join e in _dataModel.Estados on ciu.nIdEstado equals e.nIdEstado
-                                  where c.sCP.Equals(txtCP.Text)
+                                  where c.sCP.Equals(txtCP.Text) && c.nIdCiudad == (m.nIdCuidad) && m.nIdEstado == (ciu.nIdEstado)  && c.nIdEstado==m.nIdEstado
                                   select new { m.nIdMunicipio, m.sMunicipio, ciu.nIdCuidad, ciu.sCuidad, e.nIdEstado, e.sEstado }
                              ).Distinct().ToList();
 

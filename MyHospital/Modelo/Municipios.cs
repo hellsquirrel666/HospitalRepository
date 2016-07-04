@@ -17,5 +17,6 @@ namespace MyHospital.Modelo
         public int nIdMunicipio { get; set; }
         public string sMunicipio { get; set; }
         public int nIdCuidad { get; set; }
+        public Nullable<int> nIdEstado { get; set; }
     }
 }
