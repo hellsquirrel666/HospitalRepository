@@ -142,8 +142,8 @@
           <Property Name="nIdPaciente" Type="int" Nullable="false" />
           <Property Name="nIdUsuario" Type="int" />
           <Property Name="sObservaciones" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="fecha" Type="datetime" Nullable="false" />
-          <Property Name="sDiagnostico" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="sDiagnostico" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DB_A06759_LAURAPINEDA911.dbo.Cuidades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -637,8 +637,8 @@
           <Property Name="nIdPaciente" Type="Int32" Nullable="false" />
           <Property Name="nIdUsuario" Type="Int32" />
           <Property Name="sObservaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" Nullable="false" />
-          <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
-          <Property Type="String" Name="sDiagnostico" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" />
+          <Property Type="String" Name="sDiagnostico" MaxLength="1000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Cuidades">
           <Key>

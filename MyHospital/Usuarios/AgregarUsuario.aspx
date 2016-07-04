@@ -24,54 +24,38 @@
 	                        <tr>
 		                        <td>
 			                        Apellido paterno
-		                        </td>
-		                        <td colspan="2">
 			                        <asp:TextBox runat="server" ID="txtApellidoPaterno" CssClass="form-control" />
 		                        </td>
 		                        <td>
 			                        Apellido materno
-		                        </td>
-		                        <td colspan="2">
 			                        <asp:TextBox runat="server" ID="txtApellidoMaterno" CssClass="form-control" />
 		                        </td>
 		                        <td>
 			                        Nombre (s)
-		                        </td>
-		                        <td colspan="2">
 			                        <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" />
 		                        </td>
 	                        </tr>
                             <tr>
                                 <td>
 			                        Tipo de usuario
-		                        </td>
-		                        <td colspan="2">
 			                        <asp:DropDownList runat="server" ID="ddlRoles" CssClass="form-control" />
 		                        </td>
                                 <td>
 			                        Foto
-		                        </td>
-		                        <td colspan="4">
 		                            <asp:FileUpload ID="fuImagen" runat="server" />
 		                        </td>
                             </tr>
                             <tr>
                                 <td>
 			                        Usuario
-		                        </td>
-		                        <td colspan="2">
 			                        <asp:TextBox runat="server" ID="txtUsuario" CssClass="form-control" />
 		                        </td>
                                 <td>
 			                        Contraseña
-		                        </td>
-		                        <td colspan="2">
 			                        <asp:TextBox runat="server" ID="txtContraseña" CssClass="form-control" TextMode="Password" />
 		                        </td>
                                 <td>
 			                        Confirmar contraseña
-		                        </td>
-		                        <td colspan="2">
 			                        <asp:TextBox runat="server" ID="txtConfirmaConstraseña" CssClass="form-control" TextMode="Password" />
 		                        </td>
 	                        

@@ -22,24 +22,18 @@
                     <div class="x_content">
                         <table class="table" style="table-layout:fixed;">
 	                        <tr>
-		                        <td>
+		                        <td colspan="2">
 			                        Nombre Medicamento:
-		                        </td>
-		                        <td colspan="5">
 			                        <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" />
 		                        </td>
 	                        </tr>
                             <tr>
                                 <td>
 			                       Laboratorio:
-		                        </td>
-		                        <td colspan="2">
 			                        <asp:TextBox runat="server" ID="txtLaboratorio" CssClass="form-control" />
 		                        </td>
                                 <td>
 			                        Compartido:
-		                        </td>
-		                        <td colspan="2">
 			                        <asp:DropdownList runat="server" ID="ddlCompartido" CssClass="form-control" AppendDataBoundItems="true">
                                         <asp:ListItem Selected="True" Text="-- Seleccione una opcion --  "></asp:ListItem>
                                         <asp:ListItem Text="Si" Value="True"></asp:ListItem>
@@ -48,33 +42,25 @@
 		                        </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td colspan="2">
 			                        Composición:
-		                        </td>
-		                        <td colspan="5">
 			                        <asp:TextBox runat="server" ID="txtComposicion" CssClass="form-control" TextMode="MultiLine" />
 		                        </td>
                             </tr>
                             <tr>
-		                        <td>
+		                        <td colspan="2">
 			                        Posologia
-		                        </td>
-		                        <td colspan="5">
 			                        <asp:TextBox runat="server" ID="txtPosologia" CssClass="form-control" TextMode="MultiLine"/>
 		                        </td>
                             <tr>
-                                <td>
+                                <td colspan="2">
 			                        Indicaciones:
-		                        </td>
-		                        <td colspan="5">
 			                        <asp:TextBox runat="server" ID="txtIndicaciones" CssClass="form-control" TextMode="MultiLine"/>
 		                        </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td colspan="2">
 			                        Contraindicaciones:
-		                        </td>
-		                        <td colspan="5">
 			                        <asp:TextBox runat="server" ID="txtContraindicaciones" CssClass="form-control" TextMode="MultiLine"/>
 		                        </td>
                             </tr>
