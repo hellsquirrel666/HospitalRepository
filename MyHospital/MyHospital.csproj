@@ -104,6 +104,7 @@
     <Compile Include="LogicEntities\CamposHistorialClinicoLogic.cs" />
     <Compile Include="LogicEntities\ConsultaLogic.cs" />
     <Compile Include="LogicEntities\DireccionLogic.cs" />
+    <Compile Include="LogicEntities\EventModel.cs" />
     <Compile Include="LogicEntities\GpoSanguineoLogic.cs" />
     <Compile Include="LogicEntities\HistorialClinicoLogic.cs" />
     <Compile Include="LogicEntities\HospitalLogic.cs" />
@@ -263,6 +264,11 @@
     <Content Include="Paciente\HistorialConsultas.aspx" />
     <Content Include="Paciente\VerHistorial.aspx" />
     <Content Include="Paciente\VerPacientes.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\calendar-es-MX.js" />
+    <Content Include="Scripts\calendar.min.js" />
+    <Content Include="Scripts\underscore.min.js" />
     <Content Include="Site.css" />
     <Content Include="Site.master" />
     <Compile Include="LogIn.aspx.cs">
