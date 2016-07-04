@@ -194,6 +194,13 @@
     <Compile Include="Paciente\Consulta.aspx.designer.cs">
       <DependentUpon>Consulta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Paciente\HistorialConsultas.aspx.cs">
+      <DependentUpon>HistorialConsultas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paciente\HistorialConsultas.aspx.designer.cs">
+      <DependentUpon>HistorialConsultas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paciente\VerHistorial.aspx.cs">
       <DependentUpon>VerHistorial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -253,6 +260,7 @@
     <Content Include="Paciente\AgregarMedicamento.aspx" />
     <Content Include="Paciente\Consulta.aspx" />
     <Content Include="Paciente\DatosPaciente.aspx" />
+    <Content Include="Paciente\HistorialConsultas.aspx" />
     <Content Include="Paciente\VerHistorial.aspx" />
     <Content Include="Paciente\VerPacientes.aspx" />
     <Content Include="Site.css" />

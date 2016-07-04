@@ -43,8 +43,12 @@
                                                         PostBackUrl='<%# string.Format("~/Paciente/VerHistorial.aspx?Paciente={0}", Item.nIdPaciente) %>'/>
                                                 </li>
                                                 <li role="presentation">
-                                                    <asp:LinkButton ID="LinkButton5" runat="server" Text="Agendar Cita" 
-                                                        PostBackUrl='<%# string.Format("~/Citas/AgendarCita.aspx?Paciente={0}", Item.nIdPaciente) %>'/>
+                                                    <asp:LinkButton ID="LinkButton5" runat="server" Text="Historial Consultas" 
+                                                        PostBackUrl='<%# string.Format("~/Paciente/HistorialConsultas.aspx?Paciente={0}", Item.nIdPaciente) %>'/>
+                                                </li>
+                                                <li role="presentation">
+                                                    <asp:LinkButton ID="LinkButton3" runat="server" Text="Nueva Consultas" 
+                                                        PostBackUrl='<%# string.Format("~/Paciente/Consulta.aspx?Paciente={0}", Item.nIdPaciente) %>'/>
                                                 </li>
                                             </ul>
                                         </div>
