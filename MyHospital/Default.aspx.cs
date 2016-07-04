@@ -56,7 +56,7 @@ namespace MyHospital
                     currEvent.end = GetMilliseconds(diaActual.AddHours(1));
                     listEventosFechas.Add(currEvent);
                 }
-                return listEventosFechas;
+                return listEventosFechas; 
             }
         }
         private string GetMilliseconds(DateTime dt)
