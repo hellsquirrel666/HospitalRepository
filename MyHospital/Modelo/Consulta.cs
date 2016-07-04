@@ -18,5 +18,7 @@ namespace MyHospital.Modelo
         public int nIdPaciente { get; set; }
         public Nullable<int> nIdUsuario { get; set; }
         public string sObservaciones { get; set; }
+        public System.DateTime fecha { get; set; }
+        public string sDiagnostico { get; set; }
     }
 }

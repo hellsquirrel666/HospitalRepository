@@ -19,5 +19,6 @@ namespace MyHospital.Modelo
         public string sObservaciones { get; set; }
         public bool bActivo { get; set; }
         public int nIdConsulta { get; set; }
+        public int nUnidades { get; set; }
     }
 }

@@ -142,6 +142,8 @@
           <Property Name="nIdPaciente" Type="int" Nullable="false" />
           <Property Name="nIdUsuario" Type="int" />
           <Property Name="sObservaciones" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="sDiagnostico" Type="nvarchar" Nullable="false" MaxLength="1000" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DB_A06759_LAURAPINEDA911.dbo.Cuidades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -269,6 +271,7 @@
           <Property Name="sObservaciones" Type="nvarchar(max)" />
           <Property Name="bActivo" Type="bit" Nullable="false" />
           <Property Name="nIdConsulta" Type="int" Nullable="false" />
+          <Property Name="nUnidades" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -634,6 +637,8 @@
           <Property Name="nIdPaciente" Type="Int32" Nullable="false" />
           <Property Name="nIdUsuario" Type="Int32" />
           <Property Name="sObservaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" Nullable="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="sDiagnostico" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Cuidades">
           <Key>
@@ -751,6 +756,7 @@
           <Property Name="sObservaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="bActivo" Type="Boolean" Nullable="false" />
           <Property Name="nIdConsulta" Type="Int32" Nullable="false" />
+          <Property Type="Int32" Name="nUnidades" Nullable="false" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -1045,7 +1051,9 @@
     <EntitySetMapping Name="Consulta">
       <EntityTypeMapping TypeName="IsTypeOf(dbHospitalModel.Consulta)">
         <MappingFragment StoreEntitySet="Consulta">
-          <ScalarProperty Name="nIdConsulta" ColumnName="nIdConsulta" />
+          <ScalarProperty Name="sDiagnostico" ColumnName="sDiagnostico" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="nIdConsulta" ColumnName="nIdConsulta" />
           <ScalarProperty Name="nIdPaciente" ColumnName="nIdPaciente" />
           <ScalarProperty Name="nIdUsuario" ColumnName="nIdUsuario" />
           <ScalarProperty Name="sObservaciones" ColumnName="sObservaciones" />
@@ -1169,7 +1177,8 @@
     <EntitySetMapping Name="Recetas">
       <EntityTypeMapping TypeName="IsTypeOf(dbHospitalModel.Recetas)">
         <MappingFragment StoreEntitySet="Recetas">
-          <ScalarProperty Name="nIdreceta" ColumnName="nIdreceta" />
+          <ScalarProperty Name="nUnidades" ColumnName="nUnidades" />
+                <ScalarProperty Name="nIdreceta" ColumnName="nIdreceta" />
           <ScalarProperty Name="nIdMedicamento" ColumnName="nIdMedicamento" />
           <ScalarProperty Name="bActivo" ColumnName="bActivo" />
           <ScalarProperty Name="nIdConsulta" ColumnName="nIdConsulta" />
