@@ -36,6 +36,7 @@
                         <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                             <div class="panel panel-default">
                                 <div class="panel-body">
+                                    <asp:HiddenField runat="server" ID="hfIdConsulta" Visible="false" />
                                      <table class="table" style="table-layout:fixed;">
 	                                    <tr>
 		                                    <td>
@@ -52,7 +53,7 @@
                                           <tr>
                                              <td>
                                                Dosis/Modo de Empleo:
-                                                <asp:TextBox runat="server" ID="TextBox1"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtObservaciones"></asp:TextBox>
                                             </td>
                                          </tr>
                                     </table>

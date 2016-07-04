@@ -110,6 +110,7 @@
     <Compile Include="LogicEntities\HospitalLogic.cs" />
     <Compile Include="LogicEntities\MedicamentoLogic.cs" />
     <Compile Include="LogicEntities\PacienteLogic.cs" />
+    <Compile Include="LogicEntities\RecetaLogic.cs" />
     <Compile Include="LogicEntities\UsuarioLogic.cs" />
     <Compile Include="Medicamento\VerMedicamentos.aspx.cs">
       <DependentUpon>VerMedicamentos.aspx</DependentUpon>
