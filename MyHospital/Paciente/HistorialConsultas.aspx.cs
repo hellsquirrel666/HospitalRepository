@@ -18,7 +18,7 @@ namespace MyHospital.Paciente
         public void InitializeControls()
         {
             ConsultaLogic pl = new ConsultaLogic();
-            var lista = pl.ListaConsulta();
+            var lista = pl.ListaConsulta(Convert.ToInt32(Request.QueryString["Paciente"]));
             gvPacientes.DataSource = lista;
             gvPacientes.DataBind();
         }

@@ -29,5 +29,21 @@ namespace MyHospital.LogicEntities
                 throw new Exception("Ocurrió un error en el servicio web.", e);
             }
         }
+
+        public List<Recetas> ListaMedicamentos(int IdConsulta)
+        {
+            try
+            {
+                using (var db = new dbHospitalEntities())
+                {
+                    var query = db.Recetas.AsQueryable().Where(rec => rec.nIdConsulta.Equals(IdConsulta));
+                    return query.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrió un error en el servicio web.", e);
+            }
+        }
     }
 }

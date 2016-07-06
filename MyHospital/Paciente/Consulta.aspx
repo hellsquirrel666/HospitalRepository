@@ -17,7 +17,10 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                    <h2>Consulta</h2>
+                    <h2>Consulta
+                        <asp:Label runat="server" ID="NombrePaciente"/>
+                    </h2>
+
                     <div class="clearfix"></div>
                     <div class="x_content">
                         <table class="table" style="table-layout:fixed;">
@@ -42,7 +45,7 @@
 	                        </tr>
                             <tr>
                                 <td colspan="3">
-                                     <asp:GridView runat="server" ID="gvPacientes" CssClass="table table-hover" AutoGenerateColumns="false">
+                                     <asp:GridView runat="server" ID="gvMedicamentos" CssClass="table table-hover" AutoGenerateColumns="false">
                                         <Columns>
                                             <asp:BoundField HeaderText="Cantidad" DataField="nUnidades" />
                                             <asp:BoundField HeaderText="Medicamento Prescrito" DataField="sNombre" />
