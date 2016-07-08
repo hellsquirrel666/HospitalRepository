@@ -14,7 +14,7 @@
 
             //Función que permite solo Números
             function ValidaSoloNumeros() {
-                if ((event.keyCode != 8) && (event.keyCode < 48) || (event.keyCode > 57))
+                if ((event.keyCode != 8) && (event.keyCode < 48) && (event.keyCode != 9) || (event.keyCode > 57))
                     event.returnValue = false;
             }
 
@@ -147,7 +147,7 @@
                                 <td>
 			                        Codigo postal
                                     <asp:TextBox runat="server" CssClass="form-control" ID="txtCP" AutoPostBack="true" CausesValidation="true" ValidationGroup="Validators"
-                                        OnTextChanged="txtCP_TextChanged" MaxLength="5"  onkeydown="return ValidaSoloNumeros(event);" ></asp:TextBox>
+                                        OnTextChanged="txtCP_TextChanged" MaxLength="5"></asp:TextBox>
                                     <asp:RequiredFieldValidator id="rfvCP" ErrorMessage="Codigo postal es obligatorio" ForeColor="Red"
                                         ControlToValidate="txtCP" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
                                 </td>
