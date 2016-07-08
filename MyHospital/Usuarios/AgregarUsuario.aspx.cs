@@ -15,10 +15,21 @@ namespace MyHospital.Usuarios
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
+            try
             {
-                LlenarDdlRol();
-                InitializeControls();
+                if (!this.IsPostBack)
+                {
+                    LlenarDdlRol();
+                    InitializeControls();
+                }
+            }
+            catch
+            {
+                Page.ClientScript.RegisterStartupScript(
+                Page.GetType(),
+                "MessageBox",
+                "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
+                );
             }
         }
 

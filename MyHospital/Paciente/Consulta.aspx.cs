@@ -16,10 +16,21 @@ namespace MyHospital.Paciente
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
+            try
             {
-                Session["Consulta"] = string.Empty;
-                InitializeControls();
+                if (!this.IsPostBack)
+                {
+                    Session["Consulta"] = string.Empty;
+                    InitializeControls();
+                }
+            }
+            catch
+            {
+                Page.ClientScript.RegisterStartupScript(
+                Page.GetType(),
+                "MessageBox",
+                "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
+                );
             }
         }
 
@@ -32,13 +43,14 @@ namespace MyHospital.Paciente
                 GuardarConsulta();
             else
                 InitializeControls();
+            
 
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Session["Consulta"] = string.Empty;
-            
+            Response.Redirect("~/");
         }
 
         #region Metodos

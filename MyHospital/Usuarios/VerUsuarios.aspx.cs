@@ -12,7 +12,18 @@ namespace MyHospital.Usuarios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitializeControls();
+            try
+            {
+                InitializeControls();
+            }
+            catch
+            {
+                Page.ClientScript.RegisterStartupScript(
+                Page.GetType(),
+                "MessageBox",
+                "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
+                );
+            }
         }
 
         public void InitializeControls()

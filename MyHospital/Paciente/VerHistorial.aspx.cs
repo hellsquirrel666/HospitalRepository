@@ -20,9 +20,20 @@ namespace MyHospital.Paciente
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
+            try
             {
-                InitializeControls();
+                if (!this.IsPostBack)
+                {
+                    InitializeControls();
+                }
+            }
+            catch
+            {
+                Page.ClientScript.RegisterStartupScript(
+                Page.GetType(),
+                "MessageBox",
+                "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
+                );
             }
         }
 

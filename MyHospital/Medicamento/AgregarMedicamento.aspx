@@ -67,6 +67,7 @@
                         </table>
                         <div class="form-group" style="text-align:right">
                             <asp:Button ID="LoginButton" runat="server" CommandName="Guardar" Text="Guardar" class="btn btn-primary"  OnClick="GuardarButton_Click" />
+                             <asp:Button ID="btnCalcelar" runat="server" CommandName="Calcelar" Text="Cancelar" class="btn btn-danger" OnClick="btnCalcelar_Click" />
                         </div>
                     </div>
                 </div>

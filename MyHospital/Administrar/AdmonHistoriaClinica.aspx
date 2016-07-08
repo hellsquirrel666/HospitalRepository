@@ -59,7 +59,7 @@
                              
                             <asp:button runat="server" ID="btnGuardar" class="btn btn-primary"  Text="Guardar" OnClick="btnGuardar_Click" 
                                 ValidationGroup="desc" ValidateRequestMode="Enabled" CausesValidation="true" /> &nbsp&nbsp&nbsp&nbsp&nbsp
-                            <asp:button runat="server" ID="btnCancelar" class="btn btn-danger" Text="Cancelar"/>
+                            <asp:button runat="server" ID="btnCancelar" class="btn btn-danger" Text="Cancelar" OnClick="btnCancelar_Click"/>
                         </div>
                     </div>
                 </div>

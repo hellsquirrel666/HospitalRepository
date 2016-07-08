@@ -13,7 +13,18 @@ namespace MyHospital.Administar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitializeControls();
+            try
+            {
+                InitializeControls();
+            }
+            catch
+            {
+                Page.ClientScript.RegisterStartupScript(
+                Page.GetType(),
+                "MessageBox",
+                "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
+                );
+            }
         }
 
         protected void gvHistClin_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -35,7 +46,25 @@ namespace MyHospital.Administar
 
                 CamposHistorialClinicoLogic dl = new CamposHistorialClinicoLogic();
                 var camp = dl.ActualizarOGuardarCampo(ObtenerCampo());
+                if (camp.nIdCampoHistClin != 0)
+                {
+                    txtDescripcion.Text = string.Empty;
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "El nuevo campo se ha guardado correctamente." + "');</script>"
+                     );
 
+                }
+                else 
+                {
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "Ha ocurrido un error al guardar el nuevo campo." + "');</script>"
+                     );
+
+                }
                 InitializeControls();
             }
         }
@@ -68,9 +97,9 @@ namespace MyHospital.Administar
             return direccion;
         }
 
-
-
-       
-        
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/");
+        }
     }
 }

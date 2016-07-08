@@ -18,9 +18,20 @@ namespace MyHospital.Medicamento
         #region "Eventos"
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!this.IsPostBack)
+            try
             {
-                InitializeControls();
+                if (!this.IsPostBack)
+                {
+                    InitializeControls();
+                }
+            }
+            catch
+            {
+                Page.ClientScript.RegisterStartupScript(
+                Page.GetType(),
+                "MessageBox",
+                "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
+             );
             }
         }
         
@@ -36,7 +47,7 @@ namespace MyHospital.Medicamento
                     "MessageBox",
                     "<script language='javascript'>alert('" + "El medicamento ha sido registrado exitosamente" + "');</script>"
                  );
-       
+                 Response.Redirect("~/Medicamento/AgregarMedicamento.aspx");
             }
             catch
             {
@@ -47,6 +58,13 @@ namespace MyHospital.Medicamento
              );
             }
         }
+
+
+        protected void btnCalcelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/");
+        }
+
         #endregion
 
         #region "Metodos"
@@ -102,5 +120,7 @@ namespace MyHospital.Medicamento
         }
 
         #endregion
+
+       
     }
 }
