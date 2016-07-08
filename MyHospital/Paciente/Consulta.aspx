@@ -43,12 +43,17 @@
 		                        <td>
 			                        Fecha
 			                        <asp:TextBox runat="server" ID="txtFecha" CssClass="form-control" type="date"/>
+                                    <asp:RequiredFieldValidator runat="server" ID="rfvFecha" ForeColor="red" Display="Dynamic" 
+                                        ControlToValidate="txtFecha" ValidationGroup="desc" ErrorMessage="Fecha es obligatorio"  />
+
 		                        </td>
 	                        </tr>
                             <tr>
 		                        <td colspan="3">
 			                        Diagnostico
 			                        <asp:TextBox runat="server" ID="txtDiagnostico" onkeydown="return txNombres(event);" CssClass="form-control"/>
+                                    <asp:RequiredFieldValidator runat="server" ID="rfvDiagnostico" ForeColor="red" Display="Dynamic" 
+                                        ControlToValidate="txtDiagnostico" ValidationGroup="desc" ErrorMessage="Diagnostico es obligatorio"  />
 		                        </td>
 	                        </tr>
                             <tr>
@@ -66,6 +71,8 @@
                                 <td colspan="3">
                                      Observaciones Adicionales
 			                        <asp:TextBox runat="server" ID="txtObservaciones" onkeydown="return txNombres(event);" CssClass="form-control"/>
+                                    <asp:RequiredFieldValidator runat="server" ID="rfvObservaciones" ForeColor="red" Display="Dynamic" 
+                                        ControlToValidate="txtObservaciones" ValidationGroup="desc" ErrorMessage="Observaciones es obligatorio"  />
 
                                 </td>
                             </tr>

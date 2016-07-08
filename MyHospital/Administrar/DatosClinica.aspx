@@ -25,6 +25,8 @@
 		                        <td colspan="3">
 			                       Nombre
 			                        <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" />
+                                    <asp:RequiredFieldValidator id="rfvNombre" ErrorMessage="Nombre es obligatorio" ForeColor="Red"
+                                        ControlToValidate="txtNombre" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
 		                        </td>
 	                        </tr>
                             <tr>
@@ -38,6 +40,9 @@
                                 <td>
 			                        Telefono 1
 			                        <asp:TextBox runat="server" ID="txtTel1" CssClass="form-control" />
+                                    <asp:RequiredFieldValidator id="rfvTelefono" ErrorMessage="Telefono es obligatorio" ForeColor="Red"
+                                        ControlToValidate="txtTel1" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
+
 		                        </td>
                                
                                 <td>
@@ -67,6 +72,9 @@
                                  <td>
 			                        Codigo postal
                                     <asp:TextBox runat="server" CssClass="form-control" ID="txtCP" AutoPostBack="true" OnTextChanged="txtCP_TextChanged" TextMode="Number" ></asp:TextBox>
+                                    <asp:RequiredFieldValidator id="rfvCP" ErrorMessage="Nombre es obligatorio" ForeColor="Red"
+                                        ControlToValidate="txtCP" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
+
                                 </td>
                                 <td>
                                     Colonia:
@@ -89,7 +97,7 @@
                             </tr>
                         </table>
                         <div class="form-group" style="text-align:right">
-                            <asp:Button runat="server" ID="btnGuardar" Text="Guardar" class="btn btn-primary" OnClick="btnGuardar_Click"/>
+                            <asp:Button runat="server" ID="btnGuardar" Text="Guardar" class="btn btn-primary" OnClick="btnGuardar_Click" ValidationGroup="Validators"/>
                             <asp:Button runat="server" ID="btnCancelar" Text="Cancelar" class="btn btn-danger" OnClick="btnCancelar_Click"/>
 
                         </div>

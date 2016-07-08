@@ -55,6 +55,8 @@
                                              <td>
                                                 Num. envases/ unidades:
                                                 <asp:TextBox runat="server" ID="txtNumEnvases"></asp:TextBox>
+                                                 <asp:RequiredFieldValidator runat="server" ID="rfvEnvases" ForeColor="red" Display="Dynamic" 
+                                                    ControlToValidate="txtNumEnvases" ValidationGroup="desc" ErrorMessage="Numero de envases o unidades es obligatorio"  />
                                             </td>
                                          </tr>
                                           <tr>

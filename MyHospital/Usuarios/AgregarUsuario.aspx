@@ -25,6 +25,8 @@
 		                        <td>
 			                        Apellido paterno
 			                        <asp:TextBox runat="server" ID="txtApellidoPaterno" CssClass="form-control" />
+                                    <asp:RequiredFieldValidator runat="server" ID="rfvPaterno" ForeColor="red" Display="Dynamic" 
+                                        ControlToValidate="txtApellidoPaterno" ValidationGroup="desc" ErrorMessage="Apellido paterno es obligatorio"  />
 		                        </td>
 		                        <td>
 			                        Apellido materno
@@ -33,6 +35,8 @@
 		                        <td>
 			                        Nombre (s)
 			                        <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" />
+                                    <asp:RequiredFieldValidator runat="server" ID="rfvNombre" ForeColor="red" Display="Dynamic" 
+                                        ControlToValidate="txtNombre" ValidationGroup="desc" ErrorMessage="Nombre es obligatorio"  />
 		                        </td>
 	                        </tr>
                             <tr>
@@ -49,10 +53,15 @@
                                 <td>
 			                        Usuario
 			                        <asp:TextBox runat="server" ID="txtUsuario" CssClass="form-control" />
+                                    <asp:RequiredFieldValidator runat="server" ID="rfvUsuario" ForeColor="red" Display="Dynamic" 
+                                        ControlToValidate="txtUsuario" ValidationGroup="desc" ErrorMessage="Usuario es obligatorio"  />
 		                        </td>
                                 <td>
 			                        Contraseña
 			                        <asp:TextBox runat="server" ID="txtContraseña" CssClass="form-control" TextMode="Password" />
+                                        <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ForeColor="red" Display="Dynamic" 
+                                        ControlToValidate="txtApellidoPaterno" ValidationGroup="desc" ErrorMessage="Contraseña es obligatoria"  />
+
 		                        </td>
                                 <td>
 			                        Confirmar contraseña

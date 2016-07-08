@@ -25,12 +25,16 @@
 		                        <td colspan="2">
 			                        Nombre Medicamento:
 			                        <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" />
+                                    <asp:RequiredFieldValidator runat="server" ID="rfvNombre" ForeColor="red" Display="Dynamic" 
+                                        ControlToValidate="txtNombre" ValidationGroup="desc" ErrorMessage="El canpo nombre es obligatorio"  />
 		                        </td>
 	                        </tr>
                             <tr>
                                 <td>
 			                       Laboratorio:
 			                        <asp:TextBox runat="server" ID="txtLaboratorio" CssClass="form-control" />
+                                    <asp:RequiredFieldValidator runat="server" ID="rfvLaboratorio" ForeColor="red" Display="Dynamic" 
+                                        ControlToValidate="txtLaboratorio" ValidationGroup="desc" ErrorMessage="Laboratorio es obligatorio"  />
 		                        </td>
                                 <td>
 			                        Compartido:
@@ -39,6 +43,8 @@
                                         <asp:ListItem Text="Si" Value="True"></asp:ListItem>
                                         <asp:ListItem Text="No" Value="False"></asp:ListItem>
                                         </asp:DropdownList>
+                                    <asp:RequiredFieldValidator runat="server" ID="rfvCompartido" ForeColor="red" Display="Dynamic" 
+                                        ControlToValidate="ddlCompartido" ValidationGroup="desc" ErrorMessage="Seleccione una opcion" InitialValue="-- Seleccione una opcion --  "  />
 		                        </td>
                             </tr>
                             <tr>
