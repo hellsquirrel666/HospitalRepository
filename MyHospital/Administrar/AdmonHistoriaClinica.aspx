@@ -49,13 +49,16 @@
 		                        <td>
 			                        Ingresar nuevo campo
 			                        <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" />
+                                    <asp:RequiredFieldValidator runat="server" ID="rfvDescripcion" BackColor="Red" ForeColor="White" Display="Dynamic" ValidateRequestMode="Enabled"
+                                        ControlToValidate="txtDescripcion" ValidationGroup="desc" ErrorMessage="El canpo descripcion no debe estar vacío" />
 		                        </td>
                          </table>
                         
 
                          <div class="form-group" style="text-align:right">
                              
-                            <asp:button runat="server" ID="btnGuardar" class="btn btn-primary"  Text="Guardar" OnClick="btnGuardar_Click" /> &nbsp&nbsp&nbsp&nbsp&nbsp
+                            <asp:button runat="server" ID="btnGuardar" class="btn btn-primary"  Text="Guardar" OnClick="btnGuardar_Click" 
+                                ValidationGroup="desc" ValidateRequestMode="Enabled" CausesValidation="true" /> &nbsp&nbsp&nbsp&nbsp&nbsp
                             <asp:button runat="server" ID="btnCancelar" class="btn btn-danger" Text="Cancelar"/>
                         </div>
                     </div>
