@@ -49,8 +49,8 @@
 		                        <td>
 			                        Ingresar nuevo campo
 			                        <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" />
-                                    <asp:RequiredFieldValidator runat="server" ID="rfvDescripcion" BackColor="Red" ForeColor="White" Display="Dynamic" ValidateRequestMode="Enabled"
-                                        ControlToValidate="txtDescripcion" ValidationGroup="desc" ErrorMessage="El canpo descripcion no debe estar vacío" />
+                                    <asp:RequiredFieldValidator runat="server" ID="rfvDescripcion" ForeColor="red" Display="Dynamic" 
+                                        ControlToValidate="txtDescripcion" ValidationGroup="desc" ErrorMessage="El canpo descripcion no debe estar vacío"  />
 		                        </td>
                          </table>
                         
