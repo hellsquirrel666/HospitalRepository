@@ -17,14 +17,39 @@ namespace MyHospital.Paciente
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            RecetaLogic rl = new RecetaLogic();
-            var cons = rl.ActualizarOGuardarReceta(ObtenerReceta());
+            try
+            {
+                RecetaLogic rl = new RecetaLogic();
+                var cons = rl.ActualizarOGuardarReceta(ObtenerReceta());
 
-            Page.ClientScript.RegisterStartupScript(
-            Page.GetType(),
-            "MessageBox",
-            "<script language='javascript'>alert('" + "Se guardó correctamente el medicamento." + "');</script>"
-             );  
+
+                if (cons.nIdreceta != 0)
+                {
+                    txtNumEnvases.Text = string.Empty;
+                    txtObservaciones.Text = string.Empty;
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "Se guardó correctamente el medicamento." + "');</script>"
+                    );
+                }
+                else 
+                {
+                    Page.ClientScript.RegisterStartupScript(
+                   Page.GetType(),
+                   "MessageBox",
+                   "<script language='javascript'>alert('" + "Ocurrio un error al guardar el medicamento." + "');</script>"
+                    );
+                }
+            }
+            catch
+            {
+                Page.ClientScript.RegisterStartupScript(
+               Page.GetType(),
+               "MessageBox",
+               "<script language='javascript'>alert('" + "Ocurrio un error al guardar el medicamento." + "');</script>"
+                );
+            }
         }
 
        
