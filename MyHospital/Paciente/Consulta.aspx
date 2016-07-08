@@ -1,5 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Consulta.aspx.cs" Inherits="MyHospital.Paciente.Consulta" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+    <script type="text/javascript">
+        function OpenPopup() {
+            var str = '<%= txtNoConsulta.Text%>';
+            window.open('AgregarMedicamento.aspx?Consulta=' + str, '', 'width=600,height=400');
+
+        };
+</script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyContent" runat="server">
         <form id="Form1" runat="server" class="right_col" role="main">
@@ -17,7 +25,10 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                    <h2>Consulta</h2>
+                    <h2>Consulta
+                        <asp:Label runat="server" ID="NombrePaciente"/>
+                    </h2>
+
                     <div class="clearfix"></div>
                     <div class="x_content">
                         <table class="table" style="table-layout:fixed;">
@@ -42,7 +53,7 @@
 	                        </tr>
                             <tr>
                                 <td colspan="3">
-                                     <asp:GridView runat="server" ID="gvPacientes" CssClass="table table-hover" AutoGenerateColumns="false">
+                                     <asp:GridView runat="server" ID="gvMedicamentos" CssClass="table table-hover" AutoGenerateColumns="false">
                                         <Columns>
                                             <asp:BoundField HeaderText="Cantidad" DataField="nUnidades" />
                                             <asp:BoundField HeaderText="Medicamento Prescrito" DataField="sNombre" />
@@ -60,8 +71,7 @@
                             </tr>
                             </table>  
                            <div class="form-group" style="text-align:right">
-                            <asp:button runat="server" ID="btnAgregarMedicamento" class="btn btn-primary" Text="Agregar Medicamento" 
-                                CausesValidation="true" ValidationGroup="Validators" OnClick="btnAgregarMedicamento_Click" /> &nbsp&nbsp&nbsp&nbsp&nbsp
+                           <input type="button"  ID="btnAgregar_Med" value="Agregar Medicamento" class="btn btn-primary"  runat="server" onclick="javascript: return OpenPopup()" />
                             <asp:button runat="server" ID="btnGuardar" class="btn btn-primary" OnClick="btnGuardar_Click" Text="Guardar" 
                                 CausesValidation="true" ValidationGroup="Validators" /> &nbsp&nbsp&nbsp&nbsp&nbsp
                             <asp:button runat="server" ID="btnCancelar" class="btn btn-danger" OnClick="btnCancelar_Click" Text="Cancelar"/>

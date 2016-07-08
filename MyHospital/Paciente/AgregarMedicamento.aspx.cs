@@ -24,15 +24,10 @@ namespace MyHospital.Paciente
             Page.GetType(),
             "MessageBox",
             "<script language='javascript'>alert('" + "Se guardó correctamente el medicamento." + "');</script>"
-             );
-            
+             );  
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Page.RegisterStartupScript("script", "<script>window.close()</script>");
-
-        }
+       
 
         private void InitializeControls()
         {

@@ -31,7 +31,7 @@
                                             <ul class="dropdown-menu" role="menu" aria-labelledby="ddmOpciones">
                                                 <li role="presentation">
                                                     <asp:LinkButton ID="LinkButton1" runat="server" Text="Ver" 
-                                                        PostBackUrl='<%# string.Format("~/Paciente/Consulta.aspx?Consulta={0}", Item.nIdPaciente) %>'/>
+                                                        PostBackUrl='<%# string.Format("~/Paciente/Consulta.aspx?Consulta={0}", Item.nIdConsulta) %>'/>
                                                 </li>
                                             </ul>
                                         </div>
