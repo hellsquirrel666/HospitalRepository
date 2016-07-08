@@ -18,6 +18,13 @@
     <!-- Custom Theme Style -->
     <link href="../Content/css/custom.min.css" rel="stylesheet nofollow"/>
 
+    <script type="text/javascript">
+        function CloseWindow() {
+            window.opener.location.reload();
+            window.close();
+        }
+    </script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -58,9 +65,10 @@
                                          </tr>
                                     </table>
                                      <div class="form-group" style="text-align:right">
-                                          <asp:button runat="server" ID="btnGuardar" class="btn btn-primary" OnClick="btnGuardar_Click" Text="Guardar" 
+                                          <asp:Button runat="server" ID="btnGuardar" class="btn btn-primary" OnClick="btnGuardar_Click" Text="Guardar" 
                                             CausesValidation="true" ValidationGroup="Validators" /> &nbsp&nbsp&nbsp&nbsp&nbsp
-                                        <asp:button runat="server" ID="btnCancelar" class="btn btn-danger" OnClick="btnCancelar_Click" Text="Cancelar"/>
+                                            <input type="button" value="Cerrar" class="btn btn-danger"  onclick="javascript: return CloseWindow();" />
+
                                     </div>
                                 </div>
                             </div>

@@ -85,13 +85,13 @@ namespace MyHospital.Paciente {
         protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
         
         /// <summary>
-        /// Control btnAgregarMedicamento.
+        /// Control btnAgregar_Med.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarMedicamento;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnAgregar_Med;
         
         /// <summary>
         /// Control btnGuardar.

@@ -9,41 +9,36 @@ using MyHospital.Modelo;
 
 namespace MyHospital.Paciente
 {
+
     public partial class Consulta : System.Web.UI.Page
     {
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
             {
+                Session["Consulta"] = string.Empty;
                 InitializeControls();
             }
         }
 
-        protected void btnAgregarMedicamento_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtNoConsulta.Text))
-            {
-
-                GuardarConsulta();
-                var id = txtNoConsulta.Text;
-                Page.RegisterStartupScript("script", "<script>window.open('AgregarMedicamento.aspx?Consulta=" + id + "' ,'Titulo','height=400', 'width=200')</script>");
-
-            }
-            else
-            {
-                var id = txtNoConsulta.Text;
-                Page.RegisterStartupScript("script", "<script>window.open('AgregarMedicamento.aspx?Consulta=" + id + "' ,'Titulo','height=400', 'width=200')</script>");
-            }
-        }
+       
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            GuardarConsulta();
+
+            if (string.IsNullOrEmpty(Session["Consulta"].ToString()) && string.IsNullOrEmpty(Request.QueryString["Consulta"]))
+                GuardarConsulta();
+            else
+                InitializeControls();
+
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            Session["Consulta"] = string.Empty;
+            
         }
 
         #region Metodos
@@ -52,7 +47,11 @@ namespace MyHospital.Paciente
         {
             hfIdPaciente.Value = Request.QueryString["Paciente"];
             var IdConsulta = Request.QueryString["Consulta"];
-            txtFecha.Text = DateTime.Today.ToString("dd/MM/yyyy");
+
+            if (!string.IsNullOrEmpty(Session["Consulta"].ToString()))
+                IdConsulta = Session["Consulta"].ToString();
+
+
             if (!string.IsNullOrEmpty(IdConsulta))
             {
                 int idPac;
@@ -83,7 +82,7 @@ namespace MyHospital.Paciente
                              );
                             Response.Redirect("~/");
                         }
-                        else 
+                        else
                         {
                             RecetaLogic ml = new RecetaLogic();
 
@@ -99,10 +98,15 @@ namespace MyHospital.Paciente
                             }
 
                         }
-                        
+
                     }
                 }
 
+            }
+            else
+            {
+                btnAgregar_Med.Disabled = true;
+                txtFecha.Text = DateTime.Today.ToString("yyyy-MM-dd");
             }
         }
 
@@ -111,11 +115,13 @@ namespace MyHospital.Paciente
             ConsultaLogic cl = new ConsultaLogic();
             var consulta = cl.ActualizarOGuardarCampo(ObtenerConsulta());
             txtNoConsulta.Text = consulta.nIdConsulta.ToString();
+            Session["Consulta"] = consulta.nIdConsulta.ToString();
             Page.ClientScript.RegisterStartupScript(
                 Page.GetType(),
                 "MessageBox",
                 "<script language='javascript'>alert('" + "Consulta guardada." + "');</script>"
              );
+            btnAgregar_Med.Disabled = false;
         }
 
         public Modelo.Consulta ObtenerConsulta()
@@ -131,6 +137,8 @@ namespace MyHospital.Paciente
                 fecha = DateTime.Parse(txtFecha.Text),
                 sDiagnostico = txtDiagnostico.Text
             };
+                      
+            
             return consulta;
         }
 
