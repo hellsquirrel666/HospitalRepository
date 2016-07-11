@@ -251,10 +251,6 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Content Include="Error.aspx" />
-    <Content Include="Global.asax" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Content Include="LogIn.aspx" />
     <Content Include="Medicamento\AgregarMedicamento.aspx" />
     <Content Include="Medicamento\VerMedicamentos.aspx" />

@@ -36,13 +36,32 @@ namespace MyHospital.Paciente
             DireccionLogic dl = new DireccionLogic();
             var dir = dl.ActualizarOGuardarDireccion(ObtenerDireccion());
             PacienteLogic pl = new PacienteLogic();
-            pl.ActualizarOGuardarPaciente(ObtenerPaciente(dir.nIdDireccion));
-           
+            var pac = pl.ActualizarOGuardarPaciente(ObtenerPaciente(dir.nIdDireccion));
+            if (pac.nIdPaciente == 0)
+            {
+                Page.ClientScript.RegisterStartupScript(
+                Page.GetType(),
+                "MessageBox",
+                "<script language='javascript'>alert('" + "Ha ocurrido un error al guardar al nuevo paciente." + "');</script>"
+                );
+            }
+            else 
+            {  
+                Page.ClientScript.RegisterStartupScript(
+                 Page.GetType(),
+                 "MessageBox",
+                 "<script language='javascript'>alert('" + "El paciente se ha registrado correctamente." + "');</script>"
+                 );
+
+                Response.Redirect("~/Paciente/VerPacientes.aspx");
+
+              
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/");
+            Response.Redirect("~/Paciente/VerPacientes.aspx");
         }
 
         protected void txtCP_TextChanged(object sender, EventArgs e)
@@ -71,7 +90,6 @@ namespace MyHospital.Paciente
                             "MessageBox",
                             "<script language='javascript'>alert('" + "No se encontró el cliente." + "');</script>"
                          );
-                        Response.Redirect("~/");
                     }
                     else 
                     {
@@ -84,7 +102,6 @@ namespace MyHospital.Paciente
                                 "MessageBox",
                                 "<script language='javascript'>alert('" + "No se encontró la dirección del cliente." + "');</script>"
                              );
-                            Response.Redirect("~/");
                         }
                         LlenarPaciente(paciente, dir);
                     } 

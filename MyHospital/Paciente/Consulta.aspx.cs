@@ -12,8 +12,6 @@ namespace MyHospital.Paciente
 
     public partial class Consulta : System.Web.UI.Page
     {
-        
-
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -21,8 +19,9 @@ namespace MyHospital.Paciente
                 if (!this.IsPostBack)
                 {
                     Session["Consulta"] = string.Empty;
-                    InitializeControls();
                 }
+
+                InitializeControls();
             }
             catch
             {
@@ -34,91 +33,64 @@ namespace MyHospital.Paciente
             }
         }
 
-       
-
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-
-            if (string.IsNullOrEmpty(Session["Consulta"].ToString()) && string.IsNullOrEmpty(Request.QueryString["Consulta"]))
+            if (string.IsNullOrEmpty(Session["Consulta"].ToString()) || string.IsNullOrEmpty(Request.QueryString["Consulta"]))
+            {
                 GuardarConsulta();
+                VistaConsulta();
+            }
             else
                 InitializeControls();
-            
-
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Session["Consulta"] = string.Empty;
-            Response.Redirect("~/");
+            Response.Redirect("~/Paciente/VerPacientes.aspx");
         }
+
+        #region Vistas
+        private void VistaNewConsulta()
+        {
+            btnAgregar_Med.Visible = false;
+            btnGuardar.Visible = true;
+            txtFecha.Text = DateTime.Today.ToString("yyyy-MM-dd");
+        }
+
+        private void VistaConsultaVer()
+        {
+            btnAgregar_Med.Visible = false;
+            btnGuardar.Visible = false;
+        }
+        private void VistaConsulta()
+        {
+            btnAgregar_Med.Visible = true;
+            btnGuardar.Visible = true;
+        }
+        #endregion
 
         #region Metodos
 
         private void InitializeControls()
         {
-            hfIdPaciente.Value = Request.QueryString["Paciente"];
             var IdConsulta = Request.QueryString["Consulta"];
-
-            if (!string.IsNullOrEmpty(Session["Consulta"].ToString()))
-                IdConsulta = Session["Consulta"].ToString();
-
-
+            var IdPaciente = Request.QueryString["Paciente"];
+            hfIdPaciente.Value = IdPaciente;
+            var IdConsultaNueva = Session["Consulta"].ToString();
             if (!string.IsNullOrEmpty(IdConsulta))
             {
-                int idPac;
-                if (int.TryParse(IdConsulta, out idPac))
-                {
-                    ConsultaLogic cl = new ConsultaLogic();
-                    Modelo.Consulta con = cl.ObtenerConsulta(int.Parse(IdConsulta));
-
-                    if (con == null)
-                    {
-                        Page.ClientScript.RegisterStartupScript(
-                            Page.GetType(),
-                            "MessageBox",
-                            "<script language='javascript'>alert('" + "No se encontró la consulta." + "');</script>"
-                            );
-                        Response.Redirect("~/");
-                    }
-                    else
-                    {
-                        PacienteLogic pl = new PacienteLogic();
-                        Pacientes paciente = pl.ObtenerPaciente(con.nIdPaciente);
-                        if (paciente == null)
-                        {
-                            Page.ClientScript.RegisterStartupScript(
-                                Page.GetType(),
-                                "MessageBox",
-                                "<script language='javascript'>alert('" + "No se encontró el id del paciente." + "');</script>"
-                             );
-                            Response.Redirect("~/");
-                        }
-                        else
-                        {
-                            RecetaLogic ml = new RecetaLogic();
-
-                            using (var _dataModel = new dbHospitalEntities())
-                            {
-                                var recetas = (from r in _dataModel.Recetas
-                                               join m in _dataModel.Medicamentos on r.nIdMedicamento equals m.nIdMedicamento
-                                               where r.nIdConsulta == con.nIdConsulta
-                                               select new { r.nUnidades, m.sNombre, r.sObservaciones }
-                                             ).Distinct().ToList();
-
-                                LlenarPaciente(paciente, con, recetas);
-                            }
-
-                        }
-
-                    }
-                }
-
+                VistaConsultaVer();
+                LlenarConsulta(Convert.ToInt32(IdConsulta));
             }
-            else
+            else if(!string.IsNullOrEmpty(IdConsultaNueva))
             {
-                btnAgregar_Med.Disabled = true;
-                txtFecha.Text = DateTime.Today.ToString("yyyy-MM-dd");
+                VistaConsulta();
+                LlenarConsulta(Convert.ToInt32(IdConsultaNueva));
+            } 
+            else if (!string.IsNullOrEmpty(IdPaciente))
+            {
+                VistaNewConsulta();
             }
         }
 
@@ -133,7 +105,6 @@ namespace MyHospital.Paciente
                 "MessageBox",
                 "<script language='javascript'>alert('" + "Consulta guardada." + "');</script>"
              );
-            btnAgregar_Med.Disabled = false;
         }
 
         public Modelo.Consulta ObtenerConsulta()
@@ -164,6 +135,53 @@ namespace MyHospital.Paciente
 
             gvMedicamentos.DataSource = receta;
             gvMedicamentos.DataBind();
+        }
+
+        public void LlenarConsulta(int IdConsulta)
+        {
+               
+            ConsultaLogic cl = new ConsultaLogic();
+            Modelo.Consulta con = cl.ObtenerConsulta(IdConsulta);
+
+            if (con == null)
+            {
+                Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "No se encontró la consulta." + "');</script>"
+                    );
+                Response.Redirect("~/");
+            }
+            else
+            {
+                PacienteLogic pl = new PacienteLogic();
+                Pacientes paciente = pl.ObtenerPaciente(con.nIdPaciente);
+                if (paciente == null)
+                {
+                    Page.ClientScript.RegisterStartupScript(
+                        Page.GetType(),
+                        "MessageBox",
+                        "<script language='javascript'>alert('" + "No se encontró el id del paciente." + "');</script>"
+                        );
+                    Response.Redirect("~/");
+                }
+                else
+                {
+                    RecetaLogic ml = new RecetaLogic();
+
+                    using (var _dataModel = new dbHospitalEntities())
+                    {
+                        var recetas = (from r in _dataModel.Recetas
+                                        join m in _dataModel.Medicamentos on r.nIdMedicamento equals m.nIdMedicamento
+                                        where r.nIdConsulta == con.nIdConsulta
+                                        select new { r.nUnidades, m.sNombre, r.sObservaciones }
+                                        ).Distinct().ToList();
+
+                        LlenarPaciente(paciente, con, recetas);
+                    }
+
+                }
+            }
         }
 
         #endregion

@@ -10,7 +10,7 @@ namespace MyHospital.LogicEntities
 {
     public class PacienteLogic
     {
-        public void ActualizarOGuardarPaciente(Modelo.Pacientes paciente)
+        public Pacientes ActualizarOGuardarPaciente(Modelo.Pacientes paciente)
         {
             try 
             {
@@ -22,6 +22,7 @@ namespace MyHospital.LogicEntities
                 {
                     db.Entry(paciente).State = paciente.nIdPaciente == 0 ? EntityState.Added : EntityState.Modified;
                     db.SaveChanges();
+                    return paciente;
                 }
             }
             catch (Exception e)
