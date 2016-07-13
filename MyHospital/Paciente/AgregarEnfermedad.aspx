@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarMedicamento.aspx.cs" Inherits="MyHospital.Paciente.AgregarMedicamento" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarEnfermedad.aspx.cs" Inherits="MyHospital.Paciente.AgregarEnfermedad" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+      <title></title>
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet nofollow"/>
     <!-- Font Awesome -->
@@ -32,7 +32,7 @@
             <div class="row text-center ">
                 <div class="col-md-12">
                     <br /><br />
-                    <h1> Agregar Medicamento</h1>
+                    <h1> Agregar Enfermedad</h1>
                     <h5></h5>
                     <br />
                 </div>
@@ -45,22 +45,20 @@
                                 <table class="table" style="table-layout:fixed;">
 	                            <tr>
 		                            <td>
-                                        Medicamento
-                                        <asp:DropDownList runat="server" ID="ddlMedicamento"></asp:DropDownList>
+                                        Enfermedades
+                                        <asp:DropDownList runat="server" ID="ddlEnfermedades"></asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="ddlEnfermedades" InitialValue="--Seleccionar enfermedad--" ErrorMessage="*" 
+                                             ForeColor="Red" Display="Dynamic" ValidationGroup="Validators"/>
                                     </td>
                                 </tr>
+
                                     <tr>
                                         <td>
-                                        Num. envases/ unidades:
-                                        <asp:TextBox runat="server" ID="txtNumEnvases"></asp:TextBox>
-                                            <asp:RequiredFieldValidator runat="server" ID="rfvEnvases" ForeColor="red" Display="Dynamic" 
-                                            ControlToValidate="txtNumEnvases" ValidationGroup="desc" ErrorMessage="Numero de envases o unidades es obligatorio"  />
-                                    </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        Dosis/Modo de Empleo:
-                                        <asp:TextBox runat="server" ID="txtObservaciones"></asp:TextBox>
+                                        Observaciones
+                                        <asp:TextBox runat="server" ID="txtObservaciones"  TextMode="MultiLine"></asp:TextBox>
+                                        <asp:RequiredFieldValidator id="rfvObs" ErrorMessage="*" ForeColor="Red"
+                                        ControlToValidate="txtObservaciones" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
+
                                     </td>
                                     </tr>
                             </table>
@@ -70,6 +68,7 @@
                                     <input type="button" value="Cerrar" class="btn btn-danger"  onclick="javascript: return CloseWindow();" />
 
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -77,5 +76,5 @@
 
         </div>
     </form>
-</body>
+    </body>
 </html>

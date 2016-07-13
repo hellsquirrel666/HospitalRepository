@@ -34,6 +34,25 @@ namespace MyHospital.LogicEntities
             }
         }
 
+        public int  ObtenerIdHistorial(int nIdCampo, int nIdPaciente)
+        {
+            try
+            {
+                using (var db = new dbHospitalEntities())
+                {
+                    var query = (from hc in db.HitorialClinico
+                                     where hc.nIdPaciente==nIdPaciente
+                                     && hc.nIdCampoHistClin==nIdCampo
+                                  select hc.nIdHistorial).SingleOrDefault();
+                    return Convert.ToInt32(query);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrió un error en el servicio web.", e);
+            }
+        }
+
 
         public List<CamposHistClin> ListaCampos()
         {

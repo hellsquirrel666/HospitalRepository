@@ -101,6 +101,9 @@
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="LogicEntities\CamposHistorialClinicoLogic.cs" />
     <Compile Include="LogicEntities\ConsultaLogic.cs" />
     <Compile Include="LogicEntities\DireccionLogic.cs" />
@@ -182,6 +185,13 @@
     <Compile Include="Modelo\USUARIOS.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
+    <Compile Include="Paciente\AgregarEnfermedad.aspx.cs">
+      <DependentUpon>AgregarEnfermedad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paciente\AgregarEnfermedad.aspx.designer.cs">
+      <DependentUpon>AgregarEnfermedad.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paciente\AgregarMedicamento.aspx.cs">
       <DependentUpon>AgregarMedicamento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -251,10 +261,12 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Content Include="Error.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="LogIn.aspx" />
     <Content Include="Medicamento\AgregarMedicamento.aspx" />
     <Content Include="Medicamento\VerMedicamentos.aspx" />
     <Content Include="Modelo\bdHospital.edmx.sql" />
+    <Content Include="Paciente\AgregarEnfermedad.aspx" />
     <Content Include="Paciente\AgregarMedicamento.aspx" />
     <Content Include="Paciente\Consulta.aspx" />
     <Content Include="Paciente\DatosPaciente.aspx" />

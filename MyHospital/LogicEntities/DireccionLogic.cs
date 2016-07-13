@@ -35,7 +35,7 @@ namespace MyHospital.LogicEntities
         {
             try
             {
-                if (idDireccion == null || idDireccion == 0)
+                if ( idDireccion == 0)
                 {
                     throw new ArgumentException("No se puede obtener la Direccion. idDireccion no puede estar vacío.", "idDireccion");
                 }

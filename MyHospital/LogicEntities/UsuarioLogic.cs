@@ -51,7 +51,7 @@ namespace MyHospital.LogicEntities
         {
             try
             {
-                if (idUsuario == null || idUsuario == 0)
+                if (idUsuario == 0)
                 {
                     throw new ArgumentException("No se puede obtener el cliente. idCliente no puede estar vacío.", "idCliente");
                 }

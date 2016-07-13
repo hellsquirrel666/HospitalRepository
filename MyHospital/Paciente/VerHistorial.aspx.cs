@@ -39,22 +39,36 @@ namespace MyHospital.Paciente
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            TextBox txtObservaciones;
-            foreach (GridViewRow row in gvCampos.Rows)
+            try
             {
-                txtObservaciones = row.Cells[2].FindControl("txtObservaciones") as TextBox;
-                IdCampo = Convert.ToInt32(row.Cells[0].Text);
-                IdHistorial = string.IsNullOrEmpty(row.Cells[1].Text) ? default(int) : int.Parse(row.Cells[1].Text); ;
-                Descripcion = txtObservaciones.Text;
+                TextBox txtObservaciones;
+                CamposHistorialClinicoLogic histClin = new CamposHistorialClinicoLogic();
 
-                if (IdHistorial != 0 || !String.IsNullOrEmpty(Descripcion))
+                foreach (GridViewRow row in gvCampos.Rows)
                 {
-                    HistorialClinicoLogic hcl = new HistorialClinicoLogic();
-                    hcl.ActualizarOGuardarCampo(ObtenerDireccion());
+                    txtObservaciones = row.Cells[2].FindControl("txtObservaciones") as TextBox;
+                    IdCampo = Convert.ToInt32(row.Cells[0].Text);
+                    IdHistorial = histClin.ObtenerIdHistorial(IdCampo, Convert.ToInt32(Request.QueryString["Paciente"]));
 
+                    Descripcion = txtObservaciones.Text;
+
+                    if (IdHistorial != 0 || !String.IsNullOrEmpty(Descripcion))
+                    {
+                        HistorialClinicoLogic hcl = new HistorialClinicoLogic();
+                        hcl.ActualizarOGuardarCampo(ObtenerDireccion());
+
+                    }
                 }
+                InitializeControls();
             }
-            InitializeControls();
+            catch 
+            {
+                Page.ClientScript.RegisterStartupScript(
+               Page.GetType(),
+               "MessageBox",
+               "<script language='javascript'>alert('" + "Ha ocurrido un error al guardar." + "');</script>"
+               );
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -65,21 +79,9 @@ namespace MyHospital.Paciente
         private void InitializeControls()
         {
             var idPaciente = Request.QueryString["Paciente"];
-            using (var _dataModel = new dbHospitalEntities())
-            {
 
-                var lista = (from c in _dataModel.CamposHistClin
-                                join hc in _dataModel.HitorialClinico on c.nIdCampoHistClin equals hc.nIdCampoHistClin into gj
-                                from subhc in gj.DefaultIfEmpty()
-                                where c.bActivo==true
-                             select new {   c.nIdCampoHistClin, 
-                                            c.sDescripcion, 
-                                            nIdHistorial = (subhc == null ? 0 : subhc.nIdHistorial),
-                                            sObservaciones = (subhc == null ? String.Empty : subhc.sObservaciones) }
-                    ).ToList();
-                gvCampos.DataSource = lista;
-                gvCampos.DataBind();
-            }
+            LLenaTableHistorial(Convert.ToInt32(idPaciente));
+
         }
 
         public HitorialClinico ObtenerDireccion()
@@ -94,7 +96,21 @@ namespace MyHospital.Paciente
             return direccion;
         }
 
+        public void LLenaTableHistorial(int idPaciente)
+        {
+            using (var _dataModel = new dbHospitalEntities())
+                {
 
-
+                    var lista = (from c in _dataModel.CamposHistClin
+                                    join hc in _dataModel.HitorialClinico on c.nIdCampoHistClin equals hc.nIdCampoHistClin
+                                 where c.bActivo == true && !string.IsNullOrEmpty(hc.sObservaciones) && hc.nIdPaciente == idPaciente
+                                 select new {   hc.nIdCampoHistClin,
+                                                c.sDescripcion, 
+                                                hc.sObservaciones}
+                        ).ToList();
+                    gvCampos.DataSource = lista;
+                    gvCampos.DataBind();
+                }
+        }
     }
 }

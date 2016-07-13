@@ -68,6 +68,7 @@ namespace MyHospital.Paciente
         private void InitializeControls()
         {
             var idConsulta = Request.QueryString["Consulta"];
+           
             if (!string.IsNullOrEmpty(idConsulta))
             {
                 int idCon;

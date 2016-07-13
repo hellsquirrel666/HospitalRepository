@@ -35,7 +35,7 @@ namespace MyHospital.LogicEntities
         {
             try
             {
-                if (idHospital == null || idHospital == 0)
+                if (idHospital == 0)
                 {
                     throw new ArgumentException("No se puede obtener el hospital. idHospital no puede estar vacío.", "idHospital");
                 }
