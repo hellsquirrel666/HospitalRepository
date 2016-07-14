@@ -47,6 +47,9 @@
 		                            <td>
                                         Medicamento
                                         <asp:DropDownList runat="server" ID="ddlMedicamento"></asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="ddlMedicamento" InitialValue="--Seleccionar Medicamento--"
+                                             ForeColor="Red" Display="Dynamic" ValidationGroup="Validators">*</asp:RequiredFieldValidator>
+
                                     </td>
                                 </tr>
                                     <tr>
@@ -54,23 +57,28 @@
                                         Num. envases/ unidades:
                                         <asp:TextBox runat="server" ID="txtNumEnvases"></asp:TextBox>
                                             <asp:RequiredFieldValidator runat="server" ID="rfvEnvases" ForeColor="red" Display="Dynamic" 
-                                            ControlToValidate="txtNumEnvases" ValidationGroup="desc" ErrorMessage="Numero de envases o unidades es obligatorio"  />
+                                            ControlToValidate="txtNumEnvases" ValidationGroup="Validators">*</asp:RequiredFieldValidator>
                                     </td>
                                     </tr>
                                     <tr>
                                         <td>
                                         Dosis/Modo de Empleo:
                                         <asp:TextBox runat="server" ID="txtObservaciones"></asp:TextBox>
+                                        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ForeColor="red" Display="Dynamic" 
+                                        ControlToValidate="txtObservaciones" ValidationGroup="Validators">*</asp:RequiredFieldValidator>
                                     </td>
                                     </tr>
                             </table>
-                                <div class="form-group" style="text-align:right">
+                            <div class="form-group" style="text-align:right">
                                     <asp:Button runat="server" ID="btnGuardar" class="btn btn-primary" OnClick="btnGuardar_Click" Text="Guardar" 
                                     CausesValidation="true" ValidationGroup="Validators" /> &nbsp&nbsp&nbsp&nbsp&nbsp
                                     <input type="button" value="Cerrar" class="btn btn-danger"  onclick="javascript: return CloseWindow();" />
 
                             </div>
                         </div>
+                          <asp:ValidationSummary id="ValidationSummary1" HeaderText="Los campos marcados con asterisco * son obligatorios"
+                                 ForeColor="Red" ControlToValidate="txtObservaciones" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
+
                     </div>
                 </div>
             </div>

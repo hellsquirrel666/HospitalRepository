@@ -47,8 +47,8 @@
 		                            <td>
                                         Enfermedades
                                         <asp:DropDownList runat="server" ID="ddlEnfermedades"></asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="ddlEnfermedades" InitialValue="--Seleccionar enfermedad--" ErrorMessage="*" 
-                                             ForeColor="Red" Display="Dynamic" ValidationGroup="Validators"/>
+                                        <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="ddlEnfermedades" InitialValue="--Seleccionar enfermedad--"
+                                             ForeColor="Red" Display="Dynamic" ValidationGroup="Validators">*</asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
 
@@ -56,8 +56,8 @@
                                         <td>
                                         Observaciones
                                         <asp:TextBox runat="server" ID="txtObservaciones"  TextMode="MultiLine"></asp:TextBox>
-                                        <asp:RequiredFieldValidator id="rfvObs" ErrorMessage="*" ForeColor="Red"
-                                        ControlToValidate="txtObservaciones" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
+                                        <asp:RequiredFieldValidator id="rfvObs" ForeColor="Red"
+                                        ControlToValidate="txtObservaciones" Display="Dynamic" Runat="server" ValidationGroup="Validators">*</asp:RequiredFieldValidator>
 
                                     </td>
                                     </tr>
@@ -68,7 +68,8 @@
                                     <input type="button" value="Cerrar" class="btn btn-danger"  onclick="javascript: return CloseWindow();" />
 
                             </div>
-                            
+                             <asp:ValidationSummary id="RequiredFieldValidator1" HeaderText="Los campos marcados con asterisco * son obligatorios"
+                                 ForeColor="Red" ControlToValidate="txtObservaciones" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
                         </div>
                     </div>
                 </div>

@@ -45,27 +45,35 @@
 		                        <td>
 			                        Apellido paterno
 			                        <asp:TextBox runat="server" ID="txtApellidoPaterno" onkeydown="return txNombres(event);" CssClass="form-control" />
-                                    <asp:RequiredFieldValidator id="rfvFirstName" ErrorMessage="Apellido paterno es obligatorio"
-                                        ControlToValidate="txtApellidoPaterno" Display="Dynamic" Runat="server" ValidationGroup="Validators"
-                                        ForeColor="Red"/>
+                                </td>
+                                <td style="width: 18px">
+                                    <asp:RequiredFieldValidator id="rfvFirstName" ControlToValidate="txtApellidoPaterno" Display="Dynamic" Runat="server" ValidationGroup="Validators"
+                                        ForeColor="Red">*</asp:RequiredFieldValidator>
 		                        </td>
 		                        <td>
 			                        Apellido materno
 			                        <asp:TextBox runat="server" ID="txtApellidoMaterno" onkeydown="return txNombres(event);" CssClass="form-control" />
 		                        </td>
-		                        <td colspan="2">
+                                <td style="width: 18px">
+
+                                </td>
+		                        <td>
 			                        Nombre (s)
 			                        <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" onkeydown="return txNombres(event);"/>
-                                    <asp:RequiredFieldValidator id="rfvNombre" ErrorMessage="Nombre es obligatorio" ForeColor="Red"
-                                        ControlToValidate="txtNombre" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
+                                </td>
+		                        <td style="width: 18px">
+                                    <asp:RequiredFieldValidator id="rfvNombre" ForeColor="Red"
+                                        ControlToValidate="txtNombre" Display="Dynamic" Runat="server" ValidationGroup="Validators">*</asp:RequiredFieldValidator>
 		                        </td>
 	                        </tr>
                             <tr>
                                 <td>
 			                        Fecha de nacimiento
 			                        <asp:TextBox runat="server" ID="txtFechaNacimiento" CssClass="form-control" Type="Date"/>
-                                    <asp:RequiredFieldValidator id="rfvFechaNacieniento" ErrorMessage="Fecha de Nacimiento es un campo obligatorio"
-                                        ControlToValidate="txtFechaNacimiento" Display="Dynamic" Runat="server" ValidationGroup="Validators" ForeColor="Red"/>
+                                 </td>
+		                        <td style="width: 18px">
+                                    <asp:RequiredFieldValidator id="rfvFechaNacieniento" 
+                                        ControlToValidate="txtFechaNacimiento" Display="Dynamic" Runat="server" ValidationGroup="Validators" ForeColor="Red">*</asp:RequiredFieldValidator>
 		                        </td>
                                 <td>
 			                        Sexo
@@ -74,106 +82,128 @@
                                         <asp:ListItem Text="Masculino" Value="M"></asp:ListItem>
                                         <asp:ListItem Text="Femenino" Value="F"></asp:ListItem>
                                         </asp:DropdownList>
+                                </td>
+		                        <td >
                                     <asp:RequiredFieldValidator ID="rfvSexo" runat="server" ControlToValidate="ddlSexo" ForeColor="Red"
-                                        InitialValue="-- Seleccione una opcion -- " ErrorMessage="Seleccione un sexo"  ValidationGroup="Validators" />
+                                        InitialValue="-- Seleccione una opcion -- " ValidationGroup="Validators">*</asp:RequiredFieldValidator>
 		                        </td>
-		                        <td>
+		                       <td>
 			                        Grupo sanguineo
 			                        <asp:DropdownList runat="server" ID="ddlGpoSanguineo" CssClass="form-control" AppendDataBoundItems="true">
                                         <asp:ListItem Selected="True" Text="-- Seleccione una opcion -- "></asp:ListItem>
-                                        </asp:DropdownList>
+                                    </asp:DropdownList>
+                                </td>
+		                        <td  style="width: 18px">
                                     <asp:RequiredFieldValidator ID="rfvGpoSanguineo" runat="server" ControlToValidate="ddlGpoSanguineo" ForeColor="Red"  
-                                        ValidationGroup="Validators" InitialValue="-- Seleccione una opcion -- " ErrorMessage="Seleccione un grupo sanguineo"/>
+                                        ValidationGroup="Validators" InitialValue="-- Seleccione una opcion -- ">*</asp:RequiredFieldValidator>
 		                        </td>
+                            </tr>
+                            <tr>
+                                 
                                 <td>
 			                        N.S.S.
 			                        <asp:TextBox runat="server" ID="txtNSS" CssClass="form-control" onkeydown="return ValidaSoloNumeros(event);"/>
 		                        </td>
-                            </tr>
-                            <tr>
+                                <td>
+
+                                </td>
                                 <td>
 			                        Telefono
 			                        <asp:TextBox runat="server" ID="txtTelefono" CssClass="form-control"  onkeydown="return ValidaSoloNumeros(event);" />
-                                    <asp:RequiredFieldValidator id="rfvTelefono" ErrorMessage="Telefono es obligatorio" ForeColor="Red"
-                                        ControlToValidate="txtTelefono" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
+                                </td>
+		                        <td>
+                                    <asp:RequiredFieldValidator id="rfvTelefono" ForeColor="Red"
+                                        ControlToValidate="txtTelefono" Display="Dynamic" Runat="server" ValidationGroup="Validators">*</asp:RequiredFieldValidator>
 		                        </td>
                                 <td>
 			                        Celular
 			                        <asp:TextBox runat="server" ID="txtCel" CssClass="form-control" onkeydown="return ValidaSoloNumeros(event);" />
                                 </td>
-                                <td colspan="2">
-			                        Correo electronico
-			                        <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
-		                        </td>
-<%--                                <td>
-			                        Seguro Médico
-		                        </td>
-		                        <td colspan="2">
-			                        <asp:DropdownList runat="server" ID="ddlSeguroMedico" CssClass="form-control" AppendDataBoundItems="true">
-                                        </asp:DropdownList>
-		                        </td>
-                            </tr>
-                            <tr>
-		                        <td>
-			                        Número de póliza
-		                        </td>
-		                        <td colspan="2">
-			                        <asp:TextBox runat="server" ID="txtNoPoliza" CssClass="form-control" />
-		                        </td>
-		                        <td>
-			                        Número de tarjeta
-		                        </td>
-		                        <td colspan="2">
-			                        <asp:TextBox runat="server" ID="txtNoTarjeta" CssClass="form-control" />
-		                        </td>--%>
-                            </tr>
-                            <tr>
-		                        <td>
-                                    Calle:
-                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCalle"></asp:TextBox>
-                                    <asp:RequiredFieldValidator id="rfvCalle" ErrorMessage="Calle es obligatorio" ForeColor="Red"
-                                        ControlToValidate="txtCalle" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
-                                </td>
-                          
                                 <td>
-                                    No. Ext.:
-                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtNoExt"></asp:TextBox>
-                                    <asp:RequiredFieldValidator id="rfvNoExt" ErrorMessage="Nombre es obligatorio" ForeColor="Red"
-                                        ControlToValidate="txtNoExt" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
-                                </td>
-                                <td>
-                                    No. Int.:
-                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtNoInt"></asp:TextBox>
-                                <td>
-			                        Codigo postal
-                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCP" AutoPostBack="true" CausesValidation="true" ValidationGroup="Validators"
-                                        OnTextChanged="txtCP_TextChanged" MaxLength="5"></asp:TextBox>
-                                    <asp:RequiredFieldValidator id="rfvCP" ErrorMessage="Codigo postal es obligatorio" ForeColor="Red"
-                                        ControlToValidate="txtCP" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
+
                                 </td>
 
                             </tr>
                             <tr>
+                                 <td>
+			                        Correo electronico
+			                        <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
+		                        </td>
+                                <td>
+
+                                </td>
+		                        <td>
+                                    Calle:
+                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCalle"></asp:TextBox>
+                                </td>
+		                        <td>
+                                    <asp:RequiredFieldValidator id="rfvCalle" ForeColor="Red"
+                                        ControlToValidate="txtCalle" Display="Dynamic" Runat="server" ValidationGroup="Validators">*</asp:RequiredFieldValidator>
+                                </td>
+                          
+                                <td>
+                                    No. Ext.:
+                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtNoExt"></asp:TextBox> 
+                                 </td>
+		                        <td style="width: 27px">
+                                    <asp:RequiredFieldValidator id="rfvNoExt" ForeColor="Red" ControlToValidate="txtNoExt" Display="Dynamic" Runat="server" ValidationGroup="Validators">*</asp:RequiredFieldValidator>
+                                   
+                                </td>
+                                
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    No. Int.:
+                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtNoInt"></asp:TextBox>
+                                 </td>
+                                <td>
+
+                                </td>
+                                <td>
+			                        Codigo postal
+                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtCP" AutoPostBack="true" CausesValidation="true" ValidationGroup="Validators"
+                                        OnTextChanged="txtCP_TextChanged" MaxLength="5"></asp:TextBox>
+                                 </td>
+		                        <td>
+                                    <asp:RequiredFieldValidator id="rfvCP" ForeColor="Red"
+                                        ControlToValidate="txtCP" Display="Dynamic" Runat="server" ValidationGroup="Validators">*</asp:RequiredFieldValidator>
+                                </td>
                                 <td>
                                     Colonia:
                                     <asp:DropDownList runat="server" CssClass="form-control" ID="ddlColonia"></asp:DropDownList>
                                 </td>
-                            
                                 <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                 <td>
                                     Delegacion / Municipio:
                                     <asp:DropDownList runat="server" CssClass="form-control" ID="ddlDelegacion"></asp:DropDownList>
                                 </td>
                                 <td>
+
+                                </td>
+                                <td style="width: 27px">
                                     Ciudad:
                                     <asp:DropDownList runat="server" CssClass="form-control" ID="ddlCiudad"></asp:DropDownList>
+                                </td>
+                                <td>
+
                                 </td>
                                 <td>
                                     Estado:
                                     <asp:DropDownList runat="server" CssClass="form-control" ID="ddlEstado"></asp:DropDownList>
                                 </td>
+                                <td>
 
+                                </td>
                             </tr>
                         </table>
+                        <asp:ValidationSummary id="RequiredFieldValidator1" HeaderText="Los campos marcados con asterisco * son obligatorios"
+                                 ForeColor="Red" ControlToValidate="txtObservaciones" Display="Dynamic" Runat="server" ValidationGroup="Validators" />
+
                         <div class="form-group" style="text-align:right">
                             <asp:button runat="server" ID="btnGuardar" class="btn btn-primary" OnClick="btnGuardar_Click" Text="Guardar" 
                                 CausesValidation="true" ValidationGroup="Validators" /> &nbsp&nbsp&nbsp&nbsp&nbsp
@@ -181,6 +211,7 @@
                         </div>
                         <br />
                     </div>
+                     
                 </div>
             </div>
         </div>

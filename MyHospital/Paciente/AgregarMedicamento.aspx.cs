@@ -81,7 +81,9 @@ namespace MyHospital.Paciente
                     ddlMedicamento.DataValueField = "nIdMedicamento";
                     ddlMedicamento.DataBind();
                 }
-            }
+              
+            }  
+            ddlMedicamento.Items.Insert(0,"--Seleccionar Medicamento--");
         }
 
         private Recetas ObtenerReceta() 
