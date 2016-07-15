@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -36,7 +37,15 @@ namespace MyHospital.Usuarios
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             UsuarioLogic pl = new UsuarioLogic();
-            pl.ActualizarOGuardarUsuario(ObtenerUsuario());
+            if (fuImagen.HasFile)
+            {
+                bool carga = subirImagen();
+                if (carga == true)
+                    pl.ActualizarOGuardarUsuario(ObtenerUsuario());
+                else
+                    RequiredFieldValidator1.HeaderText = "Ha ocurrido un error al cargar la imagen";
+            }
+
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -58,6 +67,8 @@ namespace MyHospital.Usuarios
             ddlRoles.DataTextField = "sDescripcion";
             ddlRoles.DataSource = Roles;
             ddlRoles.DataBind();
+
+            ddlRoles.Items.Insert(0, "--Seleccionar--");
         }
 
         private void InitializeControls()
@@ -116,6 +127,22 @@ namespace MyHospital.Usuarios
             txtUsuario.Enabled = false;
             txtContraseña.Text = usuario.sContraseña;
         }
+
+        public bool subirImagen()
+        {
+            try
+            {
+                string filename = Path.GetFileName(fuImagen.FileName);
+                fuImagen.SaveAs(Server.MapPath("~/ImagesUsuarios") + filename);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         #endregion
+
+      
     }
 }

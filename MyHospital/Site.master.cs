@@ -13,6 +13,10 @@ namespace MyHospital
             {
                 lblUsuario.Text = (string)Session["Usuario"];
                 lblNombre.Text = (string)Session["Nombre"];
+                string img= !String.IsNullOrEmpty((string)Session["Imagen"]) ? "imagesUsuarios/" + (string)Session["Imagen"] : "imagesUsuarios/user.png";
+                // ImgUsr.sou = new BitmapImage(new Uri("ms-appx:///Images/dog.png"));
+                  ImgUsr.Attributes["src"] = ResolveUrl(img);
+                  usr2.Attributes["src"] = ResolveUrl(img);
              }
             else
                 Response.Redirect("~/Login.aspx",false);

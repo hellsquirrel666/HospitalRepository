@@ -21,6 +21,7 @@ namespace MyHospital
             Session["IdUsuario"] = string.Empty;
             Session["IdRol"] = string.Empty;
             Session["IdHospital"] = string.Empty;
+            Session["Imagen"] = string.Empty;
         }
         protected void LoginButton_Click(object sender, EventArgs e)
         {
@@ -39,6 +40,7 @@ namespace MyHospital
                 Session["IdUsuario"] = result.nIdUsuario;
                 Session["IdRol"] = result.nIdRol;
                 Session["IdHospital"] = result.nIdHospital;
+                Session["Imagen"] = result.sImagen;
 
                 //FormsAuthentication.RedirectFromLoginPage(result.sUsuario, true);
                 Response.Redirect("~/");

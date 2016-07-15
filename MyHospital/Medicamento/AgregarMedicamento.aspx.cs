@@ -62,7 +62,7 @@ namespace MyHospital.Medicamento
 
         protected void btnCalcelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/");
+            Response.Redirect("~/Medicamento/VerMedicamentos.aspx");
         }
 
         #endregion
@@ -100,7 +100,6 @@ namespace MyHospital.Medicamento
                             "MessageBox",
                             "<script language='javascript'>alert('" + "No se encontró el Medicamento." + "');</script>"
                          );
-                        Response.Redirect("~/");
                     }
                     LlenarDatos(medicamento);
                 }

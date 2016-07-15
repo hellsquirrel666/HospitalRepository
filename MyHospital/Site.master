@@ -38,7 +38,7 @@
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <asp:Image runat="server" Id="ImgUsr" src="imagesUsuarios/user.png" class="img-circle profile_img"/>
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
@@ -119,7 +119,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">
+                    <asp:Image runat="server" Id="usr2" src="imagesUsuarios/user.png"/>
                       <asp:Label ID="lblNombre" runat="server"></asp:Label>
                     <span class=" fa fa-angle-down"></span>
                   </a>
