@@ -76,21 +76,31 @@
                                 </td>
                                 <td>
                                         <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ForeColor="red" Display="Dynamic" 
-                                        ControlToValidate="txtApellidoPaterno" ValidationGroup="desc">*</asp:RequiredFieldValidator>
-
+                                        ControlToValidate="txtContraseña" ValidationGroup="desc">*</asp:RequiredFieldValidator>
+                                        <br />
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                                        ControlToValidate="txtContraseña" 
+                                        ErrorMessage="** La contraseña debe tener como minimo de 6 digitos y al menos un número.<br />" 
+                                        ForeColor="Red" Display="Dynamic" 
+                                        ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,12})$" 
+                                        ValidationGroup="desc"> **</asp:RegularExpressionValidator>
 		                        </td>
                                 <td>
 			                        Confirmar contraseña
 			                        <asp:TextBox runat="server" ID="txtConfirmaConstraseña" CssClass="form-control" TextMode="Password" />
+                                             
                                 </td>
                                 <td style="width: 23px">
                                         <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ForeColor="red" Display="Dynamic" 
                                         ControlToValidate="txtConfirmaConstraseña" ValidationGroup="desc">*</asp:RequiredFieldValidator>
+                                        <asp:CompareValidator id="comparePasswords" runat="server"  ControlToCompare="txtContraseña" ControlToValidate="txtConfirmaConstraseña"
+                                        ErrorMessage="*** Las contraseñas introducidas no son iguales.  <br />" Type="String" ForeColor="Red" ValidationGroup="desc">***</asp:CompareValidator>
+	                          
 		                        </td>
-	                        
+                               
                         </table>
-                         <asp:ValidationSummary id="RequiredFieldValidator1" HeaderText="Los campos marcados con asterisco * son obligatorios"
-                                 ForeColor="Red" Display="Dynamic" Runat="server" ValidationGroup="desc" />
+                         <asp:ValidationSummary id="RequiredFieldValidator1" HeaderText="Los campos marcados con asterisco * son obligatorios. <br />"
+                                 ForeColor="Red" Display="Dynamic" Runat="server" ValidationGroup="desc" DisplayMode="SingleParagraph"/>
    
                         <div class="form-group" style="text-align:right">
                             <asp:Button runat="server" ID="btnGuardar" Text="Guardar" class="btn btn-primary" OnClick="btnGuardar_Click" ValidationGroup="desc"/>
