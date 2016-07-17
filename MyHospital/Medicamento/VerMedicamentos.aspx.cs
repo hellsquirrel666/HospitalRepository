@@ -18,7 +18,21 @@ namespace MyHospital.Medicamento
             GetUsuarios();
 
         }
-
+         protected void gvMedicamentos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView gv = (GridView)sender;
+            gv.PageIndex = e.NewPageIndex;
+            GetUsuarios();
+        }
+        
+        protected void buscar_Click(object sender, EventArgs e)
+        {
+            MedicamentoLogic ml = new MedicamentoLogic();
+            var results = ml.ListaMedicamentos(txtFiltro.Text);
+            gvMedicamentos.DataSource = results;
+            gvMedicamentos.DataBind();
+        }
+        
         #region "Metodos"
         private void GetUsuarios()
         {
@@ -28,5 +42,7 @@ namespace MyHospital.Medicamento
             gvMedicamentos.DataBind();
         }
         #endregion
+
+        
     }
 }

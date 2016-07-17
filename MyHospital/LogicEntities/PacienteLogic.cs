@@ -47,6 +47,25 @@ namespace MyHospital.LogicEntities
             }
         }
 
+        public List<Pacientes> ListaPacientes(string sFiltro)
+        {
+            try
+            {
+                using (var db = new dbHospitalEntities())
+                {
+                    var query = db.Pacientes.AsQueryable().Where(cons => new
+                                                                        {
+                                                                          Name = cons.sPrimerApellido + " " + cons.sSegundoApellido+ " " +cons.sNombre
+                                                                        }.Name.Contains(sFiltro));
+                    return query.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrió un error en el servicio web.", e);
+            }
+        }
+
         public Pacientes ObtenerPaciente(int idPaciente)
         {
             try

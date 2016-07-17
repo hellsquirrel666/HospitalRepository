@@ -47,6 +47,27 @@ namespace MyHospital.LogicEntities
             }
         }
 
+        public List<USUARIOS> ListaUsuarios(string sFiltro)
+        {
+            try
+            {
+                using (var db = new dbHospitalEntities())
+                {
+                    var query = db.USUARIOS.AsQueryable().Where(cons => new
+                                                                        {
+                                                                          Name = cons.sPrimerApellido + " " + cons.sSegundoApellido+ " " +cons.sNombre
+                                                                        }.Name.Contains(sFiltro)
+                                                                        || cons.sUsuario.Contains(sFiltro));
+   
+                    return query.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrió un error en el servicio web.", e);
+            }
+        }
+
         public USUARIOS ObtenerUsuario(int idUsuario)
         {
             try

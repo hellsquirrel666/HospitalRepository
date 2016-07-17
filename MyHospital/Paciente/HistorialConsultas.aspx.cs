@@ -26,10 +26,25 @@ namespace MyHospital.Paciente
             }
         }
 
+         protected void gvConsultas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView gv = (GridView)sender;
+            gv.PageIndex = e.NewPageIndex;
+            InitializeControls();
+        }
         public void InitializeControls()
         {
             ConsultaLogic pl = new ConsultaLogic();
             var lista = pl.ListaConsulta(Convert.ToInt32(Request.QueryString["Paciente"]));
+            gvPacientes.DataSource = lista;
+            gvPacientes.DataBind();
+        }
+
+       
+        protected void buscar_Click(object sender, EventArgs e)
+        {
+            ConsultaLogic pl = new ConsultaLogic();
+            var lista = pl.ListaConsulta(Convert.ToInt32(Request.QueryString["Paciente"]), txtFiltro.Text);
             gvPacientes.DataSource = lista;
             gvPacientes.DataBind();
         }

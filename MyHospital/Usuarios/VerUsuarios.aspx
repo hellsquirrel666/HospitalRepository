@@ -21,12 +21,23 @@
                     <h2>Usuarios</h2>
                     <div class="clearfix"></div>
                     <div class="x_content">
-                        <asp:GridView runat="server" ID="gvPacientes" CssClass="table table-hover" ItemType="MyHospital.Modelo.USUARIOS" AutoGenerateColumns="false">
+                         <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                    <div class="input-group">
+                                    <asp:TextBox Id="txtFiltro" runat="server" type="text" class="form-control" placeholder="Buscar"/>
+                                    <span class="input-group-btn">
+                                        <asp:Button ID="buscar" runat="server" class="btn btn-default" type="button" Text="Go!" OnClick="buscar_Click" />
+                                    </span>
+                                    </div>
+                            </div>
+                        </div>
+                        <asp:GridView runat="server" ID="gvPacientes" Cssclass="table table-striped table-bordered dt-responsive nowrap" ItemType="MyHospital.Modelo.USUARIOS" AutoGenerateColumns="false"
+                             AllowPaging="true" PageSize="10" OnPageIndexChanging="gvPacientes_PageIndexChanging">
                             <Columns>
                                 <asp:BoundField HeaderText="Nombre de usuario" DataField="sUsuario" />
-                                <asp:BoundField HeaderText="Nombre" DataField="sPrimerApellido" />
-                                <asp:BoundField HeaderText="Nombre" DataField="sSegundoApellido" />
-                                <asp:BoundField HeaderText="Apellido" DataField="SNombre" />
+                                <asp:BoundField HeaderText="Apellido Paterno" DataField="sPrimerApellido" />
+                                <asp:BoundField HeaderText="Apellido Materno" DataField="sSegundoApellido" />
+                                <asp:BoundField HeaderText="Nombre" DataField="SNombre" />
                                 <asp:TemplateField ItemStyle-CssClass="gridview_menu">
                                     <ItemTemplate>
                                         <div class="dropdown" style="cursor: pointer;">

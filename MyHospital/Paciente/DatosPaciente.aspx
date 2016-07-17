@@ -109,7 +109,7 @@
                                 </td>
                                 <td>
 			                        Telefono
-			                        <asp:TextBox runat="server" ID="txtTelefono" CssClass="form-control"  onkeydown="return ValidaSoloNumeros(event);" />
+			                        <asp:TextBox runat="server" ID="txtTelefono" CssClass="form-control"   onkeydown="return ValidaSoloNumeros(event);" />
                                 </td>
 		                        <td>
                                     <asp:RequiredFieldValidator id="rfvTelefono" ForeColor="Red"

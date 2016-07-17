@@ -24,8 +24,18 @@
                     <h2>Datos de la historia clinica</h2>
                     <div class="clearfix"></div>
                     <div class="x_content">
-                       <asp:GridView runat="server" ID="gvHistClin" CssClass="table table-hover" OnRowCommand="gvHistClin_RowCommand" ItemType="MyHospital.Modelo.CamposHistClin"
-                             AutoGenerateColumns="false">
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                <div class="input-group">
+                                <asp:TextBox Id="txtFiltro" runat="server" type="text" class="form-control" placeholder="Buscar"/>
+                                <span class="input-group-btn">
+                                    <asp:Button ID="buscar" runat="server" class="btn btn-default" type="button" Text="Go!" OnClick="buscar_Click" />
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                       <asp:GridView runat="server" ID="gvHistClin" Cssclass="table table-striped table-bordered dt-responsive nowrap" OnRowCommand="gvHistClin_RowCommand" ItemType="MyHospital.Modelo.CamposHistClin"
+                             AutoGenerateColumns="false" AllowPaging="true" PageSize="10" OnPageIndexChanging="gvPacientes_PageIndexChanging">
                             <Columns>
                                 <asp:BoundField HeaderText="IdCampo" DataField="nIdCampoHistClin" />
                                 <asp:BoundField HeaderText="Descripcion" DataField="sDescripcion" />
@@ -50,7 +60,7 @@
 			                        Ingresar nuevo campo
 			                        <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" />
                                     <asp:RequiredFieldValidator runat="server" ID="rfvDescripcion" ForeColor="red" Display="Dynamic" 
-                                        ControlToValidate="txtDescripcion" ValidationGroup="desc" ErrorMessage="El canpo descripcion no debe estar vacío"  />
+                                        ControlToValidate="txtDescripcion" ValidationGroup="desc" ErrorMessage="El campo descripción no debe estar vacío"  />
 		                        </td>
                          </table>
                         

@@ -26,15 +26,25 @@ namespace MyHospital.Paciente
             }
         }
 
-        protected void gvPacientes_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void gvPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            GridView gv = (GridView)sender;
+            gv.PageIndex = e.NewPageIndex;
+            InitializeControls();
         }
 
         public void InitializeControls() 
         {
             PacienteLogic pl = new PacienteLogic();
             var lista = pl.ListaPacientes();
+            gvPacientes.DataSource = lista;
+            gvPacientes.DataBind();
+        }
+
+        protected void buscar_Click(object sender, EventArgs e)
+        {
+            PacienteLogic pl = new PacienteLogic();
+            var lista = pl.ListaPacientes(txtFiltro.Text);
             gvPacientes.DataSource = lista;
             gvPacientes.DataBind();
         }

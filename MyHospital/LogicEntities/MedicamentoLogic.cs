@@ -46,6 +46,23 @@ namespace MyHospital.LogicEntities
             }
         }
 
+        public List<Medicamentos> ListaMedicamentos(string sFiltro)
+        {
+            try
+            {
+                using (var db = new dbHospitalEntities())
+                {
+                    var query = db.Medicamentos.AsQueryable().Where(cons => cons.sNombre.Contains(sFiltro)
+                                                                    || cons.sLaboratorio.Contains(sFiltro));
+                    return query.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrió un error en el servicio web.", e);
+            }
+        }
+
         public Medicamentos ObtenerMedicamento(int idMedicamento)
         {
             try

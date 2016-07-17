@@ -76,6 +76,25 @@ namespace MyHospital.Administar
             InitializeControls();
         }
 
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/");
+        }
+
+        protected void buscar_Click(object sender, EventArgs e)
+        {
+            CamposHistorialClinicoLogic pl = new CamposHistorialClinicoLogic();
+            var lista = pl.ListaCampos(txtFiltro.Text);
+            gvHistClin.DataSource = lista;
+            gvHistClin.DataBind();
+        }
+        protected void gvPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView gv = (GridView)sender;
+            gv.PageIndex = e.NewPageIndex;
+            InitializeControls();
+        }
+
         public void InitializeControls()
         {
             CamposHistorialClinicoLogic pl = new CamposHistorialClinicoLogic();
@@ -97,9 +116,6 @@ namespace MyHospital.Administar
             return direccion;
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/");
-        }
+       
     }
 }

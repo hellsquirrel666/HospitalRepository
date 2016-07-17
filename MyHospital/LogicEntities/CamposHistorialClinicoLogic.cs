@@ -69,5 +69,22 @@ namespace MyHospital.LogicEntities
                 throw new Exception("Ocurrió un error en el servicio web.", e);
             }
         }
+
+        public List<CamposHistClin> ListaCampos(string sFiltro)
+        {
+            try
+            {
+                using (var db = new dbHospitalEntities())
+                {
+                    var query = db.CamposHistClin.AsQueryable().Where(camp => camp.sDescripcion.Contains(sFiltro));
+                    return query.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrió un error en el servicio web.", e);
+            }
+        }
+
     }
 }

@@ -48,6 +48,23 @@ namespace MyHospital.LogicEntities
             }
         }
 
+        public List<Consulta> ListaConsulta(int IdPaciente, string sBusca)
+        {
+            try
+            {
+                using (var db = new dbHospitalEntities())
+                {
+                    var query = db.Consulta.AsQueryable().Where(cons => cons.nIdPaciente.Equals(IdPaciente)
+                                                                && cons.sDiagnostico.Contains(sBusca));
+                    return query.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrió un error en el servicio web.", e);
+            }
+        }
+
         public Consulta ObtenerConsulta(int idConsulta)
         {
             try
