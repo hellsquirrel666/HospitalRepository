@@ -12,17 +12,21 @@ namespace MyHospital.Paciente
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!Page.IsPostBack)
             {
-                InitializeControls();
-            } 
-            catch
-            {
-                Page.ClientScript.RegisterStartupScript(
-                Page.GetType(),
-                "MessageBox",
-                "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
-                );
+
+                try
+                {
+                    InitializeControls();
+                }
+                catch
+                {
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
+                    );
+                }
             }
         }
 
@@ -32,6 +36,16 @@ namespace MyHospital.Paciente
             gv.PageIndex = e.NewPageIndex;
             InitializeControls();
         }
+
+        protected void GridView1_RowCommand(object sender,   GridViewCommandEventArgs e)
+        {
+            //int index = Convert.ToInt32(e.CommandArgument.ToString());
+
+
+            //GridViewRow row = gvPacientes.Rows[index];
+
+
+          }
 
         public void InitializeControls() 
         {
