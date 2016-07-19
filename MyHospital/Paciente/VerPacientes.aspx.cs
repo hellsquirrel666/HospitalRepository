@@ -30,30 +30,45 @@ namespace MyHospital.Paciente
             }
         }
 
-        protected void gvPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            GridView gv = (GridView)sender;
-            gv.PageIndex = e.NewPageIndex;
-            InitializeControls();
-        }
-
         protected void GridView1_RowCommand(object sender,   GridViewCommandEventArgs e)
         {
-            //int index = Convert.ToInt32(e.CommandArgument.ToString());
+            try
+            {
+
+                int IdPaciente = Convert.ToInt32(e.CommandArgument.ToString());
 
 
-            //GridViewRow row = gvPacientes.Rows[index];
+                PacienteLogic pl = new PacienteLogic();
 
+                bool elimina = pl.EliminarPaciente(Convert.ToInt32(IdPaciente));
+                if (elimina == true)
+                {
+                    InitializeControls();
 
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "El paciente se ha eliminado correctamente." + "');</script>"
+                    );
+                }
+                else
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "Ha ocurrido un error al eliminar al paciente." + "');</script>"
+                    );
+            }
+            catch
+            {
+                Page.ClientScript.RegisterStartupScript(
+                Page.GetType(),
+                "MessageBox",
+                "<script language='javascript'>alert('" + "Ha ocurrido un error al eliminar al paciente." + "');</script>"
+                );
+            }
           }
 
-        public void InitializeControls() 
-        {
-            PacienteLogic pl = new PacienteLogic();
-            var lista = pl.ListaPacientes();
-            gvPacientes.DataSource = lista;
-            gvPacientes.DataBind();
-        }
+        
 
         protected void buscar_Click(object sender, EventArgs e)
         {
@@ -63,5 +78,12 @@ namespace MyHospital.Paciente
             gvPacientes.DataBind();
         }
 
+        public void InitializeControls() 
+        {
+            PacienteLogic pl = new PacienteLogic();
+            var lista = pl.ListaPacientes();
+            gvPacientes.DataSource = lista;
+            gvPacientes.DataBind();
+        }
     }
 }

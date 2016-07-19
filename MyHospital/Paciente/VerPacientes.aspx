@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" CodeBehind="VerPacientes.aspx.cs" Inherits="MyHospital.Paciente.VerPacientes" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="TitleContent" runat="server">
-
+  
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <asp:GridView runat="server" ID="gvPacientes"  Cssclass="table table-striped table-bordered dt-responsive nowrap" ItemType="MyHospital.Modelo.Pacientes"
-                             AutoGenerateColumns="false" AllowPaging="true" PageSize="10" OnPageIndexChanging="gvPacientes_PageIndexChanging" OnRowCommand = "GridView1_RowCommand">
+                             AutoGenerateColumns="false" AllowPaging="true" PageSize="10" OnRowCommand = "GridView1_RowCommand">
                             <Columns>
                                 <asp:BoundField HeaderText="IdPaciente" DataField="nIdPaciente" />
                                 <asp:BoundField HeaderText="Apellido Paterno" DataField="sPrimerApellido" />
@@ -68,7 +68,7 @@
                                  <asp:TemplateField>
                                      <HeaderStyle Width="10px" />
                                     <ItemTemplate>
-                                        <asp:ImageButton ID="imgbtnDelete" runat="server"  CommandName="Delete" ImageUrl="~/ImagesUsuarios/incorrect-294245_960_720.png" ToolTip="Click para eliminar" AlternateText="Click para eliminar"  Width="10px" Height="10px"/>                            
+                                        <asp:ImageButton ID="imgbtnDelete" runat="server"  CommandArgument=<%# Item.nIdPaciente %> ImageUrl="~/ImagesUsuarios/incorrect-294245_960_720.png" ToolTip="Click para eliminar" AlternateText="Click para eliminar"  Width="10px" Height="10px" OnClientClick="return confirm('¿Esta seguro de eliminar al paciente?')"/>                            
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

@@ -219,6 +219,7 @@
           <Property Name="sIndicaciones" Type="nvarchar(max)" />
           <Property Name="sContraindicaciones" Type="nvarchar(max)" />
           <Property Name="nIdUsuario" Type="int" />
+          <Property Name="bActivo" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DB_A06759_LAURAPINEDA911.dbo.Municipios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -637,7 +638,7 @@
           <Property Name="nIdPaciente" Type="Int32" Nullable="false" />
           <Property Name="nIdUsuario" Type="Int32" />
           <Property Name="sObservaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" Nullable="false" />
-          <Property Type="DateTime" Name="fecha" Nullable="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" Precision="0" />
           <Property Type="String" Name="sDiagnostico" MaxLength="1000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Cuidades">
@@ -709,6 +710,7 @@
           <Property Name="sIndicaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="sContraindicaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Type="Int32" Name="nIdUsuario" />
+          <Property Type="Boolean" Name="bActivo" />
         </EntityType>
         <EntityType Name="Municipios">
           <Key>
@@ -1125,7 +1127,8 @@
     <EntitySetMapping Name="Medicamentos">
       <EntityTypeMapping TypeName="IsTypeOf(dbHospitalModel.Medicamentos)">
         <MappingFragment StoreEntitySet="Medicamentos">
-          <ScalarProperty Name="nIdUsuario" ColumnName="nIdUsuario" />
+          <ScalarProperty Name="bActivo" ColumnName="bActivo" />
+                <ScalarProperty Name="nIdUsuario" ColumnName="nIdUsuario" />
                 <ScalarProperty Name="nIdMedicamento" ColumnName="nIdMedicamento" />
           <ScalarProperty Name="sNombre" ColumnName="sNombre" />
           <ScalarProperty Name="sLaboratorio" ColumnName="sLaboratorio" />

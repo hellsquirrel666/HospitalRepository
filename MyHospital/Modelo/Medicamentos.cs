@@ -23,5 +23,6 @@ namespace MyHospital.Modelo
         public string sIndicaciones { get; set; }
         public string sContraindicaciones { get; set; }
         public Nullable<int> nIdUsuario { get; set; }
+        public Nullable<bool> bActivo { get; set; }
     }
 }

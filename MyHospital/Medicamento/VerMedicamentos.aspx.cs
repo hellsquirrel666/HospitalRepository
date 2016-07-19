@@ -15,14 +15,29 @@ namespace MyHospital.Medicamento
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetUsuarios();
+            if (!Page.IsPostBack)
+            {
+
+                try
+                {
+                    GetMedicamentos();
+                }
+                catch
+                {
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
+                    );
+                }
+            }
 
         }
          protected void gvMedicamentos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView gv = (GridView)sender;
             gv.PageIndex = e.NewPageIndex;
-            GetUsuarios();
+            GetMedicamentos();
         }
         
         protected void buscar_Click(object sender, EventArgs e)
@@ -32,9 +47,46 @@ namespace MyHospital.Medicamento
             gvMedicamentos.DataSource = results;
             gvMedicamentos.DataBind();
         }
-        
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+
+                int IdMedicamento = Convert.ToInt32(e.CommandArgument.ToString());
+
+
+                MedicamentoLogic ml = new MedicamentoLogic();
+
+                bool elimina = ml.EliminarMedicamento(Convert.ToInt32(IdMedicamento));
+                if (elimina == true)
+                {
+                    GetMedicamentos();
+
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "El medicamento se ha eliminado correctamente." + "');</script>"
+                    );
+                }
+                else
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "Ha ocurrido un error al eliminar al paciente." + "');</script>"
+                    );
+            }
+            catch
+            {
+                Page.ClientScript.RegisterStartupScript(
+                Page.GetType(),
+                "MessageBox",
+                "<script language='javascript'>alert('" + "Ha ocurrido un error al eliminar el medicamento." + "');</script>"
+                );
+            }
+        }
         #region "Metodos"
-        private void GetUsuarios()
+        private void GetMedicamentos()
         {
             MedicamentoLogic ml = new MedicamentoLogic();
             var results = ml.ListaMedicamentos();

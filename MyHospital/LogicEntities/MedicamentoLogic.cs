@@ -30,13 +30,46 @@ namespace MyHospital.LogicEntities
             }
         }
 
+        public bool EliminarMedicamento(int nIdMedicamento)
+        {
+            try
+            {
+                if (nIdMedicamento == 0)
+                {
+                    throw new ArgumentException("No se puede guardar un valor nulo en Paciente.", "Paciente");
+                }
+                else
+                {
+                    Modelo.Medicamentos medicamento = ObtenerMedicamento(nIdMedicamento);
+                    if (medicamento == null)
+                    {
+                        throw new FaultException("El medicamanto no existe");
+                    }
+                    medicamento.bActivo = false;
+
+                    using (var db = new dbHospitalEntities())
+                    {
+                        db.Entry(medicamento).State = EntityState.Modified;
+                        db.SaveChanges();
+                        return true;
+                    }
+                     
+                }
+                
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrió un error en el servicio web.", e);
+            }
+        }
+
         public List<Medicamentos> ListaMedicamentos()
         {
             try
             {
                 using (var db = new dbHospitalEntities())
                 {
-                    var query = db.Medicamentos.AsQueryable();
+                    var query = db.Medicamentos.AsQueryable().Where(med => med.bActivo == true);
                     return query.ToList();
                 }
             }
