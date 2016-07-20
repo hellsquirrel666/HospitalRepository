@@ -43,8 +43,14 @@ namespace MyHospital.Usuarios
                 if (carga == true)
                     pl.ActualizarOGuardarUsuario(ObtenerUsuario());
                 else
-                    RequiredFieldValidator1.HeaderText = "Ha ocurrido un error al cargar la imagen";
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "Ha ocurrido el error al guardar al usuario." + "');</script>"
+                    );
             }
+            else
+                pl.ActualizarOGuardarUsuario(ObtenerUsuario());
 
         }
 
@@ -133,7 +139,7 @@ namespace MyHospital.Usuarios
             try
             {
                 string filename = Path.GetFileName(fuImagen.FileName);
-                fuImagen.SaveAs(Server.MapPath("~/ImagesUsuarios") + filename);
+                fuImagen.SaveAs(Server.MapPath("~/ImagesUsuarios/") + filename);
                 return true;
             }
             catch (Exception)

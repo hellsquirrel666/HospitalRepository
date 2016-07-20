@@ -37,7 +37,7 @@
                             <tr>
                                 <td colspan="5">
 			                        Logo
-			                        <asp:FileUpload ID="fuLogo" runat="server"/>
+			                        <asp:FileUpload ID="fuLogo" runat="server" accept=".png,.jpg,.jpeg,.gif"/>
 		                        </td>
 		           
                             </tr>

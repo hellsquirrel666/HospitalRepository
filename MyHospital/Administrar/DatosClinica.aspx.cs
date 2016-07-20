@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -32,11 +33,76 @@ namespace MyHospital.Administar
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            DireccionLogic dl = new DireccionLogic();
-            var dir = dl.ActualizarOGuardarDireccion(ObtenerDireccion());
-            HospitalLogic hl = new HospitalLogic();
-            hl.ActualizarOGuardarDireccion(ObtenerHospital(dir.nIdDireccion));
+            try
+            {
+                if (fuLogo.HasFile)
+                {
+                     bool carga = subirImagen();
+                     if (carga == true)
+                     {
+                         DireccionLogic dl = new DireccionLogic();
+                         var dir = dl.ActualizarOGuardarDireccion(ObtenerDireccion());
+                         HospitalLogic hl = new HospitalLogic();
+                         var hospital=hl.ActualizarOGuardarDireccion(ObtenerHospital(dir.nIdDireccion));
+                         if (dir.nIdDireccion != 0 && hospital.nIdHospital != 0)
+                         {
+                             Page.ClientScript.RegisterStartupScript(
+                                Page.GetType(),
+                                "MessageBox",
+                                "<script language='javascript'>alert('" + "Los datos de la clinica se han actualizado correctamente." + "');</script>"
+                                );
+                             InitializeControls();
+                         }
+                         else
+                         {
+                             Page.ClientScript.RegisterStartupScript(
+                                Page.GetType(),
+                                "MessageBox",
+                                "<script language='javascript'>alert('" + "Ha ocurrido un error al actuaalizar los datos de la clinica." + "');</script>"
+                                );
+                         }
 
+                     }
+                     else
+                         Page.ClientScript.RegisterStartupScript(
+                         Page.GetType(),
+                         "MessageBox",
+                         "<script language='javascript'>alert('" + "Ha ocurrido el error al guardar al usuario." + "');</script>"
+                         );
+                }
+                else 
+                {
+                    DireccionLogic dl = new DireccionLogic();
+                    var dir = dl.ActualizarOGuardarDireccion(ObtenerDireccion());
+                    HospitalLogic hl = new HospitalLogic();
+                    var hospital = hl.ActualizarOGuardarDireccion(ObtenerHospital(dir.nIdDireccion));
+                    if (dir.nIdDireccion != 0 && hospital.nIdHospital != 0)
+                    {
+                        Page.ClientScript.RegisterStartupScript(
+                           Page.GetType(),
+                           "MessageBox",
+                           "<script language='javascript'>alert('" + "Los datos de la clinica se han actualizado correctamente." + "');</script>"
+                           );
+                        InitializeControls();
+                    }
+                    else
+                    {
+                        Page.ClientScript.RegisterStartupScript(
+                           Page.GetType(),
+                           "MessageBox",
+                           "<script language='javascript'>alert('" + "Ha ocurrido un error al actuaalizar los datos de la clinica." + "');</script>"
+                           );
+                    }
+                }
+            }
+            catch 
+            {
+                Page.ClientScript.RegisterStartupScript(
+                Page.GetType(),
+                "MessageBox",
+                "<script language='javascript'>alert('" + "Ha ocurrido un error guardar al paciente." + "');</script>"
+                );
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -178,7 +244,6 @@ namespace MyHospital.Administar
             txtTel1.Text = hospital.sTel1;
             txtxTel2.Text = hospital.sTel2;
             txtMail.Text = hospital.sEmail;
-                
             hfIdDireccion.Value = hospital.nIdDireccion.ToString();
 
             ddlColonia.SelectedValue = direccion.nIdColonia.ToString();
@@ -194,6 +259,20 @@ namespace MyHospital.Administar
             txtCP_TextChanged(this, EventArgs.Empty);
 
 
+        }
+
+        public bool subirImagen()
+        {
+            try
+            {
+                string filename = Path.GetFileName(fuLogo.FileName);
+                fuLogo.SaveAs(Server.MapPath("~/ImagesUsuarios/")+filename);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
