@@ -46,14 +46,17 @@ namespace MyHospital.LogicEntities
                     {
                         throw new FaultException("El paciente no existe.");
                     }
-                    paciente.bActivo = false;
-
-                    using (var db = new dbHospitalEntities())
+                    else
                     {
-                        db.Entry(paciente).State = EntityState.Modified;
-                        db.SaveChanges();
-                        return true;
-                    }
+                        paciente.bActivo = false;
+
+                        using (var db = new dbHospitalEntities())
+                        {
+                            db.Entry(paciente).State = EntityState.Modified;
+                            db.SaveChanges();
+                            return true;
+                        }
+                    }   
                 }
             }
             catch (Exception e)

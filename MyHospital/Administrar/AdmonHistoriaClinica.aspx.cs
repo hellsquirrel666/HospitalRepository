@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyHospital.LogicEntities;
 using MyHospital.Modelo;
+using System.ServiceModel;
+
 
 namespace MyHospital.Administar
 {
@@ -13,59 +15,59 @@ namespace MyHospital.Administar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+
+                try
+                {
+                    InitializeControls();
+                }
+                catch
+                {
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
+                    );
+                }
+            }
+        }
+
+        protected void gvHistClin_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
             try
             {
-                InitializeControls();
+
+                int nIdCampoHistClin = Convert.ToInt32(e.CommandArgument.ToString());
+
+
+                CamposHistorialClinicoLogic hcl = new CamposHistorialClinicoLogic();
+
+                bool elimina = hcl.EliminarCampo(Convert.ToInt32(nIdCampoHistClin));
+                if (elimina == true)
+                {
+                    InitializeControls();
+
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "El campo se ha eliminado correctamente." + "');</script>"
+                    );
+                }
+                else
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "Ha ocurrido un error al eliminar el campo." + "');</script>"
+                    );
             }
             catch
             {
                 Page.ClientScript.RegisterStartupScript(
                 Page.GetType(),
                 "MessageBox",
-                "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
+                "<script language='javascript'>alert('" + "Ha ocurrido un error al eliminar el campo." + "');</script>"
                 );
-            }
-        }
-
-        protected void gvHistClin_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "nIdCampoHistClin")
-            {
-                int index = Convert.ToInt32(e.CommandArgument);
-
-                GridViewRow row = gvHistClin.Rows[index];
-
-                hfIdCampo.Value=row.Cells[0].Text.ToString();
-                hfDescripcion.Value = row.Cells[1].Text.ToString();
-                hfStatus.Value = row.Cells[2].Text.ToString();
-
-                if (hfStatus.Value == "True")
-                    hfStatus.Value = "False";
-                 else if(hfStatus.Value == "False")
-                    hfStatus.Value = "True";
-
-                CamposHistorialClinicoLogic dl = new CamposHistorialClinicoLogic();
-                var camp = dl.ActualizarOGuardarCampo(ObtenerCampo());
-                if (camp.nIdCampoHistClin != 0)
-                {
-                    txtDescripcion.Text = string.Empty;
-                    Page.ClientScript.RegisterStartupScript(
-                    Page.GetType(),
-                    "MessageBox",
-                    "<script language='javascript'>alert('" + "El nuevo campo se ha guardado correctamente." + "');</script>"
-                     );
-
-                }
-                else 
-                {
-                    Page.ClientScript.RegisterStartupScript(
-                    Page.GetType(),
-                    "MessageBox",
-                    "<script language='javascript'>alert('" + "Ha ocurrido un error al guardar el nuevo campo." + "');</script>"
-                     );
-
-                }
-                InitializeControls();
             }
         }
 
@@ -73,6 +75,19 @@ namespace MyHospital.Administar
         {
             CamposHistorialClinicoLogic dl = new CamposHistorialClinicoLogic();
             var camp = dl.ActualizarOGuardarCampo(ObtenerCampo());
+            if(camp==null)
+            
+                 Page.ClientScript.RegisterStartupScript(
+                Page.GetType(),
+                "MessageBox",
+                "<script language='javascript'>alert('" + "Ha ocurrido un error al eliminar el campo." + "');</script>"
+                );
+            else
+                Page.ClientScript.RegisterStartupScript(
+               Page.GetType(),
+               "MessageBox",
+               "<script language='javascript'>alert('" + "El campo se guardado correctamente." + "');</script>"
+               );
             InitializeControls();
         }
 
@@ -97,6 +112,7 @@ namespace MyHospital.Administar
 
         public void InitializeControls()
         {
+            txtDescripcion.Text = string.Empty;
             CamposHistorialClinicoLogic pl = new CamposHistorialClinicoLogic();
             var lista = pl.ListaCampos();
             gvHistClin.DataSource = lista;
@@ -104,7 +120,7 @@ namespace MyHospital.Administar
         }
 
 
-       
+
         public CamposHistClin ObtenerCampo()
         {
             CamposHistClin direccion = new CamposHistClin
@@ -116,6 +132,5 @@ namespace MyHospital.Administar
             return direccion;
         }
 
-       
     }
 }

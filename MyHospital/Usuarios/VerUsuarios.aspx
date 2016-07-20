@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <asp:GridView runat="server" ID="gvPacientes" Cssclass="table table-striped table-bordered dt-responsive nowrap" ItemType="MyHospital.Modelo.USUARIOS" AutoGenerateColumns="false"
-                             AllowPaging="true" PageSize="10" OnPageIndexChanging="gvPacientes_PageIndexChanging">
+                             AllowPaging="true" PageSize="10" OnRowCommand = "GridView1_RowCommand">
                             <Columns>
                                 <asp:BoundField HeaderText="Nombre de usuario" DataField="sUsuario" />
                                 <asp:BoundField HeaderText="Apellido Paterno" DataField="sPrimerApellido" />
@@ -49,6 +49,12 @@
                                                 </li>
                                             </ul>
                                         </div>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField>
+                                     <HeaderStyle Width="10px" />
+                                    <ItemTemplate>
+                                        <asp:ImageButton ID="imgbtnDelete" runat="server"  CommandArgument=<%# Item.nIdUsuario %> ImageUrl="~/ImagesUsuarios/incorrect-294245_960_720.png" ToolTip="Click para eliminar" AlternateText="Click para eliminar"  Width="10px" Height="10px" OnClientClick="return confirm('¿Esta seguro de eliminar el paciente?')"/>                            
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

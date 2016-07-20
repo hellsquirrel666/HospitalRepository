@@ -34,12 +34,11 @@
                                 </div>
                             </div>
                         </div>
-                       <asp:GridView runat="server" ID="gvHistClin" Cssclass="table table-striped table-bordered dt-responsive nowrap" OnRowCommand="gvHistClin_RowCommand" ItemType="MyHospital.Modelo.CamposHistClin"
-                             AutoGenerateColumns="false" AllowPaging="true" PageSize="10" OnPageIndexChanging="gvPacientes_PageIndexChanging">
+                       <asp:GridView runat="server" ID="gvHistClin" Cssclass="table table-striped table-bordered dt-responsive nowrap" ItemType="MyHospital.Modelo.CamposHistClin"
+                             AutoGenerateColumns="false" AllowPaging="true" PageSize="10" OnRowCommand = "gvHistClin_RowCommand">
                             <Columns>
                                 <asp:BoundField HeaderText="IdCampo" DataField="nIdCampoHistClin" />
                                 <asp:BoundField HeaderText="Descripcion" DataField="sDescripcion" />
-                                <asp:BoundField HeaderText="Visible" DataField="bActivo" />
                                 <asp:TemplateField ItemStyle-CssClass="gridview_menu">
                                     <ItemTemplate>
                                         <div class="dropdown" style="cursor: pointer;">
@@ -50,6 +49,12 @@
                                                 </li>
                                             </ul>
                                         </div>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField>
+                                     <HeaderStyle Width="10px" />
+                                    <ItemTemplate>
+                                        <asp:ImageButton ID="imgbtnDelete" runat="server"  CommandArgument=<%# Item.nIdCampoHistClin %> ImageUrl="~/ImagesUsuarios/incorrect-294245_960_720.png" ToolTip="Click para eliminar" AlternateText="Click para eliminar"  Width="10px" Height="10px" OnClientClick="return confirm('¿Esta seguro de eliminar el campo?')"/>                            
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

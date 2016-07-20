@@ -12,16 +12,57 @@ namespace MyHospital.Usuarios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                try
+                {
+                    InitializeControls();
+                }
+                catch
+                {
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
+                    );
+                }
+            }
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
             try
             {
-                InitializeControls();
+
+                int IdUsuario = Convert.ToInt32(e.CommandArgument.ToString());
+
+
+                UsuarioLogic pl = new UsuarioLogic();
+
+                bool elimina = pl.EliminarUsuario(Convert.ToInt32(IdUsuario));
+                if (elimina == true)
+                {
+                    InitializeControls();
+
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "El usuario se ha eliminado correctamente." + "');</script>"
+                    );
+                }
+                else
+                    Page.ClientScript.RegisterStartupScript(
+                    Page.GetType(),
+                    "MessageBox",
+                    "<script language='javascript'>alert('" + "Ha ocurrido un error al eliminar al usuario." + "');</script>"
+                    );
             }
             catch
             {
                 Page.ClientScript.RegisterStartupScript(
                 Page.GetType(),
                 "MessageBox",
-                "<script language='javascript'>alert('" + "Ha ocurrido un error al cargar a pagina." + "');</script>"
+                "<script language='javascript'>alert('" + "Ha ocurrido un error al eliminar al usuario." + "');</script>"
                 );
             }
         }
