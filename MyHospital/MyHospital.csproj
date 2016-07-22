@@ -271,6 +271,12 @@
     </Compile>
     <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="ImagesUsuarios\incorrect-294245_960_720.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ImagesUsuarios\simbolo-medicina.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="LogIn.aspx" />
     <Content Include="Medicamento\AgregarMedicamento.aspx" />
     <Content Include="Medicamento\VerMedicamentos.aspx" />
@@ -569,7 +575,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ImagesUsuarios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -776,7 +781,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reporte\Report1.rdlc" />
+    <EmbeddedResource Include="Reporte\Report1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
