@@ -6,6 +6,10 @@
             window.open('AgregarMedicamento.aspx?Consulta=' + str, '', 'width=600,height=400');
 
         };
+
+        function ImprimirReceta() {
+            window.open('../Reporte/ImprimirReporte.aspx', 'width=600,height=400');
+        };
 </script>
 
 </asp:Content>
@@ -78,6 +82,8 @@
                             </tr>
                             </table>  
                            <div class="form-group" style="text-align:right">
+                               
+                           <input type="button"  ID="btnVistPrevia" value="Vista Previa" class="btn btn-primary"  runat="server" onclick="javascript: return ImprimirReceta()" />
                            <input type="button"  ID="btnAgregar_Med" value="Agregar Medicamento" class="btn btn-primary"  runat="server" onclick="javascript: return OpenPopup()" />
                             <asp:button runat="server" ID="btnGuardar" class="btn btn-primary" OnClick="btnGuardar_Click" Text="Guardar" 
                                 CausesValidation="true" ValidationGroup="Validators" /> &nbsp&nbsp&nbsp&nbsp&nbsp

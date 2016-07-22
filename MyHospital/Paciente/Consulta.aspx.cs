@@ -62,10 +62,12 @@ namespace MyHospital.Paciente
         {
             btnAgregar_Med.Visible = false;
             btnGuardar.Visible = false;
+            btnVistPrevia.Visible = true;
         }
         private void VistaConsulta()
         {
             btnAgregar_Med.Visible = true;
+            btnVistPrevia.Visible = false;
             btnGuardar.Visible = true;
         }
         #endregion
