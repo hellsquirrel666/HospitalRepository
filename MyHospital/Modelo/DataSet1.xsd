@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="DB_A06759_LAURAPINEDA911ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DB_A06759_LAURAPINEDA911ConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.DB_A06759_LAURAPINEDA911ConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MedicamentosRecetasTableAdapter" GeneratorDataComponentClassName="MedicamentosRecetasTableAdapter" Name="MedicamentosRecetas" UserDataComponentName="MedicamentosRecetasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DB_A06759_LAURAPINEDA911ConnectionString (Web.config)" DbObjectName="DB_A06759_LAURAPINEDA911.dbo.MedicamentosRecetas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT nIdReceta, nUnidades, sObservaciones, sNombre FROM dbo.MedicamentosRecetas</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nIdReceta" DataSetColumn="nIdReceta" />
+              <Mapping SourceColumn="nUnidades" DataSetColumn="nUnidades" />
+              <Mapping SourceColumn="sObservaciones" DataSetColumn="sObservaciones" />
+              <Mapping SourceColumn="sNombre" DataSetColumn="sNombre" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MedicamentosRecetas" msprop:Generator_TableClassName="MedicamentosRecetasDataTable" msprop:Generator_TableVarName="tableMedicamentosRecetas" msprop:Generator_TablePropName="MedicamentosRecetas" msprop:Generator_RowDeletingName="MedicamentosRecetasRowDeleting" msprop:Generator_RowChangingName="MedicamentosRecetasRowChanging" msprop:Generator_RowEvHandlerName="MedicamentosRecetasRowChangeEventHandler" msprop:Generator_RowDeletedName="MedicamentosRecetasRowDeleted" msprop:Generator_UserTableName="MedicamentosRecetas" msprop:Generator_RowChangedName="MedicamentosRecetasRowChanged" msprop:Generator_RowEvArgName="MedicamentosRecetasRowChangeEvent" msprop:Generator_RowClassName="MedicamentosRecetasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nIdReceta" msprop:Generator_ColumnVarNameInTable="columnnIdReceta" msprop:Generator_ColumnPropNameInRow="nIdReceta" msprop:Generator_ColumnPropNameInTable="nIdRecetaColumn" msprop:Generator_UserColumnName="nIdReceta" type="xs:int" />
+              <xs:element name="nUnidades" msprop:Generator_ColumnVarNameInTable="columnnUnidades" msprop:Generator_ColumnPropNameInRow="nUnidades" msprop:Generator_ColumnPropNameInTable="nUnidadesColumn" msprop:Generator_UserColumnName="nUnidades" type="xs:int" />
+              <xs:element name="sObservaciones" msprop:Generator_ColumnVarNameInTable="columnsObservaciones" msprop:Generator_ColumnPropNameInRow="sObservaciones" msprop:Generator_ColumnPropNameInTable="sObservacionesColumn" msprop:Generator_UserColumnName="sObservaciones" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sNombre" msprop:Generator_ColumnVarNameInTable="columnsNombre" msprop:Generator_ColumnPropNameInRow="sNombre" msprop:Generator_ColumnPropNameInTable="sNombreColumn" msprop:Generator_UserColumnName="sNombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

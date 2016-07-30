@@ -96,6 +96,11 @@
     <Compile Include="Administrar\DatosClinica.aspx.designer.cs">
       <DependentUpon>DatosClinica.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -167,6 +172,9 @@
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Medicamentos.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\MedicamentosRecetas.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Municipios.cs">
@@ -767,6 +775,17 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>bdHospital.edmx</DependentUpon>
       <LastGenOutput>bdHospital.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelo\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="Modelo\DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Modelo\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Properties\PublishProfiles\myHospital.pubxml" />

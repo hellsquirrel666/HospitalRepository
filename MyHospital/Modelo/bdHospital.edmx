@@ -36,6 +36,14 @@
           <EntitySet Name="Recetas" EntityType="dbHospitalModel.Store.Recetas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Roles" EntityType="dbHospitalModel.Store.Roles" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="USUARIOS" EntityType="dbHospitalModel.Store.USUARIOS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MedicamentosRecetas" EntityType="dbHospitalModel.Store.MedicamentosRecetas" store:Type="Views" store:Schema="dbo" store:Name="MedicamentosRecetas">
+            <DefiningQuery>SELECT 
+      [MedicamentosRecetas].[nIdReceta] AS [nIdReceta], 
+      [MedicamentosRecetas].[nUnidades] AS [nUnidades], 
+      [MedicamentosRecetas].[sObservaciones] AS [sObservaciones], 
+      [MedicamentosRecetas].[sNombre] AS [sNombre]
+      FROM [dbo].[MedicamentosRecetas] AS [MedicamentosRecetas]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Agenda_Pacientes" Association="dbHospitalModel.Store.FK_Agenda_Pacientes">
             <End Role="Pacientes" EntitySet="Pacientes" />
             <End Role="Agenda" EntitySet="Agenda" />
@@ -297,6 +305,20 @@
           <Property Name="nIdHospital" Type="int" Nullable="false" />
           <Property Name="bActivo" Type="bit" Nullable="false" />
           <Property Name="nIdDireccion" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_A06759_LAURAPINEDA911.dbo.MedicamentosRecetas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="MedicamentosRecetas">
+          <Key>
+            <PropertyRef Name="nIdReceta" />
+            <PropertyRef Name="nUnidades" />
+            <PropertyRef Name="sNombre" />
+          </Key>
+          <Property Name="nIdReceta" Type="int" Nullable="false" />
+          <Property Name="nUnidades" Type="int" Nullable="false" />
+          <Property Name="sObservaciones" Type="nvarchar(max)" />
+          <Property Name="sNombre" Type="nvarchar" Nullable="false" MaxLength="200" />
         </EntityType>
         <Association Name="FK_Agenda_Pacientes">
           <End Role="Pacientes" Type="dbHospitalModel.Store.Pacientes" Multiplicity="1" />
@@ -600,6 +622,7 @@
             <End Role="USUARIOS" EntitySet="USUARIOS" />
             <End Role="Medicamentos" EntitySet="Medicamentos" />
           </AssociationSet>
+          <EntitySet Name="MedicamentosRecetas" EntityType="dbHospitalModel.MedicamentosRecetas" />
         </EntityContainer>
         <EntityType Name="Agenda">
           <Key>
@@ -1012,6 +1035,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="MedicamentosRecetas">
+          <Key>
+            <PropertyRef Name="nIdReceta" />
+            <PropertyRef Name="nUnidades" />
+            <PropertyRef Name="sNombre" />
+          </Key>
+          <Property Type="Int32" Name="nIdReceta" Nullable="false" />
+          <Property Type="Int32" Name="nUnidades" Nullable="false" />
+          <Property Type="String" Name="sObservaciones" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="sNombre" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1215,6 +1249,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+          <EntitySetMapping Name="MedicamentosRecetas">
+            <EntityTypeMapping TypeName="dbHospitalModel.MedicamentosRecetas">
+              <MappingFragment StoreEntitySet="MedicamentosRecetas">
+                <ScalarProperty Name="sNombre" ColumnName="sNombre" />
+                <ScalarProperty Name="sObservaciones" ColumnName="sObservaciones" />
+                <ScalarProperty Name="nUnidades" ColumnName="nUnidades" />
+                <ScalarProperty Name="nIdReceta" ColumnName="nIdReceta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

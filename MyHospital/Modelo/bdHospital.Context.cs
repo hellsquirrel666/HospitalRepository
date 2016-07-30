@@ -42,5 +42,6 @@ namespace MyHospital.Modelo
         public DbSet<Recetas> Recetas { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<USUARIOS> USUARIOS { get; set; }
+        public DbSet<MedicamentosRecetas> MedicamentosRecetas { get; set; }
     }
 }
