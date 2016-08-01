@@ -93,6 +93,7 @@ namespace MyHospital.Paciente
                 nIdConsulta = int.Parse(hfIdConsulta.Value),
                 nIdMedicamento= int.Parse(ddlMedicamento.SelectedValue),
                 nUnidades = int.Parse(txtNumEnvases.Text),
+                bActivo=true,
                 sObservaciones = txtObservaciones.Text
             };
             return receta;

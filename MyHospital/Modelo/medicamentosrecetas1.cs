@@ -12,11 +12,11 @@ namespace MyHospital.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class MedicamentosRecetas
+    public partial class medicamentosrecetas1
     {
-        public int nIdReceta { get; set; }
+        public int nIdConsulta { get; set; }
         public int nUnidades { get; set; }
-        public string sObservaciones { get; set; }
         public string sNombre { get; set; }
+        public string sObservaciones { get; set; }
     }
 }

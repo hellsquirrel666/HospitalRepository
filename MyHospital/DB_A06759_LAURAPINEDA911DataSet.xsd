@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DB_A06759_LAURAPINEDA911DataSet" targetNamespace="http://tempuri.org/DB_A06759_LAURAPINEDA911DataSet.xsd" xmlns:mstns="http://tempuri.org/DB_A06759_LAURAPINEDA911DataSet.xsd" xmlns="http://tempuri.org/DB_A06759_LAURAPINEDA911DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="DB_A06759_LAURAPINEDA911ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DB_A06759_LAURAPINEDA911ConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.DB_A06759_LAURAPINEDA911ConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PacientesTableAdapter" GeneratorDataComponentClassName="PacientesTableAdapter" Name="Pacientes" UserDataComponentName="PacientesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DB_A06759_LAURAPINEDA911ConnectionString (Web.config)" DbObjectName="DB_A06759_LAURAPINEDA911.dbo.Pacientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT sNombre, sPrimerApellido, sSegundoApellido, sSexo, nIdGpoSanguineo, sNSS FROM dbo.Pacientes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="sNombre" DataSetColumn="sNombre" />
+              <Mapping SourceColumn="sPrimerApellido" DataSetColumn="sPrimerApellido" />
+              <Mapping SourceColumn="sSegundoApellido" DataSetColumn="sSegundoApellido" />
+              <Mapping SourceColumn="sSexo" DataSetColumn="sSexo" />
+              <Mapping SourceColumn="nIdGpoSanguineo" DataSetColumn="nIdGpoSanguineo" />
+              <Mapping SourceColumn="sNSS" DataSetColumn="sNSS" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DB_A06759_LAURAPINEDA911DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DB_A06759_LAURAPINEDA911DataSet" msprop:Generator_UserDSName="DB_A06759_LAURAPINEDA911DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Pacientes" msprop:Generator_TableClassName="PacientesDataTable" msprop:Generator_TableVarName="tablePacientes" msprop:Generator_TablePropName="Pacientes" msprop:Generator_RowDeletingName="PacientesRowDeleting" msprop:Generator_RowChangingName="PacientesRowChanging" msprop:Generator_RowEvHandlerName="PacientesRowChangeEventHandler" msprop:Generator_RowDeletedName="PacientesRowDeleted" msprop:Generator_UserTableName="Pacientes" msprop:Generator_RowChangedName="PacientesRowChanged" msprop:Generator_RowEvArgName="PacientesRowChangeEvent" msprop:Generator_RowClassName="PacientesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sNombre" msprop:Generator_ColumnVarNameInTable="columnsNombre" msprop:Generator_ColumnPropNameInRow="sNombre" msprop:Generator_ColumnPropNameInTable="sNombreColumn" msprop:Generator_UserColumnName="sNombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sPrimerApellido" msprop:Generator_ColumnVarNameInTable="columnsPrimerApellido" msprop:Generator_ColumnPropNameInRow="sPrimerApellido" msprop:Generator_ColumnPropNameInTable="sPrimerApellidoColumn" msprop:Generator_UserColumnName="sPrimerApellido">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sSegundoApellido" msprop:Generator_ColumnVarNameInTable="columnsSegundoApellido" msprop:Generator_ColumnPropNameInRow="sSegundoApellido" msprop:Generator_ColumnPropNameInTable="sSegundoApellidoColumn" msprop:Generator_UserColumnName="sSegundoApellido" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sSexo" msprop:Generator_ColumnVarNameInTable="columnsSexo" msprop:Generator_ColumnPropNameInRow="sSexo" msprop:Generator_ColumnPropNameInTable="sSexoColumn" msprop:Generator_UserColumnName="sSexo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nIdGpoSanguineo" msprop:Generator_ColumnVarNameInTable="columnnIdGpoSanguineo" msprop:Generator_ColumnPropNameInRow="nIdGpoSanguineo" msprop:Generator_ColumnPropNameInTable="nIdGpoSanguineoColumn" msprop:Generator_UserColumnName="nIdGpoSanguineo" type="xs:int" />
+              <xs:element name="sNSS" msprop:Generator_ColumnVarNameInTable="columnsNSS" msprop:Generator_ColumnPropNameInRow="sNSS" msprop:Generator_ColumnPropNameInTable="sNSSColumn" msprop:Generator_UserColumnName="sNSS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

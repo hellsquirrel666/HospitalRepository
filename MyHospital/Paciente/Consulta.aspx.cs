@@ -169,18 +169,15 @@ namespace MyHospital.Paciente
                 }
                 else
                 {
-                    RecetaLogic ml = new RecetaLogic();
-
-                    using (var _dataModel = new dbHospitalEntities())
-                    {
-                        var recetas = (from r in _dataModel.Recetas
-                                        join m in _dataModel.Medicamentos on r.nIdMedicamento equals m.nIdMedicamento
-                                        where r.nIdConsulta == con.nIdConsulta
-                                        select new { r.nUnidades, m.sNombre, r.sObservaciones }
-                                        ).Distinct().ToList();
+                      MedicamentosRectasLogic medRec= new MedicamentosRectasLogic();
+                      var recetas = medRec.ListaMedicamentosRecetas(Convert.ToInt32(con.nIdConsulta));
 
                         LlenarPaciente(paciente, con, recetas);
-                    }
+                    
+
+                    RecetaLogic ml = new RecetaLogic();
+
+                  
 
                 }
             }

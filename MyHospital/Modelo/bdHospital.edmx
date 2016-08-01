@@ -36,13 +36,13 @@
           <EntitySet Name="Recetas" EntityType="dbHospitalModel.Store.Recetas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Roles" EntityType="dbHospitalModel.Store.Roles" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="USUARIOS" EntityType="dbHospitalModel.Store.USUARIOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="MedicamentosRecetas" EntityType="dbHospitalModel.Store.MedicamentosRecetas" store:Type="Views" store:Schema="dbo" store:Name="MedicamentosRecetas">
+          <EntitySet Name="medicamentosrecetas" EntityType="dbHospitalModel.Store.medicamentosrecetas" store:Type="Views" store:Schema="dbo" store:Name="medicamentosrecetas">
             <DefiningQuery>SELECT 
-      [MedicamentosRecetas].[nIdReceta] AS [nIdReceta], 
-      [MedicamentosRecetas].[nUnidades] AS [nUnidades], 
-      [MedicamentosRecetas].[sObservaciones] AS [sObservaciones], 
-      [MedicamentosRecetas].[sNombre] AS [sNombre]
-      FROM [dbo].[MedicamentosRecetas] AS [MedicamentosRecetas]</DefiningQuery>
+      [medicamentosrecetas].[nIdConsulta] AS [nIdConsulta], 
+      [medicamentosrecetas].[nUnidades] AS [nUnidades], 
+      [medicamentosrecetas].[sNombre] AS [sNombre], 
+      [medicamentosrecetas].[sObservaciones] AS [sObservaciones]
+      FROM [dbo].[medicamentosrecetas] AS [medicamentosrecetas]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Agenda_Pacientes" Association="dbHospitalModel.Store.FK_Agenda_Pacientes">
             <End Role="Pacientes" EntitySet="Pacientes" />
@@ -307,18 +307,18 @@
           <Property Name="nIdDireccion" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'DB_A06759_LAURAPINEDA911.dbo.MedicamentosRecetas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'DB_A06759_LAURAPINEDA911.dbo.medicamentosrecetas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
-        <EntityType Name="MedicamentosRecetas">
+        <EntityType Name="medicamentosrecetas">
           <Key>
-            <PropertyRef Name="nIdReceta" />
+            <PropertyRef Name="nIdConsulta" />
             <PropertyRef Name="nUnidades" />
             <PropertyRef Name="sNombre" />
           </Key>
-          <Property Name="nIdReceta" Type="int" Nullable="false" />
+          <Property Name="nIdConsulta" Type="int" Nullable="false" />
           <Property Name="nUnidades" Type="int" Nullable="false" />
-          <Property Name="sObservaciones" Type="nvarchar(max)" />
           <Property Name="sNombre" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="sObservaciones" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_Agenda_Pacientes">
           <End Role="Pacientes" Type="dbHospitalModel.Store.Pacientes" Multiplicity="1" />
@@ -622,7 +622,7 @@
             <End Role="USUARIOS" EntitySet="USUARIOS" />
             <End Role="Medicamentos" EntitySet="Medicamentos" />
           </AssociationSet>
-          <EntitySet Name="MedicamentosRecetas" EntityType="dbHospitalModel.MedicamentosRecetas" />
+          <EntitySet Name="medicamentosrecetas1Conjunto" EntityType="dbHospitalModel.medicamentosrecetas1" />
         </EntityContainer>
         <EntityType Name="Agenda">
           <Key>
@@ -1035,16 +1035,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="MedicamentosRecetas">
+        <EntityType Name="medicamentosrecetas1">
           <Key>
-            <PropertyRef Name="nIdReceta" />
+            <PropertyRef Name="nIdConsulta" />
             <PropertyRef Name="nUnidades" />
             <PropertyRef Name="sNombre" />
           </Key>
-          <Property Type="Int32" Name="nIdReceta" Nullable="false" />
+          <Property Type="Int32" Name="nIdConsulta" Nullable="false" />
           <Property Type="Int32" Name="nUnidades" Nullable="false" />
-          <Property Type="String" Name="sObservaciones" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="sNombre" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="sObservaciones" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1249,13 +1249,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-          <EntitySetMapping Name="MedicamentosRecetas">
-            <EntityTypeMapping TypeName="dbHospitalModel.MedicamentosRecetas">
-              <MappingFragment StoreEntitySet="MedicamentosRecetas">
-                <ScalarProperty Name="sNombre" ColumnName="sNombre" />
+          <EntitySetMapping Name="medicamentosrecetas1Conjunto">
+            <EntityTypeMapping TypeName="dbHospitalModel.medicamentosrecetas1">
+              <MappingFragment StoreEntitySet="medicamentosrecetas">
                 <ScalarProperty Name="sObservaciones" ColumnName="sObservaciones" />
+                <ScalarProperty Name="sNombre" ColumnName="sNombre" />
                 <ScalarProperty Name="nUnidades" ColumnName="nUnidades" />
-                <ScalarProperty Name="nIdReceta" ColumnName="nIdReceta" />
+                <ScalarProperty Name="nIdConsulta" ColumnName="nIdConsulta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

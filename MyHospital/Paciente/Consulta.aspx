@@ -8,7 +8,8 @@
         };
 
         function ImprimirReceta() {
-            window.open('../Reporte/ImprimirReporte.aspx', 'width=600,height=400');
+            var str = '<%= txtNoConsulta.Text%>';
+            window.open('../Reporte/ImprimirReporte.aspx?Consulta=' + str, '', 'width=600,height=400');
         };
 </script>
 
