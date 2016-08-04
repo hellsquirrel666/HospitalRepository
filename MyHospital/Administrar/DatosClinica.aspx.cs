@@ -184,12 +184,10 @@ namespace MyHospital.Administar
                 Page.ClientScript.RegisterStartupScript(
                     Page.GetType(),
                     "MessageBox",
-                    "<script language='javascript'>alert('" + "No se encontró el chospital." + "');</script>"
+                    "<script language='javascript'>alert('" + "No se encontró el hospital." + "');</script>"
                  );
                 Response.Redirect("~/");
             }
-
-
         }
 
         public void IncializaDdlDirecciones()

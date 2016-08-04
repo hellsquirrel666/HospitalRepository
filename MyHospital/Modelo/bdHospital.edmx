@@ -23,6 +23,7 @@
           <EntitySet Name="HitorialClinico" EntityType="dbHospitalModel.Store.HitorialClinico" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Hospitales" EntityType="dbHospitalModel.Store.Hospitales" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Medicamentos" EntityType="dbHospitalModel.Store.Medicamentos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Medico" EntityType="dbHospitalModel.Store.Medico" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Municipios" EntityType="dbHospitalModel.Store.Municipios" store:Type="Tables" store:Schema="dbo" store:Name="Municipios">
             <DefiningQuery>SELECT 
       [Municipios].[nIdMunicipio] AS [nIdMunicipio], 
@@ -88,6 +89,10 @@
             <End Role="USUARIOS" EntitySet="USUARIOS" />
             <End Role="Medicamentos" EntitySet="Medicamentos" />
           </AssociationSet>
+          <AssociationSet Name="fk_MedicoUsr" Association="dbHospitalModel.Store.fk_MedicoUsr">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="Medico" EntitySet="Medico" />
+          </AssociationSet>
           <AssociationSet Name="FK_Pacientes_Direccion" Association="dbHospitalModel.Store.FK_Pacientes_Direccion">
             <End Role="Direccion" EntitySet="Direccion" />
             <End Role="Pacientes" EntitySet="Pacientes" />
@@ -152,6 +157,13 @@
           <Property Name="sObservaciones" Type="nvarchar(max)" Nullable="false" />
           <Property Name="fecha" Type="date" Nullable="false" />
           <Property Name="sDiagnostico" Type="nvarchar" MaxLength="1000" />
+          <Property Name="sPeso" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="sTalla" Type="varchar" MaxLength="50" />
+          <Property Name="sTA" Type="varchar" MaxLength="50" />
+          <Property Name="sFC" Type="varchar" MaxLength="50" />
+          <Property Name="sFR" Type="varchar" MaxLength="50" />
+          <Property Name="sTEMP" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="sID" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DB_A06759_LAURAPINEDA911.dbo.Cuidades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -228,6 +240,16 @@
           <Property Name="sContraindicaciones" Type="nvarchar(max)" />
           <Property Name="nIdUsuario" Type="int" />
           <Property Name="bActivo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Medico">
+          <Key>
+            <PropertyRef Name="nIdMedico" />
+          </Key>
+          <Property Name="nIdMedico" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sSexo" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="sEspecialidad" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="sCedulaProf" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="nIdUsuario" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DB_A06759_LAURAPINEDA911.dbo.Municipios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -452,6 +474,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_MedicoUsr">
+          <End Role="USUARIOS" Type="dbHospitalModel.Store.USUARIOS" Multiplicity="1" />
+          <End Role="Medico" Type="dbHospitalModel.Store.Medico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="nIdUsuario" />
+            </Principal>
+            <Dependent Role="Medico">
+              <PropertyRef Name="nIdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Pacientes_Direccion">
           <End Role="Direccion" Type="dbHospitalModel.Store.Direccion" Multiplicity="1" />
           <End Role="Pacientes" Type="dbHospitalModel.Store.Pacientes" Multiplicity="*" />
@@ -524,6 +558,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SP_GET_RECETA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nIdConsulta" Type="int" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -623,6 +660,17 @@
             <End Role="Medicamentos" EntitySet="Medicamentos" />
           </AssociationSet>
           <EntitySet Name="medicamentosrecetas1Conjunto" EntityType="dbHospitalModel.medicamentosrecetas1" />
+          <EntitySet Name="Medico" EntityType="dbHospitalModel.Medico" />
+          <AssociationSet Name="fk_MedicoUsr" Association="dbHospitalModel.fk_MedicoUsr">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="Medico" EntitySet="Medico" />
+          </AssociationSet>
+          <FunctionImport Name="SP_GET_RECETA" ReturnType="Collection(dbHospitalModel.SP_GET_RECETA_Result)">
+          <Parameter Name="nIdConsulta" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GET_RECETA1" ReturnType="Collection(dbHospitalModel.SP_GET_RECETA1_Result)">
+            <Parameter Name="nIdConsulta" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Agenda">
           <Key>
@@ -663,6 +711,13 @@
           <Property Name="sObservaciones" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" Nullable="false" />
           <Property Type="DateTime" Name="fecha" Nullable="false" Precision="0" />
           <Property Type="String" Name="sDiagnostico" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="sPeso" Precision="10" Scale="2" />
+          <Property Type="String" Name="sTalla" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sTA" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sFC" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sFR" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="sTEMP" Precision="5" Scale="2" />
+          <Property Type="String" Name="sID" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Cuidades">
           <Key>
@@ -806,6 +861,7 @@
           <Property Name="nIdHospital" Type="Int32" Nullable="false" />
           <Property Name="bActivo" Type="Boolean" Nullable="false" />
           <Property Type="Int32" Name="nIdDireccion" />
+          <NavigationProperty Name="Medico" Relationship="dbHospitalModel.fk_MedicoUsr" FromRole="USUARIOS" ToRole="Medico" />
         </EntityType>
         <Association Name="FK_Agenda_Pacientes">
           <End Role="Pacientes" Type="dbHospitalModel.Pacientes" Multiplicity="1" />
@@ -1046,6 +1102,65 @@
           <Property Type="String" Name="sNombre" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="sObservaciones" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Medico">
+          <Key>
+            <PropertyRef Name="nIdMedico" />
+          </Key>
+          <Property Type="Int32" Name="nIdMedico" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="sSexo" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sEspecialidad" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sCedulaProf" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="nIdUsuario" Nullable="false" />
+          <NavigationProperty Name="USUARIOS" Relationship="dbHospitalModel.fk_MedicoUsr" FromRole="Medico" ToRole="USUARIOS" />
+        </EntityType>
+        <Association Name="fk_MedicoUsr">
+          <End Type="dbHospitalModel.USUARIOS" Role="USUARIOS" Multiplicity="1" />
+          <End Type="dbHospitalModel.Medico" Role="Medico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="nIdUsuario" />
+            </Principal>
+            <Dependent Role="Medico">
+              <PropertyRef Name="nIdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SP_GET_RECETA_Result">
+          <Property Type="String" Name="sNombreDoctor" Nullable="true" MaxLength="307" />
+          <Property Type="String" Name="sEspecialidad" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="sCedulaProf" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="sNombrePaciente" Nullable="true" MaxLength="302" />
+          <Property Type="Int32" Name="sEdad" Nullable="true" />
+          <Property Type="String" Name="sPeso" Nullable="true" MaxLength="34" />
+          <Property Type="String" Name="sTalla" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="sSexo" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="sNoFolio" Nullable="false" />
+          <Property Type="String" Name="sTA" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="sFC" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="sFR" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="sTEMP" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="sID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="sDireccion" Nullable="true" MaxLength="473" />
+        </ComplexType>
+        <ComplexType Name="SP_GET_RECETA1_Result">
+          <Property Type="String" Name="sNombreDoctor" Nullable="true" MaxLength="307" />
+          <Property Type="String" Name="sEspecialidad" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="sCedulaProf" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="sNombrePaciente" Nullable="true" MaxLength="302" />
+          <Property Type="Int32" Name="sEdad" Nullable="true" />
+          <Property Type="String" Name="sPeso" Nullable="true" MaxLength="34" />
+          <Property Type="String" Name="sTalla" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="sSexo" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="sNoFolio" Nullable="false" />
+          <Property Type="String" Name="sTA" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="sFC" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="sFR" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="sTEMP" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="sID" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" />
+          <Property Type="String" Name="sObservaciones" Nullable="true" />
+          <Property Type="String" Name="sDireccion" Nullable="true" MaxLength="473" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1087,7 +1202,14 @@
     <EntitySetMapping Name="Consulta">
       <EntityTypeMapping TypeName="IsTypeOf(dbHospitalModel.Consulta)">
         <MappingFragment StoreEntitySet="Consulta">
-          <ScalarProperty Name="sDiagnostico" ColumnName="sDiagnostico" />
+          <ScalarProperty Name="sID" ColumnName="sID" />
+                <ScalarProperty Name="sTEMP" ColumnName="sTEMP" />
+                <ScalarProperty Name="sFR" ColumnName="sFR" />
+                <ScalarProperty Name="sFC" ColumnName="sFC" />
+                <ScalarProperty Name="sTA" ColumnName="sTA" />
+                <ScalarProperty Name="sTalla" ColumnName="sTalla" />
+                <ScalarProperty Name="sPeso" ColumnName="sPeso" />
+                <ScalarProperty Name="sDiagnostico" ColumnName="sDiagnostico" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="nIdConsulta" ColumnName="nIdConsulta" />
           <ScalarProperty Name="nIdPaciente" ColumnName="nIdPaciente" />
@@ -1259,6 +1381,40 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Medico">
+            <EntityTypeMapping TypeName="dbHospitalModel.Medico">
+              <MappingFragment StoreEntitySet="Medico">
+                <ScalarProperty Name="nIdUsuario" ColumnName="nIdUsuario" />
+                <ScalarProperty Name="sCedulaProf" ColumnName="sCedulaProf" />
+                <ScalarProperty Name="sEspecialidad" ColumnName="sEspecialidad" />
+                <ScalarProperty Name="sSexo" ColumnName="sSexo" />
+                <ScalarProperty Name="nIdMedico" ColumnName="nIdMedico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_GET_RECETA1" FunctionName="dbHospitalModel.Store.SP_GET_RECETA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbHospitalModel.SP_GET_RECETA1_Result">
+                <ScalarProperty Name="sNombreDoctor" ColumnName="sNombreDoctor" />
+                <ScalarProperty Name="sEspecialidad" ColumnName="sEspecialidad" />
+                <ScalarProperty Name="sCedulaProf" ColumnName="sCedulaProf" />
+                <ScalarProperty Name="sNombrePaciente" ColumnName="sNombrePaciente" />
+                <ScalarProperty Name="sEdad" ColumnName="sEdad" />
+                <ScalarProperty Name="sPeso" ColumnName="sPeso" />
+                <ScalarProperty Name="sTalla" ColumnName="sTalla" />
+                <ScalarProperty Name="sSexo" ColumnName="sSexo" />
+                <ScalarProperty Name="sNoFolio" ColumnName="sNoFolio" />
+                <ScalarProperty Name="sTA" ColumnName="sTA" />
+                <ScalarProperty Name="sFC" ColumnName="sFC" />
+                <ScalarProperty Name="sFR" ColumnName="sFR" />
+                <ScalarProperty Name="sTEMP" ColumnName="sTEMP" />
+                <ScalarProperty Name="sID" ColumnName="sID" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="sObservaciones" ColumnName="sObservaciones" />
+                <ScalarProperty Name="sDireccion" ColumnName="sDireccion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

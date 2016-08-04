@@ -10,22 +10,25 @@
 namespace MyHospital.Modelo
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Consulta
+    public partial class SP_GET_RECETA1_Result
     {
-        public int nIdConsulta { get; set; }
-        public int nIdPaciente { get; set; }
-        public Nullable<int> nIdUsuario { get; set; }
-        public string sObservaciones { get; set; }
-        public System.DateTime fecha { get; set; }
-        public string sDiagnostico { get; set; }
-        public Nullable<decimal> sPeso { get; set; }
+        public string sNombreDoctor { get; set; }
+        public string sEspecialidad { get; set; }
+        public string sCedulaProf { get; set; }
+        public string sNombrePaciente { get; set; }
+        public Nullable<int> sEdad { get; set; }
+        public string sPeso { get; set; }
         public string sTalla { get; set; }
+        public string sSexo { get; set; }
+        public int sNoFolio { get; set; }
         public string sTA { get; set; }
         public string sFC { get; set; }
         public string sFR { get; set; }
-        public Nullable<decimal> sTEMP { get; set; }
+        public string sTEMP { get; set; }
         public string sID { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public string sObservaciones { get; set; }
+        public string sDireccion { get; set; }
     }
 }

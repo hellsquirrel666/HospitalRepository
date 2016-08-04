@@ -23,5 +23,7 @@ namespace MyHospital.LogicEntities
                 throw new Exception("Ocurrió un error en el servicio web.", e);
             }
         }
+
+
     }
 }

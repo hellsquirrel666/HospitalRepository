@@ -12,6 +12,8 @@ namespace MyHospital.Modelo
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class dbHospitalEntities : DbContext
     {
@@ -43,5 +45,24 @@ namespace MyHospital.Modelo
         public DbSet<Roles> Roles { get; set; }
         public DbSet<USUARIOS> USUARIOS { get; set; }
         public DbSet<medicamentosrecetas1> medicamentosrecetas1Conjunto { get; set; }
+        public DbSet<Medico> Medico { get; set; }
+    
+        public virtual ObjectResult<SP_GET_RECETA_Result> SP_GET_RECETA(Nullable<int> nIdConsulta)
+        {
+            var nIdConsultaParameter = nIdConsulta.HasValue ?
+                new ObjectParameter("nIdConsulta", nIdConsulta) :
+                new ObjectParameter("nIdConsulta", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GET_RECETA_Result>("SP_GET_RECETA", nIdConsultaParameter);
+        }
+    
+        public virtual ObjectResult<SP_GET_RECETA1_Result> SP_GET_RECETA1(Nullable<int> nIdConsulta)
+        {
+            var nIdConsultaParameter = nIdConsulta.HasValue ?
+                new ObjectParameter("nIdConsulta", nIdConsulta) :
+                new ObjectParameter("nIdConsulta", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GET_RECETA1_Result>("SP_GET_RECETA1", nIdConsultaParameter);
+        }
     }
 }

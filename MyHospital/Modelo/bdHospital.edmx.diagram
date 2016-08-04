@@ -42,6 +42,8 @@
         <AssociationConnector Association="dbHospitalModel.FK_Pacientes_Direccion" />
         <AssociationConnector Association="dbHospitalModel.FK_Medicamentos_USUARIOS" />
         <EntityTypeShape EntityType="dbHospitalModel.medicamentosrecetas1" Width="1.5" PointX="5.1959750434365013" PointY="15.873702995420295" />
+        <EntityTypeShape EntityType="dbHospitalModel.Medico" Width="1.5" PointX="11.900915952353234" PointY="22.171273778272454" />
+        <AssociationConnector Association="dbHospitalModel.fk_MedicoUsr" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

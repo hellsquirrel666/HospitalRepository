@@ -173,6 +173,9 @@
     <Compile Include="Modelo\medicamentosrecetas1.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Medico.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Municipios.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
@@ -186,6 +189,12 @@
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Roles.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\SP_GET_RECETA1_Result.cs">
+      <DependentUpon>bdHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\SP_GET_RECETA_Result.cs">
       <DependentUpon>bdHospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\USUARIOS.cs">
